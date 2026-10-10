@@ -1,0 +1,11 @@
+title = "Source alpha secret scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "The reviewed native keymap content SHA-256 is a public checksum, not a credential"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''^input/patchers/termux_x11_process\.py$''']
+regexes = ['''^baa3be71c3b73505d78f91e0c9acb1ef3e12fbb7ca5b589a2c523b03d6b51f91$''']

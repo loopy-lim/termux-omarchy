@@ -1,0 +1,1 @@
+package android.content; import android.database.ContentObserver; import android.net.Uri; import java.util.*; public class ContentResolver { static final List<ContentObserver> observers=new ArrayList<>(); public void registerContentObserver(Uri u,boolean b,ContentObserver o){observers.add(o);} public static void changed(){for(ContentObserver o:observers)o.onChange(false);} }

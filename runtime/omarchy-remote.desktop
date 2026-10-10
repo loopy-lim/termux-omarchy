@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Remote Connections
+Comment=SSH terminals and remote Wayland apps
+Exec=omarchy-launch-tui --app-id=org.omarchy.remote omarchy-remote
+Icon=network-workgroup
+Terminal=false
+Categories=Network;RemoteAccess;

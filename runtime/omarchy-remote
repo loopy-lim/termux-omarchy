@@ -1,0 +1,58 @@
+#!/bin/bash
+set -euo pipefail
+
+usage() {
+  printf '%s\n' 'Usage: omarchy-remote ssh [ssh options] host [command ...]' \
+    '       omarchy-remote wayland [--no-gpu] [ssh options] host command ...' \
+    '       omarchy-remote  (interactive chooser in a terminal)'
+}
+
+if (($# == 0)); then
+  [[ -t 0 && -t 1 ]] || { usage >&2; exit 2; }
+  if command -v gum >/dev/null; then
+    mode=$(gum choose --header='Remote connection' 'SSH terminal' 'Wayland app')
+    host=$(gum input --placeholder='user@host or SSH alias')
+  else
+    mode=$(printf '%s\n' 'SSH terminal' 'Wayland app' | fzf --no-multi --no-sort --header='Remote connection')
+    IFS= read -r -p 'user@host or SSH alias: ' host
+  fi
+  [[ -n $host && $host != -* ]] || { usage >&2; exit 2; }
+  case $mode in
+    'SSH terminal') set -- ssh "$host" ;;
+    'Wayland app')
+      if command -v gum >/dev/null; then
+        program=$(gum input --placeholder='Wayland executable (for example foot)')
+      else
+        IFS= read -r -p 'Wayland executable (for example foot): ' program
+      fi
+      [[ -n $program ]] || { usage >&2; exit 2; }
+      program=${program//\'/\'\\\'\'}
+      set -- wayland "$host" "'$program'"
+      ;;
+    *) usage >&2; exit 2 ;;
+  esac
+fi
+
+mode=$1
+shift
+case $mode in
+  --help|-h) usage; exit 0 ;;
+  ssh)
+    (($#)) || { usage >&2; exit 2; }
+    exec ssh "$@"
+    ;;
+  wayland)
+    no_gpu=false
+    if [[ ${1-} == --no-gpu ]]; then no_gpu=true; shift; fi
+    (($#)) || { usage >&2; exit 2; }
+    [[ -n ${WAYLAND_DISPLAY-} && ${XDG_RUNTIME_DIR-} == /* && -d $XDG_RUNTIME_DIR ]] || {
+      printf '%s\n' 'Open this command in the Wayland desktop terminal.' >&2
+      exit 2
+    }
+    socket_name="omarchy-remote-$$-$RANDOM"
+    waypipe_args=(--socket "$XDG_RUNTIME_DIR/$socket_name" --remote-socket "/tmp/$socket_name")
+    if $no_gpu; then waypipe_args+=(--no-gpu); fi
+    exec waypipe "${waypipe_args[@]}" ssh "$@"
+    ;;
+  *) usage >&2; exit 2 ;;
+esac

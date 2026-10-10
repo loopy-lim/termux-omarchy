@@ -1,0 +1,1 @@
+package android.accessibilityservice; public class AccessibilityServiceInfo { public static final int DEFAULT=1,FLAG_REQUEST_FILTER_KEY_EVENTS=32; public int flags; public String getId(){return "com.termux.x11/com.termux.x11.utils.KeyInterceptor";} }

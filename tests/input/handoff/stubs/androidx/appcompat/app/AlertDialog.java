@@ -1,0 +1,1 @@
+package androidx.appcompat.app; public class AlertDialog { public void show(){} public static class Builder { public Builder(Object o){} public Builder setTitle(String s){return this;} public Builder setMessage(String s){return this;} public Builder setNegativeButton(String s,Object o){return this;} public AlertDialog create(){return new AlertDialog();} } }

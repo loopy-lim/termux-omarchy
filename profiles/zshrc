@@ -1,0 +1,72 @@
+# Portable Mac workflow for the isolated Omarchy user. No host paths or secrets.
+[[ -o interactive ]] || return 0
+typeset -U path PATH
+export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
+export BUN_INSTALL="$HOME/.bun"
+path=($HOME/.local/bin $PNPM_HOME $BUN_INSTALL/bin $HOME/.cargo/bin $HOME/.pub-cache/bin $path)
+local _loopy_profile=${${(%):-%N}:A:h}
+
+for _loopy_editor in nvim vim vi nano; do
+  if (( $+commands[$_loopy_editor] )); then
+    export EDITOR=$_loopy_editor VISUAL=$_loopy_editor
+    break
+  fi
+done
+(( $+commands[nvim] )) && alias vi=nvim vim=nvim
+(( $+commands[fvm] )) && alias flutter='fvm flutter'
+[[ -s $HOME/.bun/_bun ]] && source "$HOME/.bun/_bun"
+[[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
+(( $+commands[fnm] )) && eval "$(fnm env --use-on-cd --shell zsh)"
+
+local _loopy_cache=${XDG_CACHE_HOME:-$HOME/.cache}/zsh
+mkdir -p "$_loopy_cache" "${XDG_STATE_HOME:-$HOME/.local/state}/loopy"
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/loopy/zsh_history"
+HISTSIZE=10000 SAVEHIST=10000
+setopt append_history hist_ignore_all_dups hist_ignore_space share_history auto_cd interactive_comments
+bindkey -e
+autoload -Uz compinit
+if [[ -f $_loopy_cache/zcompdump-$ZSH_VERSION ]]; then
+  compinit -C -d "$_loopy_cache/zcompdump-$ZSH_VERSION"
+else
+  compinit -i -d "$_loopy_cache/zcompdump-$ZSH_VERSION"
+fi
+
+# Retain Oh My Zsh's Git aliases/functions without its startup downloader or
+# background Git prompt process. Completion is warmed on first launch only.
+if (( $+commands[git] )); then
+  zstyle ':omz:alpha:lib:git' async-prompt no
+  source "$_loopy_profile/git.zsh"
+  source "$_loopy_profile/git.plugin.zsh"
+fi
+
+if (( $+commands[fzf] )); then
+  if (( $+commands[fd] )); then
+    export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
+    export FZF_ALT_C_COMMAND='fd --type=d --hidden --strip-cwd-prefix --exclude .git'
+    _fzf_compgen_path() { fd --hidden --exclude .git . "$1"; }
+    _fzf_compgen_dir() { fd --type=d --hidden --exclude .git . "$1"; }
+  else
+    export FZF_DEFAULT_COMMAND="find . -path '*/.git' -prune -o -type f -print"
+    export FZF_ALT_C_COMMAND="find . -path '*/.git' -prune -o -type d -print"
+  fi
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS='--color=fg:#CBE0F0,bg:#011628,hl:#B388FF,fg+:#CBE0F0,bg+:#143652,hl+:#B388FF,info:#06BCE4,prompt:#2CF9ED,pointer:#2CF9ED,marker:#2CF9ED,spinner:#2CF9ED,header:#2CF9ED'
+  (( $+commands[bat] )) && export BAT_THEME=Dracula FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+  (( $+commands[eza] )) && export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+  eval "$(fzf --zsh)"
+  # Alt+C is copy in this desktop; Alt+Shift+C opens fzf's directory picker.
+  (( $+widgets[fzf-cd-widget] )) && bindkey '^[C' fzf-cd-widget
+  [[ -f $HOME/fzf-git.sh/fzf-git.sh ]] && source "$HOME/fzf-git.sh/fzf-git.sh"
+fi
+(( $+commands[eza] )) && alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+if (( $+commands[zoxide] )) && [[ $CLAUDECODE != 1 ]]; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
+
+PROMPT='%F{blue}%~%f %(?..%F{red}%?%f )%# '
+for _loopy_plugin in /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+                     /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; do
+  [[ -r $_loopy_plugin ]] && source "$_loopy_plugin"
+done
+unset _loopy_profile _loopy_editor _loopy_cache _loopy_plugin
+return 0

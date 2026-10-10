@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.py text diff=python
+*.java text diff=java
+# Keep exact pinned upstream bytes and unified-diff context lines.
+input/upstream/** -whitespace
+profiles/git.plugin.zsh -whitespace
+*.patch -whitespace

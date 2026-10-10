@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Visual Studio Code
+Comment=Code Editing. Redefined.
+Exec=/usr/local/bin/loopy-vscode %F
+Icon=/opt/loopy-vscode/1.141.0/resources/app/resources/linux/code.png
+Terminal=false
+Categories=Development;IDE;TextEditor;
+StartupNotify=true
+StartupWMClass=Code

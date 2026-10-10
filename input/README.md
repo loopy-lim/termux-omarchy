@@ -5,10 +5,14 @@ patch sequence used for a local Termux:X11 experiment. It contains source and
 host fixtures. It does not contain an APK, native library, signing key, opt-in
 marker, captured input, device receipt or user configuration.
 
-**Corresponding source closure and a fresh Android source build are not yet
-verified.** This checkout cannot currently reconstruct the installed APK from
-public source alone. The intended source overlay applies to the pinned upstream
-files, but applying it is not an Android build or a compatibility guarantee.
+**A new source-built experimental APK and matching companion are provided by
+the alpha.2 release.** The full-source builder compiles all four ABIs and its
+separate corresponding-source archive supports an offline clean rebuild. This
+is independent of the historical installed APK: byte equivalence and physical
+acceptance of the new candidate have not been established. Read the
+[complete build instructions](full_build/README.md),
+[signing identity](full_build/SIGNING.md), and
+[distribution guide](../docs/DISTRIBUTION.md).
 
 ## Check the source and run host tests
 
@@ -69,9 +73,13 @@ initialize its pinned submodules, and apply `patch -p1` with this overlay as
 standard input from that checkout. The supplied patch test exercises the same
 operation against the included source subset and checks the resulting Java
 bytes. Follow that commit's upstream build documentation for the Android build.
-The pinned source declares Android Gradle Plugin 9.3.1 and NDK 29.0.14206865;
-these full-build dependencies have not been exercised here. A future complete
-build must also account for the date/commit-derived version in `lorie/version.gradle`.
+The new build exercises Android Gradle Plugin 9.3.1, Gradle 9.7.1, NDK
+29.0.14206865 and CMake 3.22.1. It fixes the date/commit-derived version to an
+explicit fork identity, uses the certificate-only companion metadata, and
+records full native source and dependency pins. Build outputs and keys remain
+outside Git. The source archive contains all recursive native sources and
+applicable dependency source/notices; its build instructions identify external
+SDK and toolchain requirements.
 
 ## Historical DEX tools and reconstruction gaps
 
@@ -112,9 +120,11 @@ regenerated or treated as a result of this source checkout.
 python3 -B input/build.py --build
 ```
 
-This intentionally exits 2, names the unresolved source/native/build/signing
-gaps, and creates no APK. There is no successful fallback using a different
-nightly APK, a local cache, copied old receipts or compilation stubs.
+This legacy command intentionally exits 2 and describes **historical APK byte
+reconstruction** gaps. For the new source path use
+`python3 -B input/full_build/driver.py plan`; the complete build and source
+export are documented separately. No historical device evidence is transferred
+to the new artifact, and no compilation stub is packaged.
 
 ## Caps remapper opt-in
 

@@ -1,246 +1,201 @@
 {
   "automaticInstallEnabled": false,
   "files": {
+    "installer/assets.py": {
+      "bytes": 4752,
+      "sha256": "c483b82805f71732392ab7e49ca6f37c327bca7a8c9c4e258ca9485677752f69"
+    },
+    "installer/companion.py": {
+      "bytes": 15021,
+      "sha256": "2544b6eccdb64366d6a0f98e42a3bd6a01bb51987d595157c9fcbf7bf31aad96"
+    },
     "installer/install.py": {
-      "bytes": 1893,
-      "sha256": "f56382eaafd6263fe4a5aeb6f45e192ea8caf217804e0a3e37f9ef60f203c679"
+      "bytes": 7830,
+      "sha256": "e8ca6a574ad78e785051adfb0ef2e70ae3bc017f238ea7c9311ef3d46c23335d"
+    },
+    "installer/native.py": {
+      "bytes": 10426,
+      "sha256": "da64e773f60af1815194d267b5f07cb5500b35fb617d442d5ed6e660e7ee3133"
     },
     "installer/verify.py": {
-      "bytes": 5836,
-      "sha256": "de0c6d12e3f12d5e9b4a9aed2d0a1067e840c1321672c9e51e99a112c32fcdb4"
+      "bytes": 5932,
+      "sha256": "3897030ae7609e84a9155d633ee7c1897aa62e256e95b969d5c6eb6fa3795390"
+    },
+    "manifests/companion.json": {
+      "bytes": 722,
+      "sha256": "5391927ae0d618a9cb0fea8d2dd3bb9748d2c4bfba3b6be8fa498fdb70c1f03d"
+    },
+    "manifests/distribution.json": {
+      "bytes": 14773,
+      "sha256": "3b33002a2d156c02738f44267a21fc18ba81e0177565a23dc8d32fe439ed7aa8"
     },
     "manifests/runtime-prerequisites.json": {
-      "bytes": 18677,
-      "sha256": "49335aa04b51d2a18851b37261f564169227204363acb0438c5776d551145e14"
+      "bytes": 18960,
+      "sha256": "02c500433892ca48047716e74f7304205c087ede84e79e460bead8732d6ec663"
     },
     "profiles/bindings.lua": {
       "bytes": 1826,
-      "importedFrom": "termux/profile/bindings.lua",
-      "importedSHA256": "1741cc7a078a1747f759e71f2ab3a245ab8c5e9ea25cf18ed5a4dfdb9a22e39e",
       "sha256": "1741cc7a078a1747f759e71f2ab3a245ab8c5e9ea25cf18ed5a4dfdb9a22e39e"
     },
     "profiles/git.plugin.zsh": {
       "bytes": 14848,
-      "importedFrom": "termux/profile/git.plugin.zsh",
-      "importedSHA256": "f83f37a98de566bb911f9bf70c48eeb28eae847a38f5817d675293656aba557e",
       "sha256": "f83f37a98de566bb911f9bf70c48eeb28eae847a38f5817d675293656aba557e"
     },
     "profiles/git.zsh": {
       "bytes": 14947,
-      "importedFrom": "termux/profile/git.zsh",
-      "importedSHA256": "b135c2cae03645ed07bbefa87f03d6d1c8c6893d654b5846f8349b8ccdcfb1dc",
       "sha256": "b135c2cae03645ed07bbefa87f03d6d1c8c6893d654b5846f8349b8ccdcfb1dc"
     },
     "profiles/tmux.conf": {
       "bytes": 4001,
-      "importedFrom": "termux/profile/tmux.conf",
-      "importedSHA256": "89179e452889bec075addd43ba960287dada82b32d2c8236954abb653c5e36bc",
       "sha256": "89179e452889bec075addd43ba960287dada82b32d2c8236954abb653c5e36bc"
     },
     "profiles/zshrc": {
       "bytes": 3500,
-      "importedFrom": "termux/profile/zshrc",
-      "importedSHA256": "45f2c44d9179e8a03f68d5414e2cfe81630b83b756f9218e8f0dd34b501e0817",
       "sha256": "45f2c44d9179e8a03f68d5414e2cfe81630b83b756f9218e8f0dd34b501e0817"
     },
     "runtime/loopy-launch-webapp": {
       "bytes": 850,
-      "importedFrom": "termux/loopy-launch-webapp",
-      "importedSHA256": "cf880d35f8ebac670ac56e1064c1465e7c8f00e49c4d22de85241ecc94d60c12",
-      "publicationModification": "Source pins refreshed or source ancestry/comment clarified; runtime safety checks retained.",
       "sha256": "db778df157c17a8567f3184a0e3bb583c684429374c4b2a5815c38b356d109ca"
     },
     "runtime/loopy-vscode": {
       "bytes": 573,
-      "importedFrom": "termux/loopy-vscode",
-      "importedSHA256": "41481a28f3966ab5285a511ed4e5170175e94dbbad1fb46c72ec8d29903e4cb0",
-      "publicationModification": "Source pins refreshed or source ancestry/comment clarified; runtime safety checks retained.",
       "sha256": "7f2e04b87d5563593bff59450b438aa77e1af62e98440b507a0f56b0788346ed"
     },
     "runtime/loopy-vscode.desktop": {
       "bytes": 289,
-      "importedFrom": "termux/loopy-vscode.desktop",
-      "importedSHA256": "69840e643b88db972374400c1e10293f5026f0d74595a60c40088796eab2b23e",
       "sha256": "69840e643b88db972374400c1e10293f5026f0d74595a60c40088796eab2b23e"
     },
     "runtime/omarchy-launch-tui": {
       "bytes": 632,
-      "importedFrom": "termux/omarchy-launch-tui",
-      "importedSHA256": "2328d2697ac692181b4af2e4d180034c3455ffe62ed69211376967763f3536fd",
-      "publicationModification": "Source pins refreshed or source ancestry/comment clarified; runtime safety checks retained.",
       "sha256": "e6b1f8aa5e4d1dde4279c794a07f9c13b669b2343cb8b55d148c831ba3c36ad2"
     },
     "runtime/omarchy-launch-webapp": {
       "bytes": 850,
-      "importedFrom": "termux/omarchy-launch-webapp",
-      "importedSHA256": "cf880d35f8ebac670ac56e1064c1465e7c8f00e49c4d22de85241ecc94d60c12",
-      "publicationModification": "Source pins refreshed or source ancestry/comment clarified; runtime safety checks retained.",
       "sha256": "db778df157c17a8567f3184a0e3bb583c684429374c4b2a5815c38b356d109ca"
     },
     "runtime/omarchy-proot-settings": {
       "bytes": 138,
-      "importedFrom": "termux/omarchy-proot-settings",
-      "importedSHA256": "37ce41e34f95cc03cb2f4046bc0c85e40542efd54f5e769fc3ad921f04f2fdbd",
       "sha256": "37ce41e34f95cc03cb2f4046bc0c85e40542efd54f5e769fc3ad921f04f2fdbd"
     },
     "runtime/omarchy-remote": {
       "bytes": 1934,
-      "importedFrom": "termux/omarchy-remote",
-      "importedSHA256": "e2e9d8639def32a709f4cdf5cf6bbe7f0ca71c777c5d970789d0921870abcd25",
       "sha256": "e2e9d8639def32a709f4cdf5cf6bbe7f0ca71c777c5d970789d0921870abcd25"
     },
     "runtime/omarchy-remote.desktop": {
       "bytes": 241,
-      "importedFrom": "termux/omarchy-remote.desktop",
-      "importedSHA256": "9f740c0ad6dbc5e9ebeaee6bac9c1230c560fbccfed42edec0f051a0d1c76529",
       "sha256": "9f740c0ad6dbc5e9ebeaee6bac9c1230c560fbccfed42edec0f051a0d1c76529"
     },
     "runtime/omarchy.py": {
       "bytes": 4048,
-      "importedFrom": "termux/omarchy.py",
-      "importedSHA256": "304996e5d33c770a4d9cf2c28c6309bc0843af9d283b99a50d93d0e88707909f",
       "sha256": "304996e5d33c770a4d9cf2c28c6309bc0843af9d283b99a50d93d0e88707909f"
     },
     "runtime/omarchy_android.py": {
       "bytes": 9146,
-      "importedFrom": "termux/omarchy_android.py",
-      "importedSHA256": "efb681f01380e55992838ca0178db801fc9ac06db3ec4ccb9c4216fad854584d",
       "sha256": "efb681f01380e55992838ca0178db801fc9ac06db3ec4ccb9c4216fad854584d"
     },
     "runtime/omarchy_android_client.py": {
       "bytes": 5827,
-      "importedFrom": "termux/omarchy_android_client.py",
-      "importedSHA256": "d564423e4ed197b88737662b0d8b90f61d65d34ba2ac3d467508ab5a64a63f9b",
       "sha256": "d564423e4ed197b88737662b0d8b90f61d65d34ba2ac3d467508ab5a64a63f9b"
     },
     "runtime/omarchy_audio.py": {
       "bytes": 4509,
-      "importedFrom": "termux/omarchy_audio.py",
-      "importedSHA256": "3cebf98a8ee56f4b37a8edc2ccba8a481b303589d6dc4f188797f9309e7fe105",
       "sha256": "3cebf98a8ee56f4b37a8edc2ccba8a481b303589d6dc4f188797f9309e7fe105"
     },
     "runtime/omarchy_boot.py": {
       "bytes": 5144,
-      "importedFrom": "termux/omarchy_boot.py",
-      "importedSHA256": "2966eeaf3b02c593a2638f2a13f0e3c069c43899e6da66b5bab37991b38f0203",
       "sha256": "2966eeaf3b02c593a2638f2a13f0e3c069c43899e6da66b5bab37991b38f0203"
     },
     "runtime/omarchy_commands.py": {
       "bytes": 5448,
-      "importedFrom": "termux/omarchy_commands.py",
-      "importedSHA256": "81dd805e093d061f8159b2953fd2ebde553d90e10f31fe94412610e4ddc167fd",
       "sha256": "81dd805e093d061f8159b2953fd2ebde553d90e10f31fe94412610e4ddc167fd"
     },
     "runtime/omarchy_guest_install.py": {
       "bytes": 14713,
-      "importedFrom": "termux/omarchy_guest_install.py",
-      "importedSHA256": "2a4a86b404924e12112eb76b80dffdc2aaadc485417d6c87241f18327bd0dbb2",
-      "sha256": "2a4a86b404924e12112eb76b80dffdc2aaadc485417d6c87241f18327bd0dbb2"
+      "sha256": "05ac0fe255ff95632584a18df69f0905723b58c2a4b58e906cbed228a3291203"
     },
     "runtime/omarchy_host_install.py": {
       "bytes": 14922,
-      "importedFrom": "termux/omarchy_host_install.py",
-      "importedSHA256": "b1ed9ec3be2cd805275617c3d5786ad733b2c9125cd4b49ba4e0e9286962cb2e",
-      "sha256": "b1ed9ec3be2cd805275617c3d5786ad733b2c9125cd4b49ba4e0e9286962cb2e"
+      "sha256": "3a40722d34d54a44af7a92b41b5ea45c71dbcb99e5788e63140c5e19dd41256f"
     },
     "runtime/omarchy_input.py": {
       "bytes": 7831,
-      "importedFrom": "termux/omarchy_input.py",
-      "importedSHA256": "baa102398d8b1525f5061eaccf27bad84b668d57e7875a59758eeda999df3389",
       "sha256": "baa102398d8b1525f5061eaccf27bad84b668d57e7875a59758eeda999df3389"
     },
     "runtime/omarchy_input_install.py": {
-      "bytes": 4662,
-      "importedFrom": "termux/omarchy_input_install.py",
-      "importedSHA256": "a6f08ffd43a3ee7aaed24d13c2ac0850bbd152a413429fa9d94547ba2e504ab4",
-      "sha256": "a6f08ffd43a3ee7aaed24d13c2ac0850bbd152a413429fa9d94547ba2e504ab4"
+      "bytes": 4663,
+      "sha256": "c176c3e3a2fdd62b37a5da8a3aa0cb9d4ae3c39c24d9e3bbcc632287e0098d12"
     },
     "runtime/omarchy_install.py": {
-      "bytes": 22960,
-      "importedFrom": "termux/omarchy_install.py",
-      "importedSHA256": "846a95a8395cece18ef0c3c457a68f3bb707b176f9e341d5169cdf016f0c073f",
-      "publicationModification": "Source pins refreshed or source ancestry/comment clarified; runtime safety checks retained.",
-      "sha256": "372cc5293080d1715635a166b71092d140cbdf9c9618c2a76c6da8dcec89b288"
+      "bytes": 23188,
+      "sha256": "e51f9c0e0037161a43039b2c89e043a7a73f5c14fbdcb191f620e75df92d9bb5"
     },
     "runtime/omarchy_machine_id.py": {
       "bytes": 11130,
-      "importedFrom": "termux/omarchy_machine_id.py",
-      "importedSHA256": "c8457408b8d304cc14b7302295a3a5583d8e8d24a6ebd574ea50e7fe321953c6",
       "sha256": "c8457408b8d304cc14b7302295a3a5583d8e8d24a6ebd574ea50e7fe321953c6"
     },
     "runtime/omarchy_personal.py": {
       "bytes": 9768,
-      "importedFrom": "termux/omarchy_personal.py",
-      "importedSHA256": "7b76c958bd9abd098b14484d5b608c47a77e4e9bad5df241684e3a07526dfdca",
       "sha256": "7b76c958bd9abd098b14484d5b608c47a77e4e9bad5df241684e3a07526dfdca"
     },
     "runtime/omarchy_proot.py": {
       "bytes": 3287,
-      "importedFrom": "termux/omarchy_proot.py",
-      "importedSHA256": "4240de2a165af00be564f449c047a0e46614f4e9f4e1943756aa5d20f6e4d03a",
-      "sha256": "4240de2a165af00be564f449c047a0e46614f4e9f4e1943756aa5d20f6e4d03a"
+      "sha256": "b4be3b4d0bd2fe4cafb2a852e04a776803721a251ea455d410d3f3c1c57b5f52"
     },
     "runtime/omarchy_proot_install.py": {
       "bytes": 6367,
-      "importedFrom": "termux/omarchy_proot_install.py",
-      "importedSHA256": "038cc7368f07eb056f6b1c726f6211d5800296e7fcb261eda9abaf91c4590288",
       "sha256": "038cc7368f07eb056f6b1c726f6211d5800296e7fcb261eda9abaf91c4590288"
     },
     "runtime/omarchy_resources.py": {
       "bytes": 17863,
-      "importedFrom": "termux/omarchy_resources.py",
-      "importedSHA256": "7cbdd53dd2c9ebbdc3a64cded5f6a52dcd3385a1f6f8cb3cce990b379b049e92",
       "sha256": "7cbdd53dd2c9ebbdc3a64cded5f6a52dcd3385a1f6f8cb3cce990b379b049e92"
     },
     "runtime/omarchy_runtime.py": {
       "bytes": 28452,
-      "importedFrom": "termux/omarchy_runtime.py",
-      "importedSHA256": "d209358f89c98ba91b8bfe2652a330058301dcee2951cc2328df29c3d20eaa5b",
       "sha256": "d209358f89c98ba91b8bfe2652a330058301dcee2951cc2328df29c3d20eaa5b"
     },
     "runtime/omarchy_setup.py": {
       "bytes": 5671,
-      "importedFrom": "termux/omarchy_setup.py",
-      "importedSHA256": "64e9ce6ddbc1e0858d962f9700ac822a3412d0ed48bd719d057e48931671f970",
       "sha256": "64e9ce6ddbc1e0858d962f9700ac822a3412d0ed48bd719d057e48931671f970"
     },
     "runtime/omarchy_terminal.py": {
       "bytes": 6542,
-      "importedFrom": "termux/omarchy_terminal.py",
-      "importedSHA256": "972e95ca4f14615ae8963e329f1ac0cec07116d4f4a65830ef42885f1a2b37fb",
-      "publicationModification": "Source pins refreshed or source ancestry/comment clarified; runtime safety checks retained.",
-      "sha256": "43bb3604958581ac522505e4c2c3a88acd763fb3d4e7ba7b657f698c91509bdc"
+      "sha256": "f1f7345b1015948c1474f45f49045eca9ba5258fe5665b8991f1fee133cb85e4"
     },
     "runtime/omarchy_terminal_install.py": {
       "bytes": 11575,
-      "importedFrom": "termux/omarchy_terminal_install.py",
-      "importedSHA256": "8670bbc1622eecfcfb0674f9f794a4bf27a4cc81a361add88ebaf5d833962c3a",
-      "publicationModification": "Source pins refreshed or source ancestry/comment clarified; runtime safety checks retained.",
-      "sha256": "0384b0bc22850a8ccbc0c428156f8574fd250c82d416c0aa98dea31a44ac5304"
+      "sha256": "697f63388efb9cc5c5828e7f22fd3ae6ab73837125b98e135c087cce034cf31e"
     },
     "runtime/omarchy_tools_guest.py": {
       "bytes": 10272,
-      "importedFrom": "termux/omarchy_tools_guest.py",
-      "importedSHA256": "bb37518a93f3ec228c589dfdac195db982c2728b48b2e59caa47222b907e0133",
       "sha256": "bb37518a93f3ec228c589dfdac195db982c2728b48b2e59caa47222b907e0133"
     },
     "runtime/omarchy_tools_install.py": {
       "bytes": 9471,
-      "importedFrom": "termux/omarchy_tools_install.py",
-      "importedSHA256": "cada397dfb0ebc3084de5e1e2a0ea7c9462d7b80a68d8ca7a22d2a4f30290a11",
       "sha256": "cada397dfb0ebc3084de5e1e2a0ea7c9462d7b80a68d8ca7a22d2a4f30290a11"
     },
     "runtime/omarchy_workflow_install.py": {
       "bytes": 1342,
-      "importedFrom": "termux/omarchy_workflow_install.py",
-      "importedSHA256": "79ec0aff78a6e58943af924d1a3f11c2c17755f03d3c80c076911d2aaa9ca117",
-      "sha256": "79ec0aff78a6e58943af924d1a3f11c2c17755f03d3c80c076911d2aaa9ca117"
+      "sha256": "6f87bbb26892e85a2cdccf45c78eab893626b21d4adcb4eb1794bcffe89c2e1e"
     },
     "runtime/processes.py": {
       "bytes": 14658,
-      "importedFrom": "termux/processes.py",
-      "importedSHA256": "fd9b51ebb267782ab4a5151298202b589f19f5bde2ebae6c515e16d484df7e5a",
       "sha256": "fd9b51ebb267782ab4a5151298202b589f19f5bde2ebae6c515e16d484df7e5a"
+    },
+    "tests/runtime/test_companion_install.py": {
+      "bytes": 15312,
+      "sha256": "cc83ff8888ca27f27ce76b597543ab10f7b90246741f4db7152329d7d75b32d0"
+    },
+    "tests/runtime/test_delivery_assets.py": {
+      "bytes": 6583,
+      "sha256": "b30af3092b5ce83e1feb75daa7cd4d669fce63d66c40dd117f931b2a042059ce"
+    },
+    "tests/runtime/test_guest_preparation.py": {
+      "bytes": 3527,
+      "sha256": "989fa171063289d0fa896dbbda7362f5fa42c829251e31082a2f2a5bdca9d54b"
+    },
+    "tests/runtime/test_native_bootstrap.py": {
+      "bytes": 10378,
+      "sha256": "21250723328c8b3e1734c74c12da7ea01d8c30c1258b86207a465872f2e2c979"
     },
     "tests/runtime/test_omarchy_fifo_resources.py": {
       "bytes": 7182,
@@ -258,9 +213,17 @@
       "bytes": 3095,
       "sha256": "b36a577e76f6a28c07894f824957ad347a6dbfdb9001f1154986508274777f5f"
     },
+    "tests/runtime/test_payload_preparation.py": {
+      "bytes": 10123,
+      "sha256": "b2ab55daf1575736d315b8c33a4a3687df5a5a48ffb59ad4487c8036f806af1a"
+    },
+    "tests/runtime/test_prepared_runtime.py": {
+      "bytes": 2287,
+      "sha256": "2f8ab0904ff6766e019603fc43ac69d016a3cb193053a045bfe707c8e9e42c98"
+    },
     "tests/runtime/test_public_source.py": {
-      "bytes": 4060,
-      "sha256": "fbab2135c02bbf487270fdaa01c0274042faa1cba1021feb96948dcb1aec87b7"
+      "bytes": 4099,
+      "sha256": "7ae8e6674cac03ad9e25c9566364c8c32343f9e2fcab6df54867e9c6ec6946af"
     }
   },
   "fullFreshInstallVerified": false,

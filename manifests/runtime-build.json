@@ -1,0 +1,516 @@
+{
+  "binaryClosureComplete": false,
+  "components": {
+    "guest": {
+      "artifacts": {
+        "guest-manifest.json": {
+          "bytes": 2431,
+          "sha256": "56c62b50cfdc577659a8f4bbf9ac1645acfef0a306a494226efc46a461fa7352"
+        },
+        "guest-payload.tar": {
+          "bytes": 153600,
+          "sha256": "b5cb256c301935470a78bfe78db462182be5198f7af30474e836267d4d477b43"
+        }
+      },
+      "sources": {
+        "guest/AndroidSettings.qml": {
+          "bytes": 1617,
+          "sha256": "ede7fbb2738acb99bc4775d25d4073945a145bf1e6529532f1c69dd256926beb"
+        },
+        "guest/looknfeel.lua": {
+          "bytes": 2058,
+          "sha256": "60f6afb0394256404bde1941d86a310135ec0cadbf8de748fcb067532b8d85ec"
+        },
+        "guest/omarchy-launch-browser": {
+          "bytes": 1728,
+          "sha256": "7d5d96ea43406bf15903a7a650de0113f45974c719a17abb523cab5eb00032bc"
+        },
+        "guest/omarchy-proot-audio": {
+          "bytes": 135,
+          "sha256": "046c5c0d23d9c28951d3e4b0f91cf5877f7bbb8cdf6c19bfac3afca1852f7e3b"
+        },
+        "guest/omarchy_audio_guest.py": {
+          "bytes": 2384,
+          "sha256": "b3f361d1d43aef6f2a53595c0fa249821c3f597ad48924aa462dd7b1c083f144"
+        },
+        "guest/shell/Ui/qmldir": {
+          "bytes": 1147,
+          "sha256": "f4f596ab9fa839f699ee0035a36e2171c17950a2900ffcdbb0c6c585872ef106"
+        },
+        "guest/shell/plugins/panels/bluetooth/Panel.qml": {
+          "bytes": 37238,
+          "sha256": "19c34af3a127f25c6ca4b4d9eeff6ecd99bd550f3d469f08f8a986544ee40caf"
+        },
+        "guest/shell/plugins/panels/network/Panel.qml": {
+          "bytes": 73656,
+          "sha256": "a7386a224dddc320a7793ef00d5dd89653c71a3585bbfc50e5b32f61b9a7255c"
+        },
+        "runtime/omarchy-proot-settings": {
+          "bytes": 138,
+          "sha256": "37ce41e34f95cc03cb2f4046bc0c85e40542efd54f5e769fc3ad921f04f2fdbd"
+        },
+        "runtime/omarchy_android_client.py": {
+          "bytes": 5827,
+          "sha256": "d564423e4ed197b88737662b0d8b90f61d65d34ba2ac3d467508ab5a64a63f9b"
+        },
+        "runtime/processes.py": {
+          "bytes": 14658,
+          "sha256": "fd9b51ebb267782ab4a5151298202b589f19f5bde2ebae6c515e16d484df7e5a"
+        }
+      }
+    },
+    "inputConfig": {
+      "artifacts": {
+        "input-config-manifest.json": {
+          "bytes": 1035,
+          "sha256": "3281b825782d4291ca2fe4ef14d7e72c15d2906c171c9847edfbe3e6c6eb2fcd"
+        },
+        "input-config-payload.tar": {
+          "bytes": 10240,
+          "sha256": "9f26836651238aa8cebae609c9b9b8774b367ad07b817ebbd054466b5db35e92"
+        }
+      },
+      "sources": {
+        "guest/korean_input/autostart.lua": {
+          "bytes": 472,
+          "sha256": "f35086f629a298063e9c5e179f378ef840c21404223188e6f83340b80f3373da"
+        },
+        "guest/korean_input/ime.lua": {
+          "bytes": 398,
+          "sha256": "a781a7b9803d58e3bd6d87921e6b734202467423b31314668e27e718ca18e286"
+        },
+        "guest/korean_input/profile": {
+          "bytes": 168,
+          "sha256": "352c56193ececc6168dc3ab34da96e059f84f73fbefbf9dfaa4b6844ff373e23"
+        },
+        "guest/korean_input/settings.ini": {
+          "bytes": 31,
+          "sha256": "baca36368be82caf9c20b9fb6ffa4e275465ba784d11a7d30b65807bb9558190"
+        }
+      }
+    },
+    "nativeWeston": {
+      "artifacts": {
+        "payload-manifest.json": {
+          "bytes": 13377,
+          "sha256": "e1bdf027771e448b8f28d30c05a4fe473643992cddf4d3beb407beddfd71e9ee"
+        },
+        "payload.tar": {
+          "bytes": 2867200,
+          "sha256": "c7ec1e2ebac5e55e497ecf7085054ade951abba61bfd29985d43872664fc3414"
+        }
+      },
+      "files": {
+        "bin/wcap-decode": {
+          "mode": 448,
+          "sha256": "2fb85cc0e77b36df32ce6d9ad8e1995a158a485450ef3e4fc05f8af3d2af8773"
+        },
+        "bin/weston": {
+          "mode": 448,
+          "sha256": "f841b99bf9f7a8cabbc502efcf501a9e8997d66b04a0b17ea47ad10193493ac9"
+        },
+        "bin/weston-calibrator": {
+          "mode": 448,
+          "sha256": "8da5cee8dd75dc87b679553b76c9b8df3243a52853be3ead0b9f1ae3bd296153"
+        },
+        "bin/weston-debug": {
+          "mode": 448,
+          "sha256": "c765f15bab428a28d9db5e4e2f6aac673d639efcef4d642ef37e5e98a4ae532d"
+        },
+        "bin/weston-screenshooter": {
+          "mode": 448,
+          "sha256": "289eb9b529b6cf350d8825edad778b6ce6ed014a21a5be521e7c18849d5a86a5"
+        },
+        "bin/weston-simple-damage": {
+          "mode": 448,
+          "sha256": "f51aab315381509bc6748fe2f37a638ca765dab3e0485c4b16c2734e5cb350f8"
+        },
+        "bin/weston-simple-shm": {
+          "mode": 448,
+          "sha256": "e593fdcf411b5c9e1a0aaa5b4f752100d122665a06da600769f60994b302c65f"
+        },
+        "bin/weston-simple-touch": {
+          "mode": 448,
+          "sha256": "10c5c773fafc20aedfca452b37f69e02ffbf5f4170cd8a0f462da614293c0ce2"
+        },
+        "bin/weston-terminal": {
+          "mode": 448,
+          "sha256": "303accfdf1f2fd83840a29befa50832f4d0ab58a1dd7313e88943654584a4e97"
+        },
+        "bin/weston-touch-calibrator": {
+          "mode": 448,
+          "sha256": "20261c3b1b4d11932402d28c3be0115a5d1fb1392bcfb2cd715071611d9fba29"
+        },
+        "include/libweston-14/libweston/backend-anland.h": {
+          "mode": 384,
+          "sha256": "1c4cc2fea08009a3c53ad5ab02c2e8e0cde2b101fbf86fa6f537ac19d1cead2c"
+        },
+        "include/libweston-14/libweston/backend-headless.h": {
+          "mode": 384,
+          "sha256": "98a98cdafccd76a873d12c3e6ae404067e9fb6f7ab9eaec455eae424916f6e4d"
+        },
+        "include/libweston-14/libweston/backend-rdp.h": {
+          "mode": 384,
+          "sha256": "c17e03a1c337d1188a4ab6b62d1352a671e4d3fe6b4b44aead7e14f396601236"
+        },
+        "include/libweston-14/libweston/backend-wayland.h": {
+          "mode": 384,
+          "sha256": "bccaf0cb440a95de05d5435eb6b83b416273e1ae3caa988c567a8911e150cca3"
+        },
+        "include/libweston-14/libweston/backend-x11.h": {
+          "mode": 384,
+          "sha256": "7bd74dfd0cae2c2fe211d4b6495250bda7c16ca19baab8aa69a8fee93660c5c0"
+        },
+        "include/libweston-14/libweston/config-parser.h": {
+          "mode": 384,
+          "sha256": "d4cdaeb2db9efdbbc2ee6626991c538328c34198737f8011d8c68234a0ecde7f"
+        },
+        "include/libweston-14/libweston/desktop.h": {
+          "mode": 384,
+          "sha256": "bcb0b0c254b238bd459ec39aa5068cb6510caa4c56f61a60eba3f21591934bce"
+        },
+        "include/libweston-14/libweston/libweston.h": {
+          "mode": 384,
+          "sha256": "c57bc19b465ffbbdce364010ec9a18cae4b8d0f0a5a2b07e1fa89ac27a27a240"
+        },
+        "include/libweston-14/libweston/matrix.h": {
+          "mode": 384,
+          "sha256": "a252d070d4f6315b9254681a01a00dccf1676aea9e8f52b3259371b95b14df5a"
+        },
+        "include/libweston-14/libweston/pipewire-plugin.h": {
+          "mode": 384,
+          "sha256": "11ce607250780be38f83848d3ecb4459730d67a3b73f548014a4a600d7e39f22"
+        },
+        "include/libweston-14/libweston/plugin-registry.h": {
+          "mode": 384,
+          "sha256": "233c62630d02b59b7f9834127eafb1428edf943f40dc71f6b98ed1c82778bec0"
+        },
+        "include/libweston-14/libweston/remoting-plugin.h": {
+          "mode": 384,
+          "sha256": "c8356cf1802897e832d457647d7df97c8c814b809993c190254cef89b002eb56"
+        },
+        "include/libweston-14/libweston/shell-utils.h": {
+          "mode": 384,
+          "sha256": "05d9485f09c96018092b33beebc8e33b485e8864fef76c309220286353ee2ba3"
+        },
+        "include/libweston-14/libweston/version.h": {
+          "mode": 384,
+          "sha256": "3b7ebc0e8fc355ef33a29149a829cc2fff88757f94e1c22d1dabc5bf84e06e5b"
+        },
+        "include/libweston-14/libweston/weston-log.h": {
+          "mode": 384,
+          "sha256": "6052f771d28a3fce8350550211c3a53f1d301b26bec7aff93e2da2ba5b8d7e86"
+        },
+        "include/libweston-14/libweston/windowed-output-api.h": {
+          "mode": 384,
+          "sha256": "c86fe6928c58c6b2db2aebb29b7d08908fb182f414687b6c6171892863be5793"
+        },
+        "include/libweston-14/libweston/xwayland-api.h": {
+          "mode": 384,
+          "sha256": "d96ca5a56a5608710f9c4212ea74f09bca171aab7df99f2685028b93eb590d83"
+        },
+        "include/libweston-14/libweston/zalloc.h": {
+          "mode": 384,
+          "sha256": "baf4e089d4e0a9850c02aaa161651bbfdb079e134144373a215714a70bd15d3a"
+        },
+        "include/weston/ivi-layout-export.h": {
+          "mode": 384,
+          "sha256": "373f98ed20f3d64a86a4ab7abb8bce8091bd396289206f5956720231dba9422d"
+        },
+        "include/weston/weston.h": {
+          "mode": 384,
+          "sha256": "fefbb8d00105209f8a9c6d8233c1ce60fc0953eece3faa8ae14046c65433193d"
+        },
+        "lib/libweston-14.so": {
+          "mode": 448,
+          "sha256": "f28e7ba048a23782e354a7427595d6f64ee96b4767443196abdbcb51087bcbd5"
+        },
+        "lib/libweston-14/anland-backend.so": {
+          "mode": 448,
+          "sha256": "d249a65c634bad98e2a2ef990a90b809ff4cdc6503bb275d8a551e174d5012f4"
+        },
+        "lib/libweston-14/color-lcms.so": {
+          "mode": 448,
+          "sha256": "a03f6fc5f1ceba1604f79e5467b3b4c8d781e5487da0eaf98c5c31a80983d503"
+        },
+        "lib/libweston-14/gl-renderer.so": {
+          "mode": 448,
+          "sha256": "81c0c4551604883b661cab231f0245aa4b5ca01fb495c067027f3fe9bbb4335e"
+        },
+        "lib/libweston-14/headless-backend.so": {
+          "mode": 448,
+          "sha256": "b01bd41a1b43ff983ab26ef5fe601c646455b3682557c65e2108ce9bb3a68f14"
+        },
+        "lib/libweston-14/rdp-backend.so": {
+          "mode": 448,
+          "sha256": "42fde5e9be994ef77a8c1c4c9b551784ac93bd2c68f20a51c7ffb12dd204b9ec"
+        },
+        "lib/libweston-14/wayland-backend.so": {
+          "mode": 448,
+          "sha256": "57c317004cd212225022e0e627b7d1279fc7f73647553daa24b4cef7ae5f8af8"
+        },
+        "lib/libweston-14/x11-backend.so": {
+          "mode": 448,
+          "sha256": "3516317fc0b5761df36e6664c3268e9c5b061bffd40231aa25901bd46f127e6e"
+        },
+        "lib/libweston-14/xwayland.so": {
+          "mode": 448,
+          "sha256": "e4187646991442f0e633526827a45c1985efdf6c762e1e15e88ee7bbda739d57"
+        },
+        "lib/pkgconfig/libweston-14.pc": {
+          "mode": 384,
+          "sha256": "c48e04d3085ed236da801c2dcb9515e794379770ce9074dd5b59eec9f8ccbc79"
+        },
+        "lib/pkgconfig/weston.pc": {
+          "mode": 384,
+          "sha256": "78740e7a0ea6643f2a0907a0d29a0337132433e2ea850214f5652e80a6b0acb3"
+        },
+        "lib/weston/desktop-shell.so": {
+          "mode": 448,
+          "sha256": "4524ac713025e25c8fa93f20f2da126206308bcb3cbd30f0afc6e01527995a4c"
+        },
+        "lib/weston/fullscreen-shell.so": {
+          "mode": 448,
+          "sha256": "23b5c9f4130ca6255aed8445329556aef027c8b684dfa6083f76480ecc1c0a3d"
+        },
+        "lib/weston/hmi-controller.so": {
+          "mode": 448,
+          "sha256": "77dd88392b292b3317efe2da619d91230554dbd2e9a4a15e6a87d2539c8ebe00"
+        },
+        "lib/weston/ivi-shell.so": {
+          "mode": 448,
+          "sha256": "7c7a1ee804d320bc37f770c318ced666df3d6ca82d1d6f4eb7490b134ce86b8d"
+        },
+        "lib/weston/kiosk-shell.so": {
+          "mode": 448,
+          "sha256": "08e093b2d79b3dd0cbd9b3cda7b9bf6b9058a822c340f590d777f191731171c7"
+        },
+        "lib/weston/libexec_weston.so": {
+          "mode": 448,
+          "sha256": "8b3bd8526500835bea3a8309ada230b5168594d30291fbac40b174b46d1954af"
+        },
+        "lib/weston/screen-share.so": {
+          "mode": 448,
+          "sha256": "fd633fb679daf8b11d162b659443469cff74709b0a9c35e49ff0275fb6539f50"
+        },
+        "libexec/weston-desktop-shell": {
+          "mode": 448,
+          "sha256": "f570d5406e71b89f7b72171d595f412a1a1e769d069bf87983cb8ea3a46d3e6e"
+        },
+        "libexec/weston-ivi-shell-user-interface": {
+          "mode": 448,
+          "sha256": "176fe2226cc7aba4f59af7e7478a24945031573819ed4541e8846ed491edd7c2"
+        },
+        "libexec/weston-keyboard": {
+          "mode": 448,
+          "sha256": "6b7406193b4b2854febf53e2b90a80e9473659f3c739202bd5d46e32d6a518bc"
+        },
+        "share/doc/weston/copyright": {
+          "mode": 384,
+          "sha256": "fdb65868f65d0fbdb05c2d3b779e10ce9969fa0c4b9262ba4f260e87086ab860"
+        },
+        "share/libweston-14/protocols/weston-content-protection.xml": {
+          "mode": 384,
+          "sha256": "71676d8b422afd64c4b6c44b7a9120a6da081adf603728325015c956ed79e67e"
+        },
+        "share/libweston-14/protocols/weston-debug.xml": {
+          "mode": 384,
+          "sha256": "b8236585a5d8ff819c2d9d6ecca00985acefe6618bc711dcdcf826470bb8e4f8"
+        },
+        "share/libweston-14/protocols/weston-direct-display.xml": {
+          "mode": 384,
+          "sha256": "ac8459dffcfea42d12716345026325046da60a2881cdda9f4c7cd86f593f29d1"
+        },
+        "share/libweston-14/protocols/weston-output-capture.xml": {
+          "mode": 384,
+          "sha256": "8cedbfc3eca413505b7ea8bd99d5f05f3d0724e311f159186070d1f8c107bc10"
+        },
+        "share/man/man1/weston-debug.1.gz": {
+          "mode": 384,
+          "sha256": "c8dba1bf7d7a2d65c351e732e234f56dcf14ca421d5f3e9303254bd3ce67f123"
+        },
+        "share/man/man1/weston.1.gz": {
+          "mode": 384,
+          "sha256": "b0ba7eb86bd284a93768447ee28db837ee5595a298c3e2336c6f67819d2282b7"
+        },
+        "share/man/man5/weston.ini.5.gz": {
+          "mode": 384,
+          "sha256": "ea227b9a035e8f2e1e5ed305ff1e63decf0192fc413057aa32ec06e20f604d0f"
+        },
+        "share/man/man7/weston-bindings.7.gz": {
+          "mode": 384,
+          "sha256": "6c129c3621297a96838406672427bf03845b61339cd5e2f3f4160153d3d5a68a"
+        },
+        "share/man/man7/weston-rdp.7.gz": {
+          "mode": 384,
+          "sha256": "5f34ecabc441ca30816de95225ba20ca8cc18e0bcb25b1722f6de4f1ece196b7"
+        },
+        "share/pkgconfig/libweston-14-protocols.pc": {
+          "mode": 384,
+          "sha256": "349d550786f266bcb78cdc709a5eb031cf8293e68d0252058714b155ad7a58d3"
+        },
+        "share/wayland-sessions/weston.desktop": {
+          "mode": 384,
+          "sha256": "eb302d5713c985616367f9dc6891721f11a4f6f2f6655718485f2c3d449a25eb"
+        },
+        "share/weston/background.png": {
+          "mode": 384,
+          "sha256": "305c5d729176fcf620c79e9b5577b14dc0bf9bf1ff28a915b6b37464c7ddd51f"
+        },
+        "share/weston/border.png": {
+          "mode": 384,
+          "sha256": "f6edfa9bd90db9c53c9480b98448a8db977484c377beb236c3a400f1d286cc39"
+        },
+        "share/weston/fullscreen.png": {
+          "mode": 384,
+          "sha256": "d51de69ed8ddd88638b2f385b7aa10f0fcc3f1c291c4e1aafa6d054aebb253cb"
+        },
+        "share/weston/home.png": {
+          "mode": 384,
+          "sha256": "67de372688cba1b1823d00c15fc8801a9b12e3c0b26684bfb44fb49e5588d4a4"
+        },
+        "share/weston/icon_editor.png": {
+          "mode": 384,
+          "sha256": "98a6f1a818ddea0a88ac0f7a98f3c26da2d40d4004bce1400b640b3000d307b2"
+        },
+        "share/weston/icon_flower.png": {
+          "mode": 384,
+          "sha256": "b4af34151304df07b58d7491a89dc939674b4059441fdd30fd203d11d2da6bfd"
+        },
+        "share/weston/icon_ivi_clickdot.png": {
+          "mode": 384,
+          "sha256": "10f50d466a1337ad14ab20564030f66f9daf612b9c4a8279322a50408a623819"
+        },
+        "share/weston/icon_ivi_flower.png": {
+          "mode": 384,
+          "sha256": "c0fb2e5f96e6088d016f3fd401f55b5f5bc301222cc8a4db3aa2e887c2b98898"
+        },
+        "share/weston/icon_ivi_simple-egl.png": {
+          "mode": 384,
+          "sha256": "4c6b45baeaae9eb8cee224a4cc93c9ca5eb2a78c5cae76d151ea6491566d174f"
+        },
+        "share/weston/icon_ivi_simple-shm.png": {
+          "mode": 384,
+          "sha256": "f7ee87691b0f7eac0eb2efc37fbc4a3e7046fbde3b09c7cfc1d79b446b1a7830"
+        },
+        "share/weston/icon_ivi_smoke.png": {
+          "mode": 384,
+          "sha256": "8fe2b3f512b2032b4e1e9e0a811bdad641771cbddff88aa9e404ae2c3bf0348e"
+        },
+        "share/weston/icon_terminal.png": {
+          "mode": 384,
+          "sha256": "af2f2702c736d30c18c43de5515324a9440c1a77579efa74e0c061b77210d56e"
+        },
+        "share/weston/icon_window.png": {
+          "mode": 384,
+          "sha256": "46bcd847fce7a6406124f0c29229f0239a2bf4d888811dc530c17ae9ff9067c2"
+        },
+        "share/weston/panel.png": {
+          "mode": 384,
+          "sha256": "1fb55097b9a4943273f5430f6490d9fbb143fc58bdb3b5fda4c921979efc417e"
+        },
+        "share/weston/pattern.png": {
+          "mode": 384,
+          "sha256": "bb586a09123b0a92da2f576f83593027b9449ad362fc49f08c5c55fe1dc77e09"
+        },
+        "share/weston/random.png": {
+          "mode": 384,
+          "sha256": "6f0aab41a7dd5253fb2eb8c0bc12d7112c1bff5076dcd900ea311e749c198978"
+        },
+        "share/weston/sidebyside.png": {
+          "mode": 384,
+          "sha256": "cba8821f3a005f9d8a4668093bec286e09a4f70dbd75d7c83cd84ef0d674f863"
+        },
+        "share/weston/sign_close.png": {
+          "mode": 384,
+          "sha256": "05206a51018b3f89674f6d5598cc1620fa1384907f4aeae2abee7160f77e56ca"
+        },
+        "share/weston/sign_maximize.png": {
+          "mode": 384,
+          "sha256": "f70b74441e31b02582c7a410594b4ee2d30fadbe4d2a5aebbcc2c5a7c801543a"
+        },
+        "share/weston/sign_minimize.png": {
+          "mode": 384,
+          "sha256": "5799be3d8b3db21f241f93215d017e8cba962af32c93ecf2b1c77113353e0027"
+        },
+        "share/weston/terminal.png": {
+          "mode": 384,
+          "sha256": "67151c09060ce244cda1ff95e6ad950202a4479d52f9816200e8ebcd41aa53ba"
+        },
+        "share/weston/tiling.png": {
+          "mode": 384,
+          "sha256": "7029d32a2ed92429860503c9eb25287d6041a846e6b0ef866db66820bd7b14d0"
+        },
+        "share/weston/wayland.png": {
+          "mode": 384,
+          "sha256": "daeb6394534ec396c1a97199d4a50992b134c0d7ccc5086f7d196053868f6d27"
+        },
+        "share/weston/wayland.svg": {
+          "mode": 384,
+          "sha256": "41c8961bf0f2f4eaf2cafd67196e20a2200d840447f423fc62da21ac8fe2d5c6"
+        }
+      },
+      "package": {
+        "bytes": 845700,
+        "sha256": "25d1c5ee4013e14097d6e37a3227d6fcef8f43d6d7a2dd0ee130a77e1af31c8a",
+        "url": "https://github.com/lfdevs/anland-termux/releases/download/5.13.3/weston_14.0.2-3_aarch64.deb"
+      }
+    },
+    "workflow": {
+      "artifacts": {
+        "workflow-manifest.json": {
+          "bytes": 3213,
+          "sha256": "0db92c0f318d9bd3ade54649c066c3f9c396bac8b62d42f296bc8201407e3099"
+        },
+        "workflow-payload.tar": {
+          "bytes": 61440,
+          "sha256": "ebc2f5494c290b88ebcb0979e8a51bf7310c6ecfb200ae1188d74e2a909ea73b"
+        }
+      },
+      "sources": {
+        "profiles/bindings.lua": {
+          "bytes": 1826,
+          "sha256": "1741cc7a078a1747f759e71f2ab3a245ab8c5e9ea25cf18ed5a4dfdb9a22e39e"
+        },
+        "profiles/git.plugin.zsh": {
+          "bytes": 14848,
+          "sha256": "f83f37a98de566bb911f9bf70c48eeb28eae847a38f5817d675293656aba557e"
+        },
+        "profiles/git.zsh": {
+          "bytes": 14947,
+          "sha256": "b135c2cae03645ed07bbefa87f03d6d1c8c6893d654b5846f8349b8ccdcfb1dc"
+        },
+        "profiles/tmux.conf": {
+          "bytes": 4001,
+          "sha256": "89179e452889bec075addd43ba960287dada82b32d2c8236954abb653c5e36bc"
+        },
+        "profiles/zshrc": {
+          "bytes": 3500,
+          "sha256": "45f2c44d9179e8a03f68d5414e2cfe81630b83b756f9218e8f0dd34b501e0817"
+        },
+        "runtime/omarchy-launch-tui": {
+          "bytes": 632,
+          "sha256": "e6b1f8aa5e4d1dde4279c794a07f9c13b669b2343cb8b55d148c831ba3c36ad2"
+        },
+        "runtime/omarchy-remote": {
+          "bytes": 1934,
+          "sha256": "e2e9d8639def32a709f4cdf5cf6bbe7f0ca71c777c5d970789d0921870abcd25"
+        },
+        "runtime/omarchy-remote.desktop": {
+          "bytes": 241,
+          "sha256": "9f740c0ad6dbc5e9ebeaee6bac9c1230c560fbccfed42edec0f051a0d1c76529"
+        },
+        "tools/prepare_runtime_templates.py": {
+          "bytes": 5938,
+          "sha256": "1e9296f5723781b805e85fd840136c04a0b3b3fbcbd9793f2a4e7e97d364c5b5"
+        }
+      }
+    }
+  },
+  "fullFreshInstallVerified": false,
+  "missing": [
+    "explicit-Android-permission-and-firmware-policy-setup",
+    "fresh-native-gui-installation-acceptance"
+  ],
+  "schema": 1
+}

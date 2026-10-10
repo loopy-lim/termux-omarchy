@@ -1,0 +1,16 @@
+--- a/src/tracee/event.c
++++ b/src/tracee/event.c
+@@ -507,7 +507,12 @@
+ 				PTRACE_O_TRACEVFORKDONE	|
+ 				PTRACE_O_TRACEEXEC	|
+ 				PTRACE_O_TRACECLONE	|
+-				PTRACE_O_TRACEEXIT);
++				PTRACE_O_TRACEEXIT |
++				/* Opt in only for supervised sessions. The kernel terminates
++				 * every tracee if its PRoot tracer exits unexpectedly. */
++				(getenv("PROOT_EXITKILL") != NULL &&
++				 strcmp(getenv("PROOT_EXITKILL"), "1") == 0
++				 ? PTRACE_O_EXITKILL : 0));
+ 
+ 			/* Distinguish some events from others and
+ 			 * automatically trace each new process with

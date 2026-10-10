@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only host checks for the source-only release; never touches Android."""
+"""Read-only source and distribution metadata checks; never touches Android."""
 from __future__ import annotations
 
 import argparse
@@ -168,7 +168,7 @@ def main():
             execute([sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests/runtime", "-v"])
             execute([sys.executable, "-B", "tests/input/run_host.py"])
             execute([sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests/publication", "-v"])
-        print("source-alpha checks: PASS", flush=True)
+        print("publication checks: PASS", flush=True)
         return 0
     except (ValueError, OSError, subprocess.SubprocessError) as error:
         print(str(error), file=sys.stderr)

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "distribution": "source-only-developer-alpha",
+  "distribution": "source-with-experimental-binary-release",
   "correspondingSourceComplete": false,
   "apkRebuildVerified": false,
   "upstream": {
@@ -86,8 +86,8 @@
       "detail": "The historical arm64 Hangul change was a SHA-pinned ELF/table repair. A source-equivalent header delta is included, but the complete original native/submodule build and ABI equivalence have not been verified."
     },
     {
-      "id": "android-source-build-unverified",
-      "detail": "The overlay applies to pinned source references, but no full Android Gradle/NDK/resource/shrinker build or source-to-packaged-DEX behavior comparison has been completed from this public checkout."
+      "id": "historical-android-build-not-reconstructed",
+      "detail": "A new clean source build and offline archive rebuild passed independently. They do not reconstruct or establish equivalence with the historical installed APK."
     },
     {
       "id": "historical-dex-inputs-absent",
@@ -95,14 +95,14 @@
     },
     {
       "id": "signing-and-version-reconstruction",
-      "detail": "No signing key or signing configuration is bundled. Shared UID requires compatible Termux signing; upstream versions depend on commit/date. Neither exact signed APK bytes nor generic install compatibility is claimed."
+      "detail": "No signing key is distributed. The new source candidate uses an explicit fork version and a reviewed public development certificate; historical exact signed APK bytes and generic installation compatibility are not reconstructed."
     }
   ],
   "files": [
     {
       "path": "input/MODIFICATIONS.md",
-      "bytes": 2877,
-      "sha256": "3dccab4c5820c94e515a82682fad88ac81e8a95744d55dfc823dccecc74b86fe",
+      "bytes": 3155,
+      "sha256": "7464bdc8577efe4763e6de68ef184c1178f4b771997e28b532f4f416e6c52a16",
       "role": "maintained-input-source-or-tool",
       "localAuthor": "loopy-lim and contributors",
       "modificationDate": "2026-10-10",
@@ -110,8 +110,8 @@
     },
     {
       "path": "input/README.md",
-      "bytes": 8299,
-      "sha256": "8dfcbe87d0d2c8940dcb9e2baaeecbf9f2c59bb1555fc9a9e615078f89d9bb0d",
+      "bytes": 8877,
+      "sha256": "0355bec9cdeded8b57f4e3b9d3189ebc8a7dafdef42b0f41724c33c63c14f0c9",
       "role": "maintained-input-source-or-tool",
       "localAuthor": "loopy-lim and contributors",
       "modificationDate": "2026-10-10",
@@ -119,8 +119,8 @@
     },
     {
       "path": "input/build.py",
-      "bytes": 2934,
-      "sha256": "29f783f18208a3d3e158b235c43207f257da87fcf2d2fbd2d7b1ac1c054efaf6",
+      "bytes": 2968,
+      "sha256": "6aae6ef17a6f016cb52103e889da7e3188fbb374f131a05c719d7527b28cdd7a",
       "role": "maintained-input-source-or-tool",
       "localAuthor": "loopy-lim and contributors",
       "modificationDate": "2026-10-10",
@@ -155,6 +155,123 @@
       "upstreamCommit": "6d3c6883265b4ec8092673e6d2d61ef86cab5405",
       "sourceURL": "https://raw.githubusercontent.com/termux/termux-x11/6d3c6883265b4ec8092673e6d2d61ef86cab5405/lorie/src/main/java/com/termux/x11/input/TouchInputHandler.java",
       "upstreamSourceModified": true
+    },
+    {
+      "path": "input/full_build/README.md",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 8359,
+      "sha256": "89ca5cf3fa2e72a26efaa23e236ea37de53018aa59a2125e4d5a9a0ca9687b66"
+    },
+    {
+      "path": "input/full_build/SIGNING.md",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 4024,
+      "sha256": "3c092a384c2eb636c85e87e327fa64c5e9575df2026c06d6daf81ce223523197"
+    },
+    {
+      "path": "input/full_build/archive.py",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 24322,
+      "sha256": "ff239885992fa01622323e802bea5732a77a1820c142c15fc5495a5235bf7f05"
+    },
+    {
+      "path": "input/full_build/companion-identity.patch",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 855,
+      "sha256": "cce61668b140dd17230af5eb37515144dd9696f222ced4924fa5ad00ef3598cb"
+    },
+    {
+      "path": "input/full_build/driver.py",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 24328,
+      "sha256": "5957f49ef1654dca6c789a6a56ba64c8df679464fed9949945feb5d66f0352ea"
+    },
+    {
+      "path": "input/full_build/force_patch.sh",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 251,
+      "sha256": "336f4a855e65ceaadc13783efc3550604e4e160f75acdabd092dc7277c469581"
+    },
+    {
+      "path": "input/full_build/loader-metadata.patch",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 1644,
+      "sha256": "496fd0478519dd0604844a6a8fe513e80b27bb27e5dd47dc0123ebee8f14d0d6"
+    },
+    {
+      "path": "input/full_build/native-build.patch",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 1195,
+      "sha256": "fcf239204451e933ccfe9d4e119d550cd1e8ccfdbd1b8da440fc7f62a3c50987"
+    },
+    {
+      "path": "input/full_build/resource_inputs.py",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 5312,
+      "sha256": "342149d587ab7af8bfd11cbee2c88aa5cf0a2587f90053b3623f23c86e444e93"
+    },
+    {
+      "path": "input/full_build/runtime-report.init.gradle",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 1742,
+      "sha256": "03d8baddc2f818f32c8cc7c789d80b9fd2b72fcfb685efc1e1b46625cc25a806"
+    },
+    {
+      "path": "input/full_build/runtime_sources.py",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 10445,
+      "sha256": "405db69ba219be016b7e88f4f619b3f1606799caa3e13ccb1b9d6fe48274c43c"
+    },
+    {
+      "path": "input/full_build/termux-public-certificate.txt",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 1066,
+      "sha256": "4f55906f88215e7a3df98c85ef11d6480ae65335649b58c4e3e56668452d2881"
+    },
+    {
+      "path": "input/full_build/unsigned.init.gradle",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 1200,
+      "sha256": "c3eda0ebd83d2aecf26ecb0b51cc6bde7aeb0e486a110ba4bcfd3ce68787233c"
     },
     {
       "path": "input/history/handoff-accessibility-only/KeyBridgeHandoff.java",
@@ -331,6 +448,15 @@
       "modified": false
     },
     {
+      "path": "input/upstream/lorie-app/src/sharedUid/AndroidManifest.xml",
+      "bytes": 740,
+      "sha256": "5299ade7c0f35a513ed69f249019d079b22e7bb59418ddbcfa2afa63492525ff",
+      "role": "unmodified-upstream-source-reference",
+      "sourceURL": "https://raw.githubusercontent.com/termux/termux-x11/6d3c6883265b4ec8092673e6d2d61ef86cab5405/lorie-app/src/sharedUid/AndroidManifest.xml",
+      "upstreamCommit": "6d3c6883265b4ec8092673e6d2d61ef86cab5405",
+      "modified": false
+    },
+    {
       "path": "input/upstream/lorie/build.gradle",
       "bytes": 6733,
       "sha256": "a15d2256a3247946470b1bc787beb6b7855db90f86e7b17ce3630e289c20e417",
@@ -444,15 +570,6 @@
       "sha256": "34a5cc0f82d726a8ea8f23e9a070b90733d8537793a3b7a54e709b5e78d94328",
       "role": "unmodified-upstream-source-reference",
       "sourceURL": "https://raw.githubusercontent.com/termux/termux-x11/6d3c6883265b4ec8092673e6d2d61ef86cab5405/lorie/version.gradle",
-      "upstreamCommit": "6d3c6883265b4ec8092673e6d2d61ef86cab5405",
-      "modified": false
-    },
-    {
-      "path": "input/upstream/lorie-app/src/sharedUid/AndroidManifest.xml",
-      "bytes": 740,
-      "sha256": "5299ade7c0f35a513ed69f249019d079b22e7bb59418ddbcfa2afa63492525ff",
-      "role": "unmodified-upstream-source-reference",
-      "sourceURL": "https://raw.githubusercontent.com/termux/termux-x11/6d3c6883265b4ec8092673e6d2d61ef86cab5405/lorie-app/src/sharedUid/AndroidManifest.xml",
       "upstreamCommit": "6d3c6883265b4ec8092673e6d2d61ef86cab5405",
       "modified": false
     },
@@ -952,6 +1069,15 @@
       "modificationNotice": "input/MODIFICATIONS.md"
     },
     {
+      "path": "tests/input/test_full_build.py",
+      "role": "maintained-input-source-or-tool",
+      "localAuthor": "loopy-lim and contributors",
+      "modificationDate": "2026-10-10",
+      "modificationNotice": "input/MODIFICATIONS.md",
+      "bytes": 25626,
+      "sha256": "19f91d264fec91219b9bff2d082bee94655374489ac83b4855af65697f610adc"
+    },
+    {
       "path": "tests/input/test_process_patch.py",
       "bytes": 5091,
       "sha256": "767ba2efd27daa8ee0a4e5b579affd9f6660f95d2cb8b2cf08d28d01e4a89382",
@@ -987,5 +1113,56 @@
       "modificationDate": "2026-10-10",
       "modificationNotice": "input/MODIFICATIONS.md"
     }
-  ]
+  ],
+  "historicalReconstructionFields": "correspondingSourceComplete, apkRebuildVerified and buildGaps describe historical APK byte reconstruction; freshSourceBuild is independent.",
+  "freshSourceBuild": {
+    "status": "clean-source-build-and-offline-source-rebuild-passed",
+    "upstreamCommit": "6d3c6883265b4ec8092673e6d2d61ef86cab5405",
+    "recursiveNativeTrees": 16,
+    "abis": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "gradleTasksExecuted": 102,
+    "unsignedAPK": {
+      "bytes": 14609750,
+      "sha256": "ac2418179b2b4664368502abea7060ca8d73ef3af10b92c45ca1d03acb788711"
+    },
+    "signedAPK": {
+      "bytes": 14658439,
+      "sha256": "1cebebb58a3dccb966afacb16f972a7cd49642bb52ddb3a7058593be07e6325f",
+      "certificateSha256": "b6da01480eefd5fbf2cd3771b8d1021ec791304bdd6c4bf41d3faabad48ee5e1",
+      "schemes": [
+        "v2",
+        "v3"
+      ],
+      "alignmentKb": 16,
+      "payloadEntriesUnchanged": 440
+    },
+    "companion": {
+      "package": "termux-x11-nightly",
+      "version": "1.03.01+omarchy.input-alpha.1-0",
+      "bytes": 5144,
+      "sha256": "f39739d88418ff2db7d37c0e45543c10fa0aa40394c0082ff05f0d3ebfa46b85"
+    },
+    "sourceArchive": "termux-x11-source.tar.gz",
+    "offlineBuildPassed": true,
+    "byteReproducibleAPK": false,
+    "physicalCandidateAcceptance": false,
+    "fullFreshInstallVerified": false,
+    "runtimeDependencies": {
+      "modules": 62,
+      "sourceFiles": 1769,
+      "sourceBytes": 4713303,
+      "sourceManifestSHA256": "7ea3c61bd71b290f81005c55efe6847775bf62ef0dbd2cb371e675dec1ac4701",
+      "matchingOfficialSourcesProvided": true,
+      "declaredOrInheritedLicense": "Apache-2.0",
+      "resourceAARs": 47,
+      "resourceInputs": 984,
+      "moduleMetadataFiles": 38,
+      "compiledResourceOrBundledCodeGaps": 0
+    }
+  }
 }

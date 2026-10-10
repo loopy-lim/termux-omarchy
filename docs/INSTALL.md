@@ -2,25 +2,98 @@
 
 [한국어](INSTALL.ko.md) · [English README](../README.md)
 
-## Distribution boundary
+## Experimental installation scope
 
-This source alpha is for inspection, regression testing and further development. It is **not a complete fresh-device installation release**. The historical setup bundle does not contain the latest input changes, and parts of the binary payload preparation are not reproducible from this checkout yet. Do not treat an older bundle as the current release.
+[v0.1.0-alpha.2](https://github.com/loopy-lim/termux-omarchy/releases/tag/v0.1.0-alpha.2) provides a pinned binary delivery path. **The candidate has not passed fresh-device GUI acceptance; `fullFreshInstallVerified` remains `false`.** No NDK or Android SDK is needed to acquire and apply the released assets.
 
-The repository contains validated installation building blocks that check hashes, ownership, paths and existing state before writing. Missing inputs are a blocker, not a reason to disable those checks. Do not copy scripts into a live installation or replace its files manually: runtime ownership and recorded hashes must remain consistent.
+Requirements:
 
-## Required environment for future installation
+- Android API 28+ on ARM64, under Android's primary user, with a Termux-accessible Adreno `/dev/kgsl-3d0` device.
+- Native Termux from the matching **GitHub signing family**, using existing trusted, signed Termux APT sources. The first step prepares Git and native Python 3 if missing.
+- Fresh desktop state: no earlier managed runtime, PRoot container, launcher or mismatched Termux:X11 companion.
+- Android installation consent and a physical keyboard/trackpad for acceptance checks.
 
-- ARM64 Android and compatible Termux/Termux:X11 packages.
-- Native Termux Python, PRoot-Distro and the native graphics/audio dependencies required by the pinned manifests.
-- The pinned upstream Omarchy Android bundle and separately validated native/guest payloads.
-- Matching Termux signing provenance when using a shared-UID Termux:X11 build.
-- Physical keyboard/trackpad testing and Android consent for any optional input service.
+Plan for at least 8 GiB of free space for downloads and the unpacked guest. This is a planning margin, not a measured peak requirement.
 
-The existing experiment uses the GitHub Termux signing family. Shared-UID APKs must have compatible signatures; mixing F-Droid, Google Play and GitHub packages is not a migration procedure. Back up existing Termux data before considering an installation-source change. The authoritative rules are in the [Termux installation guide](https://github.com/termux/termux-app#installation) and [Termux:X11 guide](https://github.com/termux/termux-x11).
+F-Droid, Google Play and GitHub signing families are not interchangeable. A signature conflict is a blocker; do not uninstall or clear application data to force compatibility. Existing private desktop state and unexpected companion versions/files are preserved and refused. This release does not provide a migration procedure. See the [Termux installation guide](https://github.com/termux/termux-app#installation) and [Termux:X11 guide](https://github.com/termux/termux-x11).
 
-See the tracked manifests and [input source notes](../input/README.md) for exact pins and outstanding build inputs. APKs and a complete root filesystem are deliberately absent from this release. The [development guide](DEVELOPMENT.md) explains how to close those gaps.
+## 1. Acquire the exact release inputs
 
-## Existing provisioned installation
+Run in the **Android Termux app's native shell**, not inside Linux or PRoot. The initial package command is only for missing Git/Python and does not request a broad package upgrade:
+
+```sh
+if ! command -v git >/dev/null; then
+  pkg install git
+fi
+if ! command -v python3 >/dev/null; then
+  pkg install python
+fi
+cd "$HOME"
+git clone --branch v0.1.0-alpha.2 --depth 1 https://github.com/loopy-lim/termux-omarchy.git termux-omarchy-alpha2
+cd termux-omarchy-alpha2
+python3 -B installer/verify.py
+python3 -B tools/acquire_distribution.py --plan
+export OMARCHY_ASSETS="$HOME/termux-omarchy-v0.1.0-alpha.2-assets"
+python3 -B tools/acquire_distribution.py --output "$OMARCHY_ASSETS"
+```
+
+The output must be a new absolute path under an owned directory; Termux home is suitable. The tool downloads 88 pinned files and copies 2 verified local manifests into the exact 90-file asset tree. It does not unpack or install them. Existing and partial directories are refused without removal; keep a failed attempt and choose a new path. Keep the full asset tree in native Termux storage so ownership and permission checks remain meaningful.
+
+Hashes identify reviewed bytes, not trusted signers. Native APT uses its existing trusted keys; guest packages require valid detached signatures against the guest's existing trusted keyring. The tools do not disable signature checks or import arbitrary keys.
+
+## 2. Install the exact APK through Android
+
+Save work before changing Termux:X11: installing an application that shares Termux's UID can interrupt its processes. If an earlier desktop or mismatched companion exists, stop and review it before changing anything.
+
+Request Android's installer for the exact acquired APK:
+
+```sh
+termux-open --view --content-type application/vnd.android.package-archive "$OMARCHY_ASSETS/input/termux-x11.apk"
+```
+
+This opens Android's consent flow; it does not approve installation automatically. Review the prompt and allow installation from this source if requested and intended. It does not require exposing Termux home or granting shared-storage access. Preserve application data and stop on any package/certificate conflict. The installer later checks the installed base APK's exact hash against this release; another nightly APK is not a substitute.
+
+The public upstream development signing identity is not an exclusive publisher identity. Matching it allows shared-UID compatibility but does not authenticate this fork as an official Termux release. The APK and the source-built companion must stay paired. See [the signing notes](../input/full_build/SIGNING.md).
+
+## 3. Prepare missing native dependencies
+
+Return to the native Termux shell. If Android restarted it, return to the source directory and restore the asset path:
+
+```sh
+cd "$HOME/termux-omarchy-alpha2"
+export OMARCHY_ASSETS="$HOME/termux-omarchy-v0.1.0-alpha.2-assets"
+python3 -B installer/native.py --check
+# Run only to install the reported missing native dependencies:
+python3 -B installer/native.py --apply
+python3 -B installer/native.py --check
+```
+
+The explicit apply refreshes signed APT metadata, adds the official X11 repository package if missing, and installs missing dependencies. Existing package versions are constrained; upgrades and removals are refused. PRoot-Distro 5.8 and reviewed 5.9.0 are supported. There is no full upgrade, global PIP install, APK install or automatic service start. A dependency conflict needs review rather than bypassing these guards. The exact release companion is handled by the asset installer, not a generic repository nightly.
+
+## 4. Apply fresh desktop assets
+
+```sh
+python3 -B installer/install.py --check --assets "$OMARCHY_ASSETS"
+python3 -B installer/install.py --apply --assets "$OMARCHY_ASSETS"
+```
+
+The check validates the source and complete local asset tree. Apply additionally verifies native context, API/KGSL access, required packages, the exact installed APK and fresh state. It installs only the audited local companion when absent, or accepts its exact reviewed version/files; another companion is preserved and refused. It then installs the desktop components and launcher. Unexpected hashes, ownership, symlinks and existing desktop state are blockers.
+
+`installed-components` means the component installation finished. It does not mean a window appeared or that physical acceptance passed. The installer does not start the desktop, grant Android permissions, enable accessibility, change OEM policy or import personal profiles. Do not overwrite component files manually or remove existing state to bypass a refusal.
+
+## 5. Start and check the desktop
+
+```sh
+loopy-omarchy start
+loopy-omarchy status
+loopy-omarchy doctor
+```
+
+Complete any intended Android keyboard/input-method or accessibility consent explicitly in Android settings. Generic KeyBridge/Caps configuration is unresolved and optional; its helper defaults off. The standard installation does not enable those mappings or copy a private opt-in marker.
+
+On the target device, check displayed GPU output, audible playback, keyboard press/release and Hangul input, physical click, movement → two-finger scroll → release → movement, app return, and normal stop/start. OEM shortcuts and background process policy are separate choices with saved original values and restoration; see [permissions](PERMISSIONS.md). Fresh candidate GUI acceptance, sustained 60/144 FPS, measured latency and reboot behavior remain unverified.
+
+## Daily use
 
 Open Android **Termux**, then run `loopy-omarchy`. Run it from the native Termux shell, not a Foot terminal inside Linux or a separate PRoot login. It starts a stopped session or returns to the current one.
 

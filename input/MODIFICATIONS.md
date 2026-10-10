@@ -4,8 +4,8 @@ Local input changes were made for Termux Omarchy by **loopy-lim and
 contributors, October 2026**. They are distributed under the original-project
 GPL-3.0-only terms, subject to the retained upstream/per-file notices and the
 repository legal inventory. This notice accompanies the exact reviewed source
-bytes so their provenance hashes remain useful. It is not an assertion that a
-complete corresponding-source Android rebuild has been verified.
+bytes so their provenance hashes remain useful. Historical APK identities and
+the new clean-source build are recorded separately in the source inventory.
 
 | File or group | Modification date | Local modification |
 | --- | --- | --- |
@@ -23,6 +23,7 @@ complete corresponding-source Android rebuild has been verified.
 | `patches/termux-x11-input.patch` | 2026-10-10 | Source equivalent of maintained input changes, sharedUid service process and native language fallback delta |
 | `compile-stubs/` | 2026-10-10 | Compilation signatures only, excluded from packaged classes |
 | `build.py`, documentation, `tests/input/` | 2026-10-10 | Portable source checks and adapted host replays; outputs moved to temporary directories, private paths/receipts removed |
+| `full_build/driver.py`, `archive.py`, and build patches | 2026-10-10 | Pinned recursive source build, unsigned Gradle output, certificate-only companion metadata, NDK include repair, fork version/attribution, runtime dependency sources and complete-source export |
 
 `upstream/` files are unmodified snapshots at Termux:X11 commit
 `6d3c6883265b4ec8092673e6d2d61ef86cab5405`, with public source URLs and individual

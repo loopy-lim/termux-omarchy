@@ -1,0 +1,18 @@
+--- a/shell-loader/companion-package.gradle
++++ b/shell-loader/companion-package.gradle
+@@ -21,10 +21,11 @@
+ import org.apache.tools.ant.filters.ReplaceTokens
+ 
+ import java.security.MessageDigest
+ 
+ def pkgName = 'termux-x11-nightly'
+-def pkgVersion = (file("$rootDir/lorie/version.gradle").text =~ /version = "([^"]+)"/)[0][1] + '-0'
+-def pkgDescription = 'Companion package for termux-x11 app'
+-def pkgHomepage = 'https://github.com/termux/termux-x11'
+-def pkgMaintainer = 'Twaik Yont @twaik'
++// Modified for the Termux Omarchy input source alpha, 2026-10-10.
++def pkgVersion = '1.03.01+omarchy.input-alpha.1-0'
++def pkgDescription = 'Termux Omarchy input source alpha companion (Termux:X11 fork)'
++def pkgHomepage = 'https://github.com/loopy-lim/termux-omarchy'
++def pkgMaintainer = 'Termux Omarchy contributors'
+ def pkgDepends = 'xkeyboard-config'

@@ -12,7 +12,7 @@ import omarchy_tools_install as packages
 
 COMPONENT = guest.Component(
     '9f26836651238aa8cebae609c9b9b8774b367ad07b817ebbd054466b5db35e92', 10240,
-    '319dcdfb751420c69a0b55fca7d1dbb94d4c1e71b078957f6ab56d62f1b54fea', 843,
+    '3281b825782d4291ca2fe4ef14d7e72c15d2906c171c9847edfbe3e6c6eb2fcd', 1035,
     'guest-korean-input-config', 'input-config-install.json', (
         ('home/omarchy/.config/hypr/autostart.lua', 0o644),
     ))

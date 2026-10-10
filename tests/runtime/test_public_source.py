@@ -20,7 +20,7 @@ class PublicSourceTests(unittest.TestCase):
         for name in ('runtime', 'profiles', 'installer', 'tests/runtime'):
             shutil.copytree(ROOT / name, target / name)
         (target / 'manifests').mkdir()
-        for name in ('runtime-sources.json', 'runtime-prerequisites.json'):
+        for name in ('runtime-sources.json', 'runtime-prerequisites.json', 'distribution.json', 'companion.json'):
             shutil.copyfile(ROOT / 'manifests' / name, target / 'manifests' / name)
 
     def test_complete_source_tree_verifies_without_binary_payloads(self):

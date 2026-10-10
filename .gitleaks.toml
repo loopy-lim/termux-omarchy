@@ -1,4 +1,4 @@
-title = "Source alpha secret scan"
+title = "Source and distribution preparation secret scan"
 
 [extend]
 useDefault = true
@@ -9,3 +9,10 @@ targetRules = ["generic-api-key"]
 condition = "AND"
 paths = ['''^input/patchers/termux_x11_process\.py$''']
 regexes = ['''^baa3be71c3b73505d78f91e0c9acb1ef3e12fbb7ca5b589a2c523b03d6b51f91$''']
+
+[[allowlists]]
+description = "Exact public file checksums for the reviewed Android API 28 build inputs"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''^native/guard/sources\.lock\.json$''']
+regexes = ['''^(?:68683605a8008173792fbf34feba1fdb680ecccf48ea9f8a95ba1b2b086430f2|04b3757725dc84f95e0980831b879e02850559c37246ea7d3c3513077078dc3b)$''']

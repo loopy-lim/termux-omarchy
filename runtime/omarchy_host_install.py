@@ -13,10 +13,10 @@ import uuid
 
 import omarchy_install as base
 
-PAYLOAD_SHA = '939ad9f94b1cfe96d4472b3c3bb9323c8ec9191d8c88fa2fca3e2064c273f728'
-PAYLOAD_BYTES = 2979840
-MANIFEST_SHA = '6c07cb0968ef9aef7caaefc311aeaffe119290957eb5bbf11245d860f1155c3d'
-MANIFEST_BYTES = 13376
+PAYLOAD_SHA = 'c7ec1e2ebac5e55e497ecf7085054ade951abba61bfd29985d43872664fc3414'
+PAYLOAD_BYTES = 2867200
+MANIFEST_SHA = 'e1bdf027771e448b8f28d30c05a4fe473643992cddf4d3beb407beddfd71e9ee'
+MANIFEST_BYTES = 13377
 DEB_SHA = '25d1c5ee4013e14097d6e37a3227d6fcef8f43d6d7a2dd0ee130a77e1af31c8a'
 SOURCE_URL = 'https://github.com/lfdevs/anland-termux/releases/download/5.13.3/weston_14.0.2-3_aarch64.deb'
 JOURNAL = 'weston-install.json'

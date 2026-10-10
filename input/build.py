@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the source inventory; APK reconstruction deliberately fails closed."""
+"""Verify source inventory; historical APK byte reconstruction remains unavailable."""
 import argparse
 import hashlib
 import json
@@ -55,7 +55,7 @@ def main():
         print("SOURCE_CHECK_FAILED: " + str(error), file=sys.stderr)
         return 1
     if args.build:
-        print("APK_BUILD_BLOCKED: this source-only developer alpha does not reconstruct the installed APK.",
+        print("APK_BUILD_BLOCKED: historical APK reconstruction is unavailable; use input/full_build/driver.py for a new source build.",
               file=sys.stderr)
         for gap in report["gaps"]:
             print("- " + gap["id"] + ": " + gap["detail"], file=sys.stderr)

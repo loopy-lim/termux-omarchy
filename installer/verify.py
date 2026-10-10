@@ -10,6 +10,8 @@ import stat
 
 ROOT = Path(__file__).resolve().parents[1]
 ALLOWED = ('runtime/', 'profiles/', 'installer/', 'tests/runtime/')
+MANIFESTS = ('manifests/runtime-prerequisites.json', 'manifests/distribution.json',
+             'manifests/companion.json')
 
 
 def require(condition, reason):
@@ -67,7 +69,7 @@ def validate(root=ROOT):
     require(isinstance(files, dict) and 1 <= len(files) <= 256, 'source-manifest')
     data = {}
     for name, row in files.items():
-        require(name.startswith(ALLOWED) or name == 'manifests/runtime-prerequisites.json',
+        require(name.startswith(ALLOWED) or name in MANIFESTS,
                 'source-path')
         require(isinstance(row['sha256'], str) and re.fullmatch('[a-f0-9]{64}', row['sha256'])
                 and isinstance(row['bytes'], int), 'source-manifest')

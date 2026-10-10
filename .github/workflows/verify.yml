@@ -1,4 +1,4 @@
-name: Source alpha checks
+name: Publication checks
 
 on:
   push:

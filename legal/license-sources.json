@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "reviewed": "2026-10-10",
-  "scope": "Verbatim license texts for source copied into this source alpha; not a binary-release BOM",
+  "scope": "Verbatim licenses for copied source and clean native build inputs; source archives retain further per-file upstream notices.",
   "licenses": [
     {
       "path": "licenses/termux-x11-GPL-3.0.txt",
@@ -52,6 +52,22 @@
       "path": "licenses/GPL-2.0.txt",
       "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
       "bytes": 18092
+    },
+    {
+      "path": "licenses/talloc-LGPL-3.0-or-later.txt",
+      "primaryURL": "https://download.samba.org/pub/talloc/talloc-2.4.3.tar.gz",
+      "upstreamPin": "2.4.3 (verbatim LICENSE in the pinned archive)",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "bytes": 7651,
+      "verbatim": true
+    },
+    {
+      "path": "licenses/libandroid-shmem-BSD-3-Clause.txt",
+      "primaryURL": "https://raw.githubusercontent.com/termux/libandroid-shmem/7f0bd7e25dbdd146265aff7c6a890029e374622d/LICENSE",
+      "upstreamPin": "7f0bd7e25dbdd146265aff7c6a890029e374622d",
+      "sha256": "0dd43abe17196b0224cb0b159819af798cd508a82a21e5870126fff4e899a7eb",
+      "bytes": 1529,
+      "verbatim": true
     }
   ]
 }

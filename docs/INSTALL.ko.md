@@ -2,25 +2,98 @@
 
 [English](INSTALL.md) · [한국어 README](../README.ko.md)
 
-## 이번 공개 범위
+## 실험용 설치 범위
 
-이번 소스 알파는 코드 검토·회귀 검사·후속 개발용입니다. **새 태블릿에 곧바로 설치하는 완성 배포판은 아닙니다.** 이전 설치 묶음에는 최신 입력 변경이 없고, 일부 바이너리 입력 생성도 이 저장소만으로 재현되지 않습니다. 이전 묶음을 최신 완성본으로 사용하지 마세요.
+[v0.1.0-alpha.2](https://github.com/loopy-lim/termux-omarchy/releases/tag/v0.1.0-alpha.2)는 고정된 바이너리 배포 경로를 제공합니다. **이 후보는 새 기기 GUI 수락 검증을 통과하지 않았으며 `fullFreshInstallVerified`는 `false`입니다.** 배포 자산을 받아 적용하는 사용자에게는 NDK나 Android SDK가 필요하지 않습니다.
 
-설치 코드는 해시·소유자·경로·기존 상태를 검사합니다. 입력 파일이 없으면 해당 준비 작업을 마쳐야 하며, 검사를 끄고 진행하지 않습니다. 실행 중인 설치에 파일을 직접 덮어쓰면 런타임 소유 정보·해시와 달라질 수 있습니다.
+필요한 조건은 다음과 같습니다.
 
-## 새 설치에 필요한 조건
+- Android 기본 사용자의 ARM64 환경, API 28 이상과 Termux가 접근할 수 있는 Adreno `/dev/kgsl-3d0` 장치
+- 기존에 신뢰하는 서명 Termux APT 소스를 사용하는 **GitHub 서명 계열**의 네이티브 Termux. 첫 단계에서 Git·네이티브 Python 3가 없으면 준비합니다.
+- 이전 관리 런타임·PRoot 컨테이너·launcher·불일치하는 Termux:X11 companion이 없는 새 데스크톱 상태
+- Android 설치 동의와 수락 검증용 물리 키보드·트랙패드
 
-- ARM64 Android와 서로 호환되는 Termux·Termux:X11
-- 고정한 목록에 맞는 native Python·PRoot-Distro·그래픽·오디오 구성요소
-- 해시가 맞는 upstream Omarchy Android 묶음과 검증한 native·guest 입력
-- shared UID를 쓸 경우 서로 맞는 APK 서명
-- 물리 키보드·트랙패드 시험과 선택 입력 서비스의 Android 최초 동의
+다운로드와 게스트 압축 해제를 위해 여유 공간 8 GiB 이상을 계획하세요. 측정한 최대 사용량이 아닌 준비용 여유분입니다.
 
-시험 설치는 GitHub Termux 서명 계열을 사용했습니다. F-Droid·Google Play·GitHub APK를 섞으면 shared UID·업데이트 서명이 맞지 않을 수 있습니다. 출처 변경을 고려한다면 먼저 기존 Termux 데이터를 백업하고 [공식 Termux 설치 안내](https://github.com/termux/termux-app#installation)와 [Termux:X11 안내](https://github.com/termux/termux-x11)를 확인하세요.
+F-Droid·Google Play·GitHub 서명 계열은 서로 교환할 수 없습니다. 서명 충돌은 중단 조건이며 호환성을 강제로 맞추려고 앱을 삭제하거나 데이터를 지우면 안 됩니다. 기존 비공개 데스크톱 상태와 예상하지 못한 companion 버전·파일은 보존하고 거부합니다. 이번 릴리스는 마이그레이션을 지원하지 않습니다. [공식 Termux 설치 안내](https://github.com/termux/termux-app#installation)와 [Termux:X11 안내](https://github.com/termux/termux-x11)를 참고하세요.
 
-정확한 소스 고정과 남은 빌드 입력은 manifest 및 [입력 소스 문서](../input/README.md)에 있습니다. APK와 전체 rootfs는 이번 배포에 포함하지 않았습니다. [개발 문서](DEVELOPMENT.ko.md)에 완성 배포 전 단계를 정리했습니다.
+## 1. 정확한 릴리스 입력 받기
 
-## 기존 설치에서 여는 방법
+Linux나 PRoot 내부가 아닌 **Android Termux 앱의 네이티브 셸**에서 실행합니다. 첫 패키지 명령은 Git·Python이 없을 때만 실행하며 전체 패키지 업그레이드를 요청하지 않습니다.
+
+```sh
+if ! command -v git >/dev/null; then
+  pkg install git
+fi
+if ! command -v python3 >/dev/null; then
+  pkg install python
+fi
+cd "$HOME"
+git clone --branch v0.1.0-alpha.2 --depth 1 https://github.com/loopy-lim/termux-omarchy.git termux-omarchy-alpha2
+cd termux-omarchy-alpha2
+python3 -B installer/verify.py
+python3 -B tools/acquire_distribution.py --plan
+export OMARCHY_ASSETS="$HOME/termux-omarchy-v0.1.0-alpha.2-assets"
+python3 -B tools/acquire_distribution.py --output "$OMARCHY_ASSETS"
+```
+
+출력은 소유한 디렉터리 아래의 새 절대 경로여야 하며 Termux 홈이 적합합니다. 고정한 파일 88개를 내려받고 로컬 manifest 2개를 검증해 복사하여 정확한 90개 파일 트리를 만듭니다. 압축 해제나 설치는 하지 않습니다. 기존·부분 출력은 삭제 없이 거부하므로 실패한 시도는 보존하고 새 경로를 선택하세요. 소유자·권한 검사가 유효하도록 전체 자산 트리는 네이티브 Termux 저장소에 유지합니다.
+
+해시는 검토한 바이트의 식별자이며 신뢰된 서명자를 증명하지 않습니다. 네이티브 APT는 기존 신뢰 키를 사용하고 게스트 패키지는 기존 신뢰 키링으로 분리 서명을 검증해야 합니다. 도구는 서명 검사를 끄거나 임의의 키를 가져오지 않습니다.
+
+## 2. Android 동의로 정확한 APK 설치
+
+Termux:X11을 바꾸기 전에 작업을 저장하세요. Termux와 UID를 공유하는 앱의 설치는 관련 프로세스를 중단할 수 있습니다. 이전 데스크톱이나 불일치하는 companion이 있으면 변경 전에 중단하고 검토하세요.
+
+정확히 받은 APK에 대해 Android 설치 화면을 요청합니다.
+
+```sh
+termux-open --view --content-type application/vnd.android.package-archive "$OMARCHY_ASSETS/input/termux-x11.apk"
+```
+
+이 명령은 Android 동의 화면을 열며 설치를 자동 승인하지 않습니다. 안내를 검토하고 요청받았으며 설치하려는 경우에만 이 출처의 앱 설치를 허용하세요. Termux 홈 공개나 공유 저장소 접근 권한은 필요하지 않습니다. 앱 데이터를 보존하고 패키지·인증서 충돌이 있으면 중단합니다. 설치기는 설치된 base APK의 정확한 해시를 이 릴리스와 비교하므로 다른 nightly APK로 대체할 수 없습니다.
+
+공개된 업스트림 개발 서명 식별자는 독점적인 배포자 신원이 아닙니다. 일치하는 인증서는 shared UID 호환성을 제공하지만 이 포크를 공식 Termux 릴리스로 인증하지는 않습니다. APK와 소스에서 빌드한 companion은 한 쌍으로 유지해야 합니다. [서명 안내](../input/full_build/SIGNING.md)를 참고하세요.
+
+## 3. 누락된 네이티브 의존성 준비
+
+네이티브 Termux 셸로 돌아옵니다. Android가 셸을 다시 시작했다면 소스 디렉터리와 자산 경로를 복원하세요.
+
+```sh
+cd "$HOME/termux-omarchy-alpha2"
+export OMARCHY_ASSETS="$HOME/termux-omarchy-v0.1.0-alpha.2-assets"
+python3 -B installer/native.py --check
+# 보고된 누락 네이티브 의존성을 설치할 때만 실행:
+python3 -B installer/native.py --apply
+python3 -B installer/native.py --check
+```
+
+명시적 apply는 서명된 APT 메타데이터를 갱신하고 공식 X11 저장소 패키지가 없으면 추가한 뒤 누락된 의존성을 설치합니다. 기존 패키지는 현재 버전에 고정하고 업그레이드·제거를 거부합니다. PRoot-Distro 5.8과 검토한 5.9.0을 지원합니다. 전체 업그레이드·전역 PIP 설치·APK 설치·서비스 자동 시작은 하지 않습니다. 의존성 충돌은 검토해야 하며 검사를 우회하면 안 됩니다. 정확한 릴리스 companion은 일반 저장소 nightly가 아닌 자산 설치기가 처리합니다.
+
+## 4. 새 데스크톱 자산 적용
+
+```sh
+python3 -B installer/install.py --check --assets "$OMARCHY_ASSETS"
+python3 -B installer/install.py --apply --assets "$OMARCHY_ASSETS"
+```
+
+check는 소스와 전체 로컬 자산 트리를 검증합니다. apply는 추가로 네이티브 실행 환경, API·KGSL 접근, 필수 패키지, 정확히 설치된 APK와 새 설치 상태를 검사합니다. 검토한 로컬 companion이 없으면 설치하고 정확한 검토 버전·파일이면 허용합니다. 다른 companion은 보존하고 거부합니다. 그 뒤 데스크톱 구성요소와 launcher를 설치합니다. 예상하지 못한 해시·소유자·symlink·기존 데스크톱 상태는 중단 조건입니다.
+
+`installed-components`는 구성요소 설치가 끝났다는 뜻이며 화면 표시나 물리 수락 검증 성공을 뜻하지 않습니다. 설치기는 데스크톱 시작·Android 권한 부여·접근성 활성화·OEM 정책 변경·개인 프로필 가져오기를 하지 않습니다. 거부를 우회하기 위해 파일을 직접 덮어쓰거나 기존 상태를 지우지 마세요.
+
+## 5. 데스크톱 시작과 확인
+
+```sh
+loopy-omarchy start
+loopy-omarchy status
+loopy-omarchy doctor
+```
+
+사용하려는 Android 키보드·입력기·접근성 동의는 Android 설정에서 명시적으로 완료합니다. 일반 사용자용 KeyBridge/Caps 설정은 미해결된 선택 기능이며 helper는 기본으로 꺼져 있습니다. 기본 설치는 해당 매핑을 켜거나 개인 opt-in marker를 복사하지 않습니다.
+
+대상 기기에서 GPU의 실제 화면 출력, 들리는 오디오, 키 누름·해제와 한글 입력, 물리 클릭, 이동→두 손가락 스크롤→손 떼기→다시 이동, 앱 복귀, 정상 종료·시작을 확인하세요. OEM 단축키와 백그라운드 프로세스 정책은 원래 값과 복구 방법을 보존하는 별도 선택입니다. [권한 안내](PERMISSIONS.ko.md)를 참고하세요. 새 후보의 GUI 수락, 지속 60/144 FPS, 지연 측정과 재부팅 동작은 미검증입니다.
+
+## 다음 실행
 
 Android의 **Termux 앱 기본 셸**에서 `loopy-omarchy`를 실행하세요. Linux 안의 Foot 터미널이나 별도 PRoot 셸에서 실행하는 명령이 아닙니다. 실행 중이면 기존 세션으로 돌아가고, 멈춰 있으면 시작합니다.
 

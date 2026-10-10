@@ -1,0 +1,69 @@
+{
+  "component": "guest-korean-input",
+  "packages": [
+    {
+      "bytes": 8729248,
+      "file": "fcitx5-5.1.23-1-aarch64.pkg.tar.xz",
+      "name": "fcitx5",
+      "sha256": "193ed425324cc6fa52a8a718aee9f3060b9d45b36312693e42507fd028510bf8",
+      "signatureBytes": 566,
+      "signatureSHA256": "6a6fe931c497d709f43ed1a7090ff2096f6ba0e6f6225f49b9b28b2f91f8e004",
+      "version": "5.1.23-1"
+    },
+    {
+      "bytes": 71600,
+      "file": "fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz",
+      "name": "fcitx5-gtk",
+      "sha256": "385425465f3d44fb92d46ffc522b00d96ab31bdb342f94b48a25f946fd140dab",
+      "signatureBytes": 566,
+      "signatureSHA256": "9733c1c376b4ba27d8de88684aa3a695e7ac74628773095a5bbbbc239fcb4c2b",
+      "version": "5.1.7-1"
+    },
+    {
+      "bytes": 57540,
+      "file": "fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz",
+      "name": "fcitx5-hangul",
+      "sha256": "27c2f6b871b1af910162cbbba4fc4b67b2cb380d5ffe29ab035aed4e886c8647",
+      "signatureBytes": 566,
+      "signatureSHA256": "7228afe7306dfc3e8e94c8b15ff0cfb59f15aea3e8806e8bbc3511f36c8e53a1",
+      "version": "5.1.11-1"
+    },
+    {
+      "bytes": 404072,
+      "file": "fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz",
+      "name": "fcitx5-qt",
+      "sha256": "297392839b9cfebcbfd1405ae4aedb90999cb51eedc6ae20f7433f3eefdc527e",
+      "signatureBytes": 566,
+      "signatureSHA256": "2599a7f64a8c1ef9718f1273f46b40b91f39525e4b51ffcb30c3edc9f2e20cc3",
+      "version": "5.1.16-1"
+    },
+    {
+      "bytes": 1853200,
+      "file": "libhangul-0.2.0-1-aarch64.pkg.tar.xz",
+      "name": "libhangul",
+      "sha256": "816be6e912bd5f1dd7a8155a0d9571019f2ee04dd4548e88b421fcb5f5003a3c",
+      "signatureBytes": 566,
+      "signatureSHA256": "339fe7e3bd8fe4ebd7e3c848434c231dde41b5ac49a557034b3655139f1ef46f",
+      "version": "0.2.0-1"
+    },
+    {
+      "bytes": 287420,
+      "file": "xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz",
+      "name": "xcb-imdkit",
+      "sha256": "135b8a9ea48a2a205e166561a102300a552fd8bfb5fc911c3676321316a7a3bf",
+      "signatureBytes": 566,
+      "signatureSHA256": "41ecc6285dbf14ad29ae6288e64a513159da76a3119f0ac013c638dd7e1f2a2a",
+      "version": "1.0.9-1"
+    },
+    {
+      "bytes": 81480,
+      "file": "yoga-3.2.1-1-aarch64.pkg.tar.xz",
+      "name": "yoga",
+      "sha256": "f7e2e7016a042bd1cc5481ff96b9c242bc5da4f1cdbd480bb8cf088c9eed4a11",
+      "signatureBytes": 566,
+      "signatureSHA256": "d2578cd13813f3d25199287af14ea80d7c3c8e6e53e28246c91d45611537f0ca",
+      "version": "3.2.1-1"
+    }
+  ],
+  "schema": 1
+}

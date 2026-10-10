@@ -1,0 +1,25 @@
+--- a/shell-loader/build.gradle
++++ b/shell-loader/build.gradle
+@@ -27,9 +27,10 @@
+ 
+ configurations.configureEach { exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib" }
+ 
+-def signingConfig = project(':lorie-app').android.signingConfigs.debug
+-def keyStore = java.security.KeyStore.getInstance(java.security.KeyStore.getDefaultType())
+-keyStore.load(new FileInputStream(signingConfig.storeFile), signingConfig.keyPassword.toCharArray())
++// Unsigned source builds need public certificate metadata, not signing key material.
++// SHA-256: b6da01480eefd5fbf2cd3771b8d1021ec791304bdd6c4bf41d3faabad48ee5e1
++// Derived as java.util.Arrays.hashCode of the pinned public certificate DER.
++def termuxPublicCertificateSignatureHash = -611922116
+ 
+ ext.targetApplicationId = "com.termux.x11"
+ ext.embeddedApplicationId = "com.termux"
+@@ -37,7 +38,7 @@
+ android.defaultConfig.buildConfigField "String", "APPLICATION_ID", "\"$targetApplicationId\""
+ android.defaultConfig.buildConfigField "String", "EMBEDDED_APPLICATION_ID", "\"$embeddedApplicationId\""
+ android.defaultConfig.buildConfigField "String", "logTag", "\"Termux:X11 loader\""
+-android.defaultConfig.buildConfigField "int", "SIGNATURE", String.valueOf(Arrays.hashCode(keyStore.getCertificate(signingConfig.keyAlias).getEncoded()))
++android.defaultConfig.buildConfigField "int", "SIGNATURE", String.valueOf(termuxPublicCertificateSignatureHash)
+ android.defaultConfig.buildConfigField "String", "CLASS_ID", "\"com.termux.x11.CmdEntryPoint\""
+ android.defaultConfig.buildConfigField "String", "packageNotInstalledErrorText",
+         """\"Termux:X11 application is not found.\\n\" +

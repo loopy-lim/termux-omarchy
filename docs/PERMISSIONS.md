@@ -1,6 +1,6 @@
 # Android permissions and policy
 
-[README](../README.md) · [Installation](INSTALL.md)
+[한국어](PERMISSIONS.ko.md) · [README](../README.md) · [Installation](INSTALL.md)
 
 ## Keyboard ownership
 
@@ -18,7 +18,7 @@ Input capture must release correctly when leaving the desktop and recover on ret
 | OEM settings | Device-specific shortcuts | Verify the actual firmware consumer and restoration |
 | Root/custom OS | Deeper input and process policy control | Separate device-specific project; not required or delivered here |
 
-This release does not auto-grant permissions, configure device ownership, flash firmware, or silently change global Android policy.
+This release does not auto-grant permissions, configure device ownership, flash firmware, or silently change global Android policy. After installing the reviewed APK, open Android's Accessibility settings and explicitly enable its Termux:X11 key interceptor if that service is required for reserved shortcut delivery. Android may require allowing restricted settings for a manually installed APK. Review the service and its access before consenting; a successfully installed APK alone is not a shortcut acceptance test.
 
 ## Meta+L on the test firmware
 

@@ -12,7 +12,7 @@ HOME = Path('/data/data/com.termux/files/home')
 PREFIX = Path('/data/data/com.termux/files/usr')
 PROC_STATUS = Path('/proc/self/status')
 BUNDLE_SHA = '7e9f1cd67533bc0d3988b5cb3831aef52f1527dd90391d9d868ed9345021cdb2'
-RUNTIME_SHA = {'omarchy_proot.py': '4240de2a165af00be564f449c047a0e46614f4e9f4e1943756aa5d20f6e4d03a',
+RUNTIME_SHA = {'omarchy_proot.py': 'b4be3b4d0bd2fe4cafb2a852e04a776803721a251ea455d410d3f3c1c57b5f52',
  'omarchy_commands.py': '81dd805e093d061f8159b2953fd2ebde553d90e10f31fe94412610e4ddc167fd',
  'omarchy.py': '304996e5d33c770a4d9cf2c28c6309bc0843af9d283b99a50d93d0e88707909f',
  'processes.py': 'fd9b51ebb267782ab4a5151298202b589f19f5bde2ebae6c515e16d484df7e5a',

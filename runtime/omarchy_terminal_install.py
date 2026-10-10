@@ -12,7 +12,7 @@ import sys
 import types
 import uuid
 
-SOURCE_SHA = '43bb3604958581ac522505e4c2c3a88acd763fb3d4e7ba7b657f698c91509bdc'
+SOURCE_SHA = 'f1f7345b1015948c1474f45f49045eca9ba5258fe5665b8991f1fee133cb85e4'
 PREVIOUS_SOURCE_SHA = 'c7728ffab73c97305f698a9eb2ca7f4abff7d092c509d8826a59118debde1dfe'
 JOURNAL = 'terminal-command-update.json'
 NOFOLLOW = os.O_NOFOLLOW | os.O_CLOEXEC

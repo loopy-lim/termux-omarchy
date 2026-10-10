@@ -1,6 +1,6 @@
 """Install one pinned Omarchy bundle without executing its installer or runtime.
 
-Guest rootfs extraction belongs to PRoot-Distro 5.8; its absolute symlinks are
+Guest rootfs extraction belongs to reviewed PRoot-Distro 5.8/5.9.0; its absolute symlinks are
 never extracted on the host here. An uncertain install is retained and refused.
 """
 import argparse
@@ -46,7 +46,7 @@ HOST_FILES = {
     'licenses/weston/COPYING': 'host/share/licenses/weston/COPYING',
 }
 NOFOLLOW = os.O_NOFOLLOW | os.O_CLOEXEC
-RUNTIME_SHA = {'omarchy_proot.py': '4240de2a165af00be564f449c047a0e46614f4e9f4e1943756aa5d20f6e4d03a',
+RUNTIME_SHA = {'omarchy_proot.py': 'b4be3b4d0bd2fe4cafb2a852e04a776803721a251ea455d410d3f3c1c57b5f52',
  'omarchy_commands.py': '81dd805e093d061f8159b2953fd2ebde553d90e10f31fe94412610e4ddc167fd',
  'omarchy.py': '304996e5d33c770a4d9cf2c28c6309bc0843af9d283b99a50d93d0e88707909f',
  'processes.py': 'fd9b51ebb267782ab4a5151298202b589f19f5bde2ebae6c515e16d484df7e5a',
@@ -62,6 +62,11 @@ RUNTIME_SHA = {'omarchy_proot.py': '4240de2a165af00be564f449c047a0e46614f4e9f4e1
 def require(value, code='omarchy-install-boundary'):
     if not value:
         raise ValueError(code)
+
+
+def supported_proot_version(value):
+    """5.9.0 retains the reviewed 5.8 install, argv and container layout APIs."""
+    return isinstance(value, str) and re.fullmatch(r'(?:5\.8(?:\.[0-9]+)?|5\.9\.0)(?:-[0-9]+)?', value) is not None
 
 
 def identity(row):
@@ -399,7 +404,7 @@ def install(archive, home, prefix, *, sources=None):
         version = subprocess.run([str(query), '-W', '-f=${Version}', 'proot-distro'], shell=False, env=env, stdin=subprocess.DEVNULL,
                                  capture_output=True, text=True, timeout=10, check=False)
         require(version.returncode == 0 and len(version.stdout) <= 128
-                and re.fullmatch(r'5\.8(?:\.[0-9]+)?(?:-[0-9]+)?', version.stdout.strip()), 'omarchy-proot-version')
+                and supported_proot_version(version.stdout.strip()), 'omarchy-proot-version')
         if row['phase'] == 'NEW':
             row['phase'] = 'STAGING'
             save(root_fd, row)

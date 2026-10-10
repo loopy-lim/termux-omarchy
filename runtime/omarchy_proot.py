@@ -6,9 +6,9 @@ from pathlib import Path
 import stat
 
 FILES = {
-    'proot': 'bdb15a8388038e2d1211ab6dd4d35fdf0bf3d9550cd03b24031eb4ba1de8c5c2',
+    'proot': 'e7513171f00d0052b2b36caedd1add559eec463d16b8b4024142671a3a92cf5d',
     'loader': '95a47c09e5401637ce034304362bd179682fba470a9dab78d8be0a56d1f0745c',
-    'libandroid-shmem.so': '84475798e07c8174dbbfaec70a827fdb02f19ffa69a589380c13e7507fd0e731',
+    'libandroid-shmem.so': 'd71edd4c1a03095c2585f95377ffff6b83f4c2f6c8bebbaa1964c7d13756594c',
 }
 MODES = {'proot': 0o700, 'loader': 0o700, 'libandroid-shmem.so': 0o600}
 NOFOLLOW = os.O_NOFOLLOW | os.O_CLOEXEC

@@ -1,0 +1,717 @@
+{
+  "artifacts": {
+    "ime-fcitx5": {
+      "bytes": 8729248,
+      "file": "fcitx5-5.1.23-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "193ed425324cc6fa52a8a718aee9f3060b9d45b36312693e42507fd028510bf8",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-5.1.23-1-aarch64.pkg.tar.xz"
+    },
+    "ime-fcitx5-gtk": {
+      "bytes": 71600,
+      "file": "fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "385425465f3d44fb92d46ffc522b00d96ab31bdb342f94b48a25f946fd140dab",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz"
+    },
+    "ime-fcitx5-gtk-signature": {
+      "bytes": 566,
+      "file": "fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "9733c1c376b4ba27d8de88684aa3a695e7ac74628773095a5bbbbc239fcb4c2b",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz.sig"
+    },
+    "ime-fcitx5-hangul": {
+      "bytes": 57540,
+      "file": "fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "27c2f6b871b1af910162cbbba4fc4b67b2cb380d5ffe29ab035aed4e886c8647",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz"
+    },
+    "ime-fcitx5-hangul-signature": {
+      "bytes": 566,
+      "file": "fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "7228afe7306dfc3e8e94c8b15ff0cfb59f15aea3e8806e8bbc3511f36c8e53a1",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz.sig"
+    },
+    "ime-fcitx5-qt": {
+      "bytes": 404072,
+      "file": "fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "297392839b9cfebcbfd1405ae4aedb90999cb51eedc6ae20f7433f3eefdc527e",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz"
+    },
+    "ime-fcitx5-qt-signature": {
+      "bytes": 566,
+      "file": "fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "2599a7f64a8c1ef9718f1273f46b40b91f39525e4b51ffcb30c3edc9f2e20cc3",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz.sig"
+    },
+    "ime-fcitx5-signature": {
+      "bytes": 566,
+      "file": "fcitx5-5.1.23-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "6a6fe931c497d709f43ed1a7090ff2096f6ba0e6f6225f49b9b28b2f91f8e004",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fcitx5-5.1.23-1-aarch64.pkg.tar.xz.sig"
+    },
+    "ime-libhangul": {
+      "bytes": 1853200,
+      "file": "libhangul-0.2.0-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "816be6e912bd5f1dd7a8155a0d9571019f2ee04dd4548e88b421fcb5f5003a3c",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libhangul-0.2.0-1-aarch64.pkg.tar.xz"
+    },
+    "ime-libhangul-signature": {
+      "bytes": 566,
+      "file": "libhangul-0.2.0-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "339fe7e3bd8fe4ebd7e3c848434c231dde41b5ac49a557034b3655139f1ef46f",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libhangul-0.2.0-1-aarch64.pkg.tar.xz.sig"
+    },
+    "ime-xcb-imdkit": {
+      "bytes": 287420,
+      "file": "xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "135b8a9ea48a2a205e166561a102300a552fd8bfb5fc911c3676321316a7a3bf",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz"
+    },
+    "ime-xcb-imdkit-signature": {
+      "bytes": 566,
+      "file": "xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "41ecc6285dbf14ad29ae6288e64a513159da76a3119f0ac013c638dd7e1f2a2a",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz.sig"
+    },
+    "ime-yoga": {
+      "bytes": 81480,
+      "file": "yoga-3.2.1-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "f7e2e7016a042bd1cc5481ff96b9c242bc5da4f1cdbd480bb8cf088c9eed4a11",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/yoga-3.2.1-1-aarch64.pkg.tar.xz"
+    },
+    "ime-yoga-signature": {
+      "bytes": 566,
+      "file": "yoga-3.2.1-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "ime package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "d2578cd13813f3d25199287af14ea80d7c3c8e6e53e28246c91d45611537f0ca",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/yoga-3.2.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "omarchy-base": {
+      "bytes": 1181941760,
+      "file": "omarchy-android-aarch64-0.1.1.bundle.tar",
+      "licenseNote": "Third-party rootfs packages retain their individual licenses; this project does not rehost the bundle.",
+      "purpose": "Existing pinned base bundle; download is separate from installation.",
+      "sha256": "7e9f1cd67533bc0d3988b5cb3831aef52f1527dd90391d9d868ed9345021cdb2",
+      "url": "https://github.com/BlackFireAlex/omarchy-android/releases/download/v0.1.1/omarchy-android-aarch64-0.1.1.bundle.tar"
+    },
+    "release-guest-manifest-json": {
+      "bytes": 2431,
+      "file": "guest-manifest.json",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "56c62b50cfdc577659a8f4bbf9ac1645acfef0a306a494226efc46a461fa7352",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/guest-manifest.json"
+    },
+    "release-guest-payload-tar": {
+      "bytes": 153600,
+      "file": "guest-payload.tar",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "b5cb256c301935470a78bfe78db462182be5198f7af30474e836267d4d477b43",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/guest-payload.tar"
+    },
+    "release-input-config-manifest-json": {
+      "bytes": 1035,
+      "file": "input-config-manifest.json",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "3281b825782d4291ca2fe4ef14d7e72c15d2906c171c9847edfbe3e6c6eb2fcd",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/input-config-manifest.json"
+    },
+    "release-input-config-payload-tar": {
+      "bytes": 10240,
+      "file": "input-config-payload.tar",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "9f26836651238aa8cebae609c9b9b8774b367ad07b817ebbd054466b5db35e92",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/input-config-payload.tar"
+    },
+    "release-proot-guard-libandroid-shmem-so": {
+      "bytes": 14904,
+      "file": "proot-guard-libandroid-shmem.so",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "d71edd4c1a03095c2585f95377ffff6b83f4c2f6c8bebbaa1964c7d13756594c",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/proot-guard-libandroid-shmem.so"
+    },
+    "release-proot-guard-loader": {
+      "bytes": 17624,
+      "file": "proot-guard-loader",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "95a47c09e5401637ce034304362bd179682fba470a9dab78d8be0a56d1f0745c",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/proot-guard-loader"
+    },
+    "release-proot-guard-proot": {
+      "bytes": 262472,
+      "file": "proot-guard-proot",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "e7513171f00d0052b2b36caedd1add559eec463d16b8b4024142671a3a92cf5d",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/proot-guard-proot"
+    },
+    "release-proot-guard-source-tar-gz": {
+      "bytes": 2068837,
+      "file": "proot-guard-source.tar.gz",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "f23004d2684b708addf5b7f6fc2f61108b974efe0e855cbe691548e927f3bc86",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/proot-guard-source.tar.gz"
+    },
+    "release-termux-omarchy-input-shareduid-apk": {
+      "bytes": 14658439,
+      "file": "termux-omarchy-input-sharedUid.apk",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "1cebebb58a3dccb966afacb16f972a7cd49642bb52ddb3a7058593be07e6325f",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/termux-omarchy-input-sharedUid.apk"
+    },
+    "release-termux-x11-companion-deb": {
+      "bytes": 5144,
+      "file": "termux-x11-companion.deb",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "f39739d88418ff2db7d37c0e45543c10fa0aa40394c0082ff05f0d3ebfa46b85",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/termux-x11-companion.deb"
+    },
+    "release-termux-x11-source-tar-gz": {
+      "bytes": 18052499,
+      "file": "termux-x11-source.tar.gz",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "eb5ed331fd96a36d6ad5ceed93d31cf7aa9bd57fc0c2f0766ddc9d8646430b89",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/termux-x11-source.tar.gz"
+    },
+    "release-weston-payload-manifest-json": {
+      "bytes": 13377,
+      "file": "weston-payload-manifest.json",
+      "licenseNote": "Weston MIT/X.org and per-file notices retained in payload share/doc/weston/copyright; see component inventory.",
+      "purpose": "project-release-artifact",
+      "sha256": "e1bdf027771e448b8f28d30c05a4fe473643992cddf4d3beb407beddfd71e9ee",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/weston-payload-manifest.json"
+    },
+    "release-weston-payload-tar": {
+      "bytes": 2867200,
+      "file": "weston-payload.tar",
+      "licenseNote": "Weston MIT/X.org and per-file notices retained in payload share/doc/weston/copyright; see component inventory.",
+      "purpose": "project-release-artifact",
+      "sha256": "c7ec1e2ebac5e55e497ecf7085054ade951abba61bfd29985d43872664fc3414",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/weston-payload.tar"
+    },
+    "release-workflow-manifest-json": {
+      "bytes": 3213,
+      "file": "workflow-manifest.json",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "0db92c0f318d9bd3ade54649c066c3f9c396bac8b62d42f296bc8201407e3099",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/workflow-manifest.json"
+    },
+    "release-workflow-payload-tar": {
+      "bytes": 61440,
+      "file": "workflow-payload.tar",
+      "licenseNote": "GPL-3.0-only with retained upstream notices; paired corresponding source and component inventory apply.",
+      "purpose": "project-release-artifact",
+      "sha256": "ebc2f5494c290b88ebcb0979e8a51bf7310c6ecfb200ae1188d74e2a909ea73b",
+      "url": "https://github.com/loopy-lim/termux-omarchy/releases/download/v0.1.0-alpha.2/workflow-payload.tar"
+    },
+    "tool-bat": {
+      "bytes": 2197780,
+      "file": "bat-0.26.1-3-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "f795fe698a5b48f50994185bc75878838dde831f3a8181db6178dc54557db910",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/bat-0.26.1-3-aarch64.pkg.tar.xz"
+    },
+    "tool-bat-signature": {
+      "bytes": 566,
+      "file": "bat-0.26.1-3-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "2d542c3e3ca0fa182a884755c535427ac98b9cd247b68b5cb8439d7630e1a061",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/bat-0.26.1-3-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-eza": {
+      "bytes": 587392,
+      "file": "eza-0.23.5-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "007328c2870c274b6a2124e07a71cfca80ac33006fa4edd36b3abe78b8f1516c",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/eza-0.23.5-2-aarch64.pkg.tar.xz"
+    },
+    "tool-eza-signature": {
+      "bytes": 566,
+      "file": "eza-0.23.5-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "283dd333914cf521fa9cab71791d9bf25e870a5aeeb77c506aa5989abe9626c0",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/eza-0.23.5-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-fd": {
+      "bytes": 963192,
+      "file": "fd-10.5.0-3-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "2bfd85ad6f6331f5537c7afbf3ff18440e2dd71442707e2be1ec4a8bd4787d7d",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fd-10.5.0-3-aarch64.pkg.tar.xz"
+    },
+    "tool-fd-signature": {
+      "bytes": 566,
+      "file": "fd-10.5.0-3-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "c16f88c91bd4bfe227977c8276da4997d22a9d7dfead78d7b0bbafe00e7052ab",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fd-10.5.0-3-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-fzf": {
+      "bytes": 1626232,
+      "file": "fzf-0.74.4-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "24a0ff6fb0a8952b6025dbe353bc210a4003c2880de5ade739ae26d3a0ecd779",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fzf-0.74.4-1-aarch64.pkg.tar.xz"
+    },
+    "tool-fzf-signature": {
+      "bytes": 566,
+      "file": "fzf-0.74.4-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "db577c8ca970832ddadbc7a7ed4827fe1ef9c5b89a8a29b28a82cb96d996d320",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/fzf-0.74.4-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-libgit2": {
+      "bytes": 768812,
+      "file": "libgit2-1:1.9.7-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "cacbf38f50e09c1fa4a8a94bb5dae5d7719dc4b7a4262a8a8e94f9d001bc0842",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libgit2-1:1.9.7-1-aarch64.pkg.tar.xz"
+    },
+    "tool-libgit2-signature": {
+      "bytes": 566,
+      "file": "libgit2-1:1.9.7-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "2d4e15982858794428446596475c285c54aa1d3fc7cccb27b57d5e310153729b",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libgit2-1:1.9.7-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-libluv": {
+      "bytes": 54452,
+      "file": "libluv-1.52.1-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "d364544068c0551713756fe5c60a8496f4408d5ec4193b12b9d2fd2d2933ac4b",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libluv-1.52.1-1-aarch64.pkg.tar.xz"
+    },
+    "tool-libluv-signature": {
+      "bytes": 566,
+      "file": "libluv-1.52.1-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "693bff92a3eb71e21c4f8111d8e9f14bafde7c9a40347dd6185fa0bcc8b117a7",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libluv-1.52.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-libutempter": {
+      "bytes": 9420,
+      "file": "libutempter-1.2.3-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "021811f6324ce414f482fa2a7c8be094ae31efc4b421916e912560305320f985",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libutempter-1.2.3-1-aarch64.pkg.tar.xz"
+    },
+    "tool-libutempter-signature": {
+      "bytes": 566,
+      "file": "libutempter-1.2.3-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "3bc28a40e8fab2979c7c9693eb77409f4f1c1b55971727e9eb256fcb50d2f657",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libutempter-1.2.3-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-libuv": {
+      "bytes": 252776,
+      "file": "libuv-1.52.1-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "b7ef4dd7c5dd724a71ad37a28640057cc75988cf8f49b605d3b6b468ef2ee854",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libuv-1.52.1-2-aarch64.pkg.tar.xz"
+    },
+    "tool-libuv-signature": {
+      "bytes": 566,
+      "file": "libuv-1.52.1-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "8d77a301695203bc18aa251413a267f88f0f6d3a880218e188b8b20ba4587784",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libuv-1.52.1-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-libvterm": {
+      "bytes": 47076,
+      "file": "libvterm-0.3.3-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "6284d9362c4079bc7ecb4f07f656dcf010bdeb2935ea71d4df9f55fb559cb8c2",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libvterm-0.3.3-2-aarch64.pkg.tar.xz"
+    },
+    "tool-libvterm-signature": {
+      "bytes": 566,
+      "file": "libvterm-0.3.3-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "cf201240640450c66f08eeb15b66b922dba8c9028f69bcd2714a922d8a940686",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/libvterm-0.3.3-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-llhttp": {
+      "bytes": 28604,
+      "file": "llhttp-9.3.1-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "ffcd28cd2f93b1c5e6676ff9e842d6f6e3d54e6290a57cab0f8447f77459026a",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/llhttp-9.3.1-1-aarch64.pkg.tar.xz"
+    },
+    "tool-llhttp-signature": {
+      "bytes": 566,
+      "file": "llhttp-9.3.1-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "b721df9fe91b661aad949ba19925968aa3265639399d65d766cbaf27ee87eb65",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/llhttp-9.3.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-lua51-lpeg": {
+      "bytes": 28064,
+      "file": "lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "46c1c36d709095c9b13725ab82421056a792de9aa9a8f3e1ef4c12a712541ae4",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz"
+    },
+    "tool-lua51-lpeg-signature": {
+      "bytes": 566,
+      "file": "lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "c3a5427cf4a18018106a4c0711d9ba5d7d67b813a98857d21855b53fc19ff67a",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-msgpack-c": {
+      "bytes": 30196,
+      "file": "msgpack-c-7.0.1-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "2e2f7f30a9de1a435d774865050c56b9eb7e861f438e2ef7c3557ca264b66262",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/msgpack-c-7.0.1-1-aarch64.pkg.tar.xz"
+    },
+    "tool-msgpack-c-signature": {
+      "bytes": 566,
+      "file": "msgpack-c-7.0.1-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "892f8265a8b1b960d089555633709f50198c5ce5f91a86fcaa22931c1bfbb0bc",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/msgpack-c-7.0.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-neovim": {
+      "bytes": 7054276,
+      "file": "neovim-0.12.5-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "36c33d71ce98c981e63e6c5e50c2c2f6bafb57a541184186a79817451afeca5e",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/neovim-0.12.5-1-aarch64.pkg.tar.xz"
+    },
+    "tool-neovim-signature": {
+      "bytes": 566,
+      "file": "neovim-0.12.5-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "3b540023ba2feddc1a3bd2fe2e872ee4420e2d10bab6ae441fcb40b09179bfc4",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/neovim-0.12.5-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-ripgrep": {
+      "bytes": 1181456,
+      "file": "ripgrep-15.2.0-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "458f1c725cc64502616bfeed1d795cbce4f5479321b06d4b8fd91fa3b125b628",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/ripgrep-15.2.0-1-aarch64.pkg.tar.xz"
+    },
+    "tool-ripgrep-signature": {
+      "bytes": 566,
+      "file": "ripgrep-15.2.0-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "5a85092f2e9b621badc1dbb7c11336f65f0ce80d4f644ae3a79da5f3f30a57d4",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/ripgrep-15.2.0-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tmux": {
+      "bytes": 456696,
+      "file": "tmux-3.7_c-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "9a788f36af14ad0176097a17ee27452a8b8f647cdf3e91b302473fd54d48b49a",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tmux-3.7_c-1-aarch64.pkg.tar.xz"
+    },
+    "tool-tmux-signature": {
+      "bytes": 566,
+      "file": "tmux-3.7_c-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "34e9ee5d74aef523c5fd3c15f2e6df838a260cdd305ebfc28544eabd4009a32b",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tmux-3.7_c-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tree-sitter": {
+      "bytes": 95004,
+      "file": "tree-sitter-0.26.9-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "3a6f5d5375f71268e4071f2a45525a2e20d1cc88bfc57d36cab943e66e2e0b5f",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-0.26.9-1-aarch64.pkg.tar.xz"
+    },
+    "tool-tree-sitter-c": {
+      "bytes": 52484,
+      "file": "tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "4db4a8f04d80931f25183b63ab6ae28125218fdb640b449dd7588c56028a0b4a",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz"
+    },
+    "tool-tree-sitter-c-signature": {
+      "bytes": 566,
+      "file": "tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "56e9539fda92284d714f4f8a6cfee678557cfe3281f84c77a10bd42567f0c676",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tree-sitter-lua": {
+      "bytes": 17236,
+      "file": "tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "d6268637743f884c5adb3c7577f0a33dcd87b2ebc1ee8e28f0738340623a6a64",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz"
+    },
+    "tool-tree-sitter-lua-signature": {
+      "bytes": 566,
+      "file": "tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "156fd1fd8077a2a9d903ae3a9a1277ac6b63d03cd2101082730764be33f43fc7",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tree-sitter-markdown": {
+      "bytes": 98496,
+      "file": "tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "38ecd82de00a24c935161c67c1826f3fe23dba8c8b8a4d1d4e4e2dd9741ef424",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz"
+    },
+    "tool-tree-sitter-markdown-signature": {
+      "bytes": 566,
+      "file": "tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "9fddf678893cbb109fb54107c0919be42ebe9cb5e0bca68de94ea7724334ebbe",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tree-sitter-query": {
+      "bytes": 13076,
+      "file": "tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "5b90da1a303a771566e18425df463dd55faf3e27ac99f66ae4a56f0ce199b80e",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz"
+    },
+    "tool-tree-sitter-query-signature": {
+      "bytes": 566,
+      "file": "tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "7ae62f54759e80dac7b6632d3f01f6002849510b94ef2986b313cc1a5d02bcba",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tree-sitter-signature": {
+      "bytes": 566,
+      "file": "tree-sitter-0.26.9-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "d42e855eccb8d8bc0a4d87cdbd0201053aa7e06a096a7d115f7e904642b2c5f5",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-0.26.9-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tree-sitter-vim": {
+      "bytes": 119840,
+      "file": "tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "5f9e56c1a781a5384b2cc3b3575fa4656a763a606dcafc86aa8c767fe001fcda",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz"
+    },
+    "tool-tree-sitter-vim-signature": {
+      "bytes": 566,
+      "file": "tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "cbb639a82af6bfc2f83eb7e07871574ff6d9f940920b31b8d92ab4a61fe5bf0c",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-tree-sitter-vimdoc": {
+      "bytes": 29836,
+      "file": "tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "89b2412cdf23bcb4456a074c388f90172531b1e9b4f3130a080ff0b36a248fb1",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz"
+    },
+    "tool-tree-sitter-vimdoc-signature": {
+      "bytes": 566,
+      "file": "tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "517c09b87d4ab3f3aae4c0a8908e346c8974f8808e49a350257774885a0c7989",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-unibilium": {
+      "bytes": 83060,
+      "file": "unibilium-2.1.4-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "cb42e23f4114a077998b73f12d4ff6f7d23eb2064656ab9bbfb86d85e1cf9992",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/unibilium-2.1.4-1-aarch64.pkg.tar.xz"
+    },
+    "tool-unibilium-signature": {
+      "bytes": 566,
+      "file": "unibilium-2.1.4-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "55086b09bc052c68a2738c5a6d49e433343f75dae2d2e5e9936a05c8536ad8ea",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/unibilium-2.1.4-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-waypipe": {
+      "bytes": 582164,
+      "file": "waypipe-0.11.2-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "eabf1dbc83c1ecc8db00546ad141038691ff6f2a12c678b4e1248e97bf214d97",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/waypipe-0.11.2-1-aarch64.pkg.tar.xz"
+    },
+    "tool-waypipe-signature": {
+      "bytes": 566,
+      "file": "waypipe-0.11.2-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "03571b66df4e72b5804c50f1a61a10052788de02febc2cf1969c26e790ce7509",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/waypipe-0.11.2-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-yazi": {
+      "bytes": 9822748,
+      "file": "yazi-26.9.1-2-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "1749e77086bbd027be809f86b2ab7d6971f0840c1a06e836f378b00a1dc41dca",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/yazi-26.9.1-2-aarch64.pkg.tar.xz"
+    },
+    "tool-yazi-signature": {
+      "bytes": 566,
+      "file": "yazi-26.9.1-2-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "aa652b4697ce3a5d47867e653617ac189a8c5a858315299c52e22cefbe8e8351",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/yazi-26.9.1-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-zoxide": {
+      "bytes": 380616,
+      "file": "zoxide-0.10.0-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "fbc929938564d0973942b0144b2bcbc7bd8f9a4f5ac23bb37f039e2006469ee7",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zoxide-0.10.0-1-aarch64.pkg.tar.xz"
+    },
+    "tool-zoxide-signature": {
+      "bytes": 566,
+      "file": "zoxide-0.10.0-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "6ec2e68f0367fd70e41211dfb63003175dde3f7ea39e4aab9e38f0260a840b15",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zoxide-0.10.0-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-zsh": {
+      "bytes": 2268624,
+      "file": "zsh-5.9.2-1-aarch64.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "534fedfe544ef5b980d7bb9b3a8aa939f8202f69faa5677a44245dd4232760db",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zsh-5.9.2-1-aarch64.pkg.tar.xz"
+    },
+    "tool-zsh-autosuggestions": {
+      "bytes": 15612,
+      "file": "zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "f7518709486c1eac2b862d0af2de97011c6e95815e742759bd6adbcb541aeb82",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz"
+    },
+    "tool-zsh-autosuggestions-signature": {
+      "bytes": 566,
+      "file": "zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "8de60abc53799ee28b598f90b6e5df3cd2ce8ee1a1d13fc7231abaf48d59b859",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz.sig"
+    },
+    "tool-zsh-signature": {
+      "bytes": 566,
+      "file": "zsh-5.9.2-1-aarch64.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "76243578f07c42a9ee0dccad89e05541a4904455b0e0104e82b82c92d5b290b5",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zsh-5.9.2-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tool-zsh-syntax-highlighting": {
+      "bytes": 41420,
+      "file": "zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "50895c0711772ea9d6197851027cfa7bc5f9b7eb3ea589b737b1f69f986d19b5",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz"
+    },
+    "tool-zsh-syntax-highlighting-signature": {
+      "bytes": 566,
+      "file": "zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz.sig",
+      "licenseNote": "Third-party package retained at its upstream mirror; not rehosted by this project.",
+      "purpose": "tool package preparation; the guest installer separately requires a trusted detached signature.",
+      "sha256": "784d1e0c437bfcd27a54a651bb1debb2c146ae4f90fe8dad2f26fef304658434",
+      "url": "https://ca.us.mirror.archlinuxarm.org/aarch64/extra/zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz.sig"
+    },
+    "weston-host": {
+      "bytes": 845700,
+      "file": "weston_14.0.2-3_aarch64.deb",
+      "licenseNote": "Preserve package metadata and file-specific MIT/X.org notices when preparing a payload.",
+      "purpose": "Native Weston payload preparation input; not installed by the downloader.",
+      "sha256": "25d1c5ee4013e14097d6e37a3227d6fcef8f43d6d7a2dd0ee130a77e1af31c8a",
+      "url": "https://github.com/lfdevs/anland-termux/releases/download/5.13.3/weston_14.0.2-3_aarch64.deb"
+    }
+  },
+  "schema": 1
+}

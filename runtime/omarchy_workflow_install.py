@@ -7,8 +7,8 @@ from pathlib import Path
 import omarchy_guest_install as guest
 
 COMPONENT = guest.Component(
-    '3555aa327cbb1327bb5a167b208b894c44c74bfa3065844d5f8560b603a3d486', 71680,
-    'f4cc517629fe3f084a29ef519a0c2458ecde87b92ada5f229291fe0809024fd4', 2672,
+    'ebc2f5494c290b88ebcb0979e8a51bf7310c6ecfb200ae1188d74e2a909ea73b', 61440,
+    '0db92c0f318d9bd3ade54649c066c3f9c396bac8b62d42f296bc8201407e3099', 3213,
     'guest-personal-workflow', 'workflow-install.json', (
         ('home/omarchy/.config/foot/foot.ini', 0o644),
         ('home/omarchy/.config/hypr/bindings.lua', 0o644),

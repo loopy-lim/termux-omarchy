@@ -1,0 +1,21 @@
+{
+  "upstream_commit": "f31c47a1b9d300847d8fc3108ad959448103dfc1",
+  "patch_sha256": "0a37bb0a8e29782966253dea15cff68bb4a9b95ca215872257cb86884b9edcc3",
+  "files": {
+    "src/backend/Wayland.cpp": {
+      "preimage_sha256": "4b49786b8c2e985da0141a05752d1b46c727cc99f6e9088336b7095e1260381f",
+      "patched_sha256": "9e4a701668f1a16e13d431d10ef3ceb66b668808175e65306bbba4349164f8e4"
+    },
+    "include/aquamarine/backend/Wayland.hpp": {
+      "preimage_sha256": "6dc50c95233d9b5c768d1032199d4193d10eaea345129516480db3684657b2cf",
+      "patched_sha256": "7bb1da51325bc58d183870a3d505dc3cee8a93a91f73c0b78ac239683fe4cf25"
+    },
+    "cmake/GuardWaylandDestructors.cmake": {
+      "preimage_sha256": "f16ec3e75cba3802028c4c2bd3e63aa5623eaaa35586c2fc95158f159c0c65ba",
+      "patched_sha256": "3e5da456d9d1c39a84716b2cb21c3a5b54fb0b537b430d318ece734f115f8a1d"
+    }
+  },
+  "added_files": {},
+  "build_inputs": [],
+  "scope": "Propagate valid actual parent CURRENT wl_output refresh into nested SHM output modes; metadata and bounded Linux frame callbacks are separate from physical Android acceptance."
+}

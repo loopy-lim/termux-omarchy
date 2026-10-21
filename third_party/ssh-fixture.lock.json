@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "scope": "macOS host loopback SSH test counterpart only; never APK or guest server",
+  "python_runtime": "configured Codex bundled Python 3.12 with cryptography and cffi, or explicitly selected compatible runtime",
+  "packages": [
+    {
+      "name": "paramiko",
+      "version": "4.0.0",
+      "wheel": "paramiko-4.0.0-py3-none-any.whl",
+      "sha256": "0e20e00ac666503bf0b4eda3b6d833465a2b7aff2e2b3d79a8bba5ef144ee3b9",
+      "size_bytes": 223932,
+      "url": "https://files.pythonhosted.org/packages/a9/90/a744336f5af32c433bd09af7854599682a383b37cfd78f7de263de6ad6cb/paramiko-4.0.0-py3-none-any.whl"
+    },
+    {
+      "name": "bcrypt",
+      "version": "4.3.0",
+      "wheel": "bcrypt-4.3.0-cp39-abi3-macosx_10_12_universal2.whl",
+      "sha256": "0d3efb1157edebfd9128e4e46e2ac1a64e0c1fe46fb023158a407c7892b0f8c3",
+      "size_bytes": 498969,
+      "url": "https://files.pythonhosted.org/packages/6e/c1/3fa0e9e4e0bfd3fd77eb8b52ec198fd6e1fd7e9402052e43f23483f956dd/bcrypt-4.3.0-cp39-abi3-macosx_10_12_universal2.whl"
+    },
+    {
+      "name": "pynacl",
+      "version": "1.6.0",
+      "wheel": "pynacl-1.6.0-cp38-abi3-macosx_10_10_universal2.whl",
+      "sha256": "f4b3824920e206b4f52abd7de621ea7a44fd3cb5c8daceb7c3612345dfc54f2e",
+      "size_bytes": 382610,
+      "url": "https://files.pythonhosted.org/packages/63/37/87c72df19857c5b3b47ace6f211a26eb862ada495cc96daa372d96048fca/pynacl-1.6.0-cp38-abi3-macosx_10_10_universal2.whl"
+    },
+    {
+      "name": "invoke",
+      "version": "2.2.0",
+      "wheel": "invoke-2.2.0-py3-none-any.whl",
+      "sha256": "6ea924cc53d4f78e3d98bc436b08069a03077e6f85ad1ddaa8a116d7dad15820",
+      "size_bytes": 160274,
+      "url": "https://files.pythonhosted.org/packages/0a/66/7f8c48009c72d73bc6bbe6eb87ac838d6a526146f7dab14af671121eb379/invoke-2.2.0-py3-none-any.whl"
+    }
+  ]
+}

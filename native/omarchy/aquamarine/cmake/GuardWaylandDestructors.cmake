@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Scanner wrappers must destroy older proxies locally, without illegal requests.
+file(READ "${GENERATED}" SOURCE)
+foreach(SPEC "CCWlCompositor,7" "CCWlShm,2")
+  string(REPLACE "," ";" PARTS "${SPEC}")
+  list(GET PARTS 0 CLASS)
+  list(GET PARTS 1 SINCE)
+  set(BEFORE "${CLASS}::~${CLASS}() {\n    if (!destroyed)\n        sendRelease();\n}")
+  string(FIND "${SOURCE}" "${BEFORE}" FOUND)
+  if(FOUND EQUAL -1)
+    message(FATAL_ERROR "Unsupported scanner destructor: ${CLASS}")
+  endif()
+  set(AFTER "${CLASS}::~${CLASS}() {\n    if (!destroyed && pResource) {\n        if (wl_proxy_get_version(pResource) >= ${SINCE})\n            sendRelease();\n        else\n            wl_proxy_destroy(pResource);\n    }\n}")
+  string(REPLACE "${BEFORE}" "${AFTER}" SOURCE "${SOURCE}")
+endforeach()
+file(WRITE "${GENERATED}" "${SOURCE}")

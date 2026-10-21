@@ -1,0 +1,902 @@
+{
+  "schema_version": 1,
+  "requested": [
+    "foot",
+    "font-dejavu",
+    "xkeyboard-config"
+  ],
+  "base": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64/alpine-minirootfs-3.22.6-aarch64.tar.gz",
+    "sha256": "821565fa8f3953eefd12497b166b4b50add2f7c57fb312e75862f5867e06fefe",
+    "size_bytes": 3969729,
+    "version": "3.22.6"
+  },
+  "indexes": [
+    {
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/APKINDEX.tar.gz",
+      "sha256": "1c6877d804a298ad286b783562d1c2d6f289e3b501f8234b8d0f106d3f068d25",
+      "size_bytes": 501409
+    },
+    {
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/community/aarch64/APKINDEX.tar.gz",
+      "sha256": "3b346008f823ec6613f6e7e6b4866458fa8ee6e99c7ddfc287598750c03e49c8",
+      "size_bytes": 2072498
+    }
+  ],
+  "base_packages": [
+    {
+      "name": "alpine-baselayout",
+      "version": "3.7.0-r0",
+      "provides": [],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "alpine-baselayout-data",
+      "version": "3.7.0-r0",
+      "provides": [],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "alpine-keys",
+      "version": "2.5-r0",
+      "provides": [],
+      "license": "MIT"
+    },
+    {
+      "name": "alpine-release",
+      "version": "3.22.6-r0",
+      "provides": [],
+      "license": "MIT"
+    },
+    {
+      "name": "apk-tools",
+      "version": "2.14.12-r0",
+      "provides": [
+        "cmd:apk=2.14.12-r0"
+      ],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "busybox",
+      "version": "1.37.0-r20",
+      "provides": [
+        "cmd:busybox=1.37.0-r20"
+      ],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "busybox-binsh",
+      "version": "1.37.0-r20",
+      "provides": [
+        "/bin/sh",
+        "cmd:sh=1.37.0-r20"
+      ],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "ca-certificates-bundle",
+      "version": "20260909-r0",
+      "provides": [
+        "ca-certificates-cacert=20260909-r0"
+      ],
+      "license": "MPL-2.0 AND MIT"
+    },
+    {
+      "name": "libapk2",
+      "version": "2.14.12-r0",
+      "provides": [
+        "so:libapk.so.2.14.10=2.14.10"
+      ],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "libcrypto3",
+      "version": "3.5.8-r0",
+      "provides": [
+        "so:libcrypto.so.3=3"
+      ],
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "libssl3",
+      "version": "3.5.8-r0",
+      "provides": [
+        "so:libssl.so.3=3"
+      ],
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "musl",
+      "version": "1.2.5-r12",
+      "provides": [
+        "so:libc.musl-aarch64.so.1=1"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "musl-utils",
+      "version": "1.2.5-r12",
+      "provides": [
+        "libc-utils=1.2.5-r12",
+        "cmd:getconf=1.2.5-r12",
+        "cmd:getent=1.2.5-r12",
+        "cmd:iconv=1.2.5-r12",
+        "cmd:ldconfig=1.2.5-r12",
+        "cmd:ldd=1.2.5-r12"
+      ],
+      "license": "MIT AND BSD-2-Clause AND GPL-2.0-or-later"
+    },
+    {
+      "name": "scanelf",
+      "version": "1.3.8-r1",
+      "provides": [
+        "cmd:scanelf=1.3.8-r1"
+      ],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "ssl_client",
+      "version": "1.37.0-r20",
+      "provides": [
+        "cmd:ssl_client=1.37.0-r20"
+      ],
+      "license": "GPL-2.0-only"
+    },
+    {
+      "name": "zlib",
+      "version": "1.3.2-r0",
+      "provides": [
+        "so:libz.so.1=1.3.2"
+      ],
+      "license": "Zlib"
+    }
+  ],
+  "packages": [
+    {
+      "name": "brotli-libs",
+      "version": "1.1.0-r2",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/brotli-libs-1.1.0-r2.apk",
+      "sha256": "b05f9d2839bb89f28325890ffbd7d94025af6b301344ae0255f08617a6036c65",
+      "size_bytes": 404239,
+      "apk_checksum": "Q1MSQkrKIfvW0SKblSYp9kfM0kXRo=",
+      "license": "MIT",
+      "origin": "brotli",
+      "source_commit": "9c7716c2221405ce7810ba3eaaa1f62d2e646c20",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/9c7716c2221405ce7810ba3eaaa1f62d2e646c20/main/brotli/APKBUILD",
+      "upstream": "https://github.com/google/brotli",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libbrotlicommon.so.1=1.1.0",
+        "so:libbrotlidec.so.1=1.1.0",
+        "so:libbrotlienc.so.1=1.1.0"
+      ]
+    },
+    {
+      "name": "encodings",
+      "version": "1.0.7-r1",
+      "repository": "main",
+      "architecture": "noarch",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/encodings-1.0.7-r1.apk",
+      "sha256": "0a69f41369127085569be0e5fdc0d71453e70b8164fd79d98b6936f256de2f1b",
+      "size_bytes": 587182,
+      "apk_checksum": "Q1LJbGeSLdT3Ko5S1VA5B9KE+fCIU=",
+      "license": "Public Domain",
+      "origin": "encodings",
+      "source_commit": "b24a4cdf2a2e4b41de4d78979aa9aae0d1383ebc",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/b24a4cdf2a2e4b41de4d78979aa9aae0d1383ebc/main/encodings/APKBUILD",
+      "upstream": "https://xorg.freedesktop.org/",
+      "dependencies": [],
+      "provides": []
+    },
+    {
+      "name": "fcft",
+      "version": "3.3.1-r0",
+      "repository": "community",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/community/aarch64/fcft-3.3.1-r0.apk",
+      "sha256": "1938ce69e4bef2c456e4388b41939ffb3ea9333a3754ef749f8ba7a42c919329",
+      "size_bytes": 51955,
+      "apk_checksum": "Q17qdm/wObZmF2/4ZDZoQM7sI1sqo=",
+      "license": "MIT",
+      "origin": "fcft",
+      "source_commit": "694894c62d203b87524712ae019a2d18e49c339d",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/694894c62d203b87524712ae019a2d18e49c339d/community/fcft/APKBUILD",
+      "upstream": "https://codeberg.org/dnkl/fcft",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:libfontconfig.so.1",
+        "so:libfreetype.so.6",
+        "so:libharfbuzz.so.0",
+        "so:libpixman-1.so.0",
+        "so:libutf8proc.so.3"
+      ],
+      "provides": [
+        "so:libfcft.so.4=4.3.1"
+      ]
+    },
+    {
+      "name": "font-dejavu",
+      "version": "2.37-r6",
+      "repository": "main",
+      "architecture": "noarch",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/font-dejavu-2.37-r6.apk",
+      "sha256": "24b82f5811626adeef883b761ce567df0ad2b21359fee6c519296bb75f7cfe71",
+      "size_bytes": 5394024,
+      "apk_checksum": "Q1ogORpbYz6ZoysR8DTgpAcm7oR+o=",
+      "license": "Bitstream-Vera",
+      "origin": "font-dejavu",
+      "source_commit": "59420f440b2e664f7be1a6e135a3175aab56cd51",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/59420f440b2e664f7be1a6e135a3175aab56cd51/main/font-dejavu/APKBUILD",
+      "upstream": "https://dejavu-fonts.github.io/",
+      "dependencies": [
+        "fontconfig",
+        "encodings",
+        "mkfontscale"
+      ],
+      "provides": [
+        "ttf-dejavu=2.37-r6"
+      ]
+    },
+    {
+      "name": "fontconfig",
+      "version": "2.15.0-r3",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/fontconfig-2.15.0-r3.apk",
+      "sha256": "a8bb31f32197dc18297aa3a618f630ed7c3efdfb875caa8a7b1fc2648834cbea",
+      "size_bytes": 182202,
+      "apk_checksum": "Q1oJjcUaTlUpAYdP9URC8xsY41EdI=",
+      "license": "MIT",
+      "origin": "fontconfig",
+      "source_commit": "51e91d4ddc3af0a24206dad5e43d71a6863f90ba",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/51e91d4ddc3af0a24206dad5e43d71a6863f90ba/main/fontconfig/APKBUILD",
+      "upstream": "https://www.freedesktop.org/wiki/Software/fontconfig",
+      "dependencies": [
+        "/bin/sh",
+        "so:libc.musl-aarch64.so.1",
+        "so:libexpat.so.1",
+        "so:libfreetype.so.6"
+      ],
+      "provides": [
+        "so:libfontconfig.so.1=1.12.1",
+        "cmd:fc-cache=2.15.0-r3",
+        "cmd:fc-cat=2.15.0-r3",
+        "cmd:fc-conflist=2.15.0-r3",
+        "cmd:fc-list=2.15.0-r3",
+        "cmd:fc-match=2.15.0-r3",
+        "cmd:fc-pattern=2.15.0-r3",
+        "cmd:fc-query=2.15.0-r3",
+        "cmd:fc-scan=2.15.0-r3",
+        "cmd:fc-validate=2.15.0-r3"
+      ]
+    },
+    {
+      "name": "foot",
+      "version": "1.22.3-r0",
+      "repository": "community",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/community/aarch64/foot-1.22.3-r0.apk",
+      "sha256": "05680724eb3d5dfcc02df7bb7984c663d3ce0b287a8dc60e02137d2616bd6044",
+      "size_bytes": 241466,
+      "apk_checksum": "Q1G8ZGY7HBR2KlzYAyE+pRcnFnRR4=",
+      "license": "MIT",
+      "origin": "foot",
+      "source_commit": "138fe7a445aadeb0c89cb904478c647e2050a418",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/138fe7a445aadeb0c89cb904478c647e2050a418/community/foot/APKBUILD",
+      "upstream": "https://codeberg.org/dnkl/foot",
+      "dependencies": [
+        "ncurses-terminfo",
+        "so:libc.musl-aarch64.so.1",
+        "so:libfcft.so.4",
+        "so:libfontconfig.so.1",
+        "so:libpixman-1.so.0",
+        "so:libutf8proc.so.3",
+        "so:libwayland-client.so.0",
+        "so:libwayland-cursor.so.0",
+        "so:libxkbcommon.so.0"
+      ],
+      "provides": [
+        "cmd:foot=1.22.3-r0",
+        "cmd:footclient=1.22.3-r0"
+      ]
+    },
+    {
+      "name": "freetype",
+      "version": "2.13.3-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/freetype-2.13.3-r0.apk",
+      "sha256": "0cb7c95edd545b634912d869ff6c50deeedde9b0d18cdc4f934ff9ef816bb1b3",
+      "size_bytes": 350612,
+      "apk_checksum": "Q1W4+GI2Bk9duIxRwZrYUqJGbLICM=",
+      "license": "FTL OR GPL-2.0-or-later",
+      "origin": "freetype",
+      "source_commit": "2d656868790548d7f0d43f6caf59c2b2e43eb251",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/2d656868790548d7f0d43f6caf59c2b2e43eb251/main/freetype/APKBUILD",
+      "upstream": "https://www.freetype.org/",
+      "dependencies": [
+        "so:libbrotlidec.so.1",
+        "so:libbz2.so.1",
+        "so:libc.musl-aarch64.so.1",
+        "so:libpng16.so.16",
+        "so:libz.so.1"
+      ],
+      "provides": [
+        "so:libfreetype.so.6=6.20.2"
+      ]
+    },
+    {
+      "name": "glib",
+      "version": "2.84.4-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/glib-2.84.4-r0.apk",
+      "sha256": "339817d41dc00fd898e8a24dc4a36b8e04608c3fd8642ecc97b00b6f5581e8bc",
+      "size_bytes": 1989367,
+      "apk_checksum": "Q1+riqY0HHv6CR+5awfeNYKI/ew3Q=",
+      "license": "LGPL-2.1-or-later",
+      "origin": "glib",
+      "source_commit": "9a0d606dfb2af556b9b96a9e8bb511b2bd0ddbed",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/9a0d606dfb2af556b9b96a9e8bb511b2bd0ddbed/main/glib/APKBUILD",
+      "upstream": "https://developer.gnome.org/glib/",
+      "dependencies": [
+        "/bin/sh",
+        "so:libc.musl-aarch64.so.1",
+        "so:libffi.so.8",
+        "so:libintl.so.8",
+        "so:libmount.so.1",
+        "so:libpcre2-8.so.0",
+        "so:libz.so.1"
+      ],
+      "provides": [
+        "so:libgio-2.0.so.0=0.8400.4",
+        "so:libgirepository-2.0.so.0=0.8400.4",
+        "so:libglib-2.0.so.0=0.8400.4",
+        "so:libgmodule-2.0.so.0=0.8400.4",
+        "so:libgobject-2.0.so.0=0.8400.4",
+        "so:libgthread-2.0.so.0=0.8400.4",
+        "cmd:gapplication=2.84.4-r0",
+        "cmd:gdbus=2.84.4-r0",
+        "cmd:gi-compile-repository=2.84.4-r0",
+        "cmd:gi-decompile-typelib=2.84.4-r0",
+        "cmd:gi-inspect-typelib=2.84.4-r0",
+        "cmd:gio-querymodules=2.84.4-r0",
+        "cmd:gio=2.84.4-r0",
+        "cmd:glib-compile-schemas=2.84.4-r0",
+        "cmd:gsettings=2.84.4-r0"
+      ]
+    },
+    {
+      "name": "graphite2",
+      "version": "1.3.14-r6",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/graphite2-1.3.14-r6.apk",
+      "sha256": "f255e6bc5f37ca9606d277ae13ba31165132018825c2994b7db5366a1a4a33e1",
+      "size_bytes": 59667,
+      "apk_checksum": "Q1fWjJUxdbyIEX7xPGtkvTy4Qi2Hw=",
+      "license": "LGPL-2.1-or-later OR MPL-1.1",
+      "origin": "graphite2",
+      "source_commit": "33283848034c9885d984c8e8697c645c57324938",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/33283848034c9885d984c8e8697c645c57324938/main/graphite2/APKBUILD",
+      "upstream": "https://graphite.sil.org/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libgraphite2.so.3=3.2.1"
+      ]
+    },
+    {
+      "name": "harfbuzz",
+      "version": "11.2.1-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/harfbuzz-11.2.1-r0.apk",
+      "sha256": "176652f7ee9852c0346788f95b5483a7ff15c6c9f02411781b436b280b04c6dc",
+      "size_bytes": 608307,
+      "apk_checksum": "Q1vHrKPCsZjy7vAvBu963wuLGjZfk=",
+      "license": "MIT",
+      "origin": "harfbuzz",
+      "source_commit": "c9247a23f6a64eefde9d75b2e6a7c7c7454d8c83",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/c9247a23f6a64eefde9d75b2e6a7c7c7454d8c83/main/harfbuzz/APKBUILD",
+      "upstream": "https://harfbuzz.github.io/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:libfreetype.so.6",
+        "so:libglib-2.0.so.0",
+        "so:libgraphite2.so.3"
+      ],
+      "provides": [
+        "so:libharfbuzz.so.0=0.61121.0"
+      ]
+    },
+    {
+      "name": "libblkid",
+      "version": "2.41.6-r1",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libblkid-2.41.6-r1.apk",
+      "sha256": "76a8fbfae2ab5ff50c7f30e22812c403a2d9375de85a0a0f2c288ab906d24fb4",
+      "size_bytes": 93842,
+      "apk_checksum": "Q1JwO4seFs73O5KaGPhj+jQAwU8Cc=",
+      "license": "LGPL-2.1-or-later",
+      "origin": "util-linux",
+      "source_commit": "b91fb14e28957c6f5a13c02eb9ec136c82ebd50e",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/b91fb14e28957c6f5a13c02eb9ec136c82ebd50e/main/util-linux/APKBUILD",
+      "upstream": "https://git.kernel.org/cgit/utils/util-linux/util-linux.git",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:libeconf.so.0"
+      ],
+      "provides": [
+        "so:libblkid.so.1=1.1.0"
+      ]
+    },
+    {
+      "name": "libbz2",
+      "version": "1.0.8-r6",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libbz2-1.0.8-r6.apk",
+      "sha256": "1d588037cc45108acafdbb1507e9f683019a8816fb74d9aba9b0a2dc099463c4",
+      "size_bytes": 35391,
+      "apk_checksum": "Q1RCSiyyDV+oISVSGFDCOPrSRS3bs=",
+      "license": "bzip2-1.0.6",
+      "origin": "bzip2",
+      "source_commit": "33283848034c9885d984c8e8697c645c57324938",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/33283848034c9885d984c8e8697c645c57324938/main/bzip2/APKBUILD",
+      "upstream": "https://sourceware.org/bzip2/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libbz2.so.1=1.0.8"
+      ]
+    },
+    {
+      "name": "libeconf",
+      "version": "0.6.3-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libeconf-0.6.3-r0.apk",
+      "sha256": "cdd4311aff72d53056134468b68a68f22829f995627b434d2f88960884319de9",
+      "size_bytes": 25257,
+      "apk_checksum": "Q1rMObi6pA+mNW2zvlPARdrhNfbSA=",
+      "license": "MIT",
+      "origin": "libeconf",
+      "source_commit": "1e0aa723fba50417893fe5f6cf72f76d044b8192",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/1e0aa723fba50417893fe5f6cf72f76d044b8192/main/libeconf/APKBUILD",
+      "upstream": "https://github.com/openSUSE/libeconf",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libeconf.so.0=0.6.2",
+        "cmd:econftool=0.6.3-r0"
+      ]
+    },
+    {
+      "name": "libexpat",
+      "version": "2.8.5-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libexpat-2.8.5-r0.apk",
+      "sha256": "24f367fc510fd8be0591f6b39daf16da2d13257e03d97b5a6505ae44ba82e978",
+      "size_bytes": 61287,
+      "apk_checksum": "Q1mY0Wf1IvtNq0fpVotngSRyJpeOI=",
+      "license": "MIT",
+      "origin": "expat",
+      "source_commit": "4ffd5cf4f348fb2b9c0200fc2a815d5e3904e8e2",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/4ffd5cf4f348fb2b9c0200fc2a815d5e3904e8e2/main/expat/APKBUILD",
+      "upstream": "https://libexpat.github.io/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libexpat.so.1=1.12.5"
+      ]
+    },
+    {
+      "name": "libffi",
+      "version": "3.4.8-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libffi-3.4.8-r0.apk",
+      "sha256": "9391f60a14c146655deaf65115563bc8dcd749cf0f93ec567e6443f2ed7d3bfc",
+      "size_bytes": 17599,
+      "apk_checksum": "Q1q+9OCyehyHODbm71gRN5RkK7eY8=",
+      "license": "MIT",
+      "origin": "libffi",
+      "source_commit": "be5e49159a2ccca93a3290af3d8ab25443523363",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/be5e49159a2ccca93a3290af3d8ab25443523363/main/libffi/APKBUILD",
+      "upstream": "https://sourceware.org/libffi/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libffi.so.8=8.1.4"
+      ]
+    },
+    {
+      "name": "libfontenc",
+      "version": "1.1.8-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libfontenc-1.1.8-r0.apk",
+      "sha256": "29c462439a157186688ee95ddeeb3b57447e87ed117c3c440fa7793bea39af37",
+      "size_bytes": 11920,
+      "apk_checksum": "Q1y9UgWBjlEw4ww0JsgSoR/n7z7QE=",
+      "license": "MIT",
+      "origin": "libfontenc",
+      "source_commit": "e96b6cee19bcd4ef22fc6fd58e5b84386639ca0b",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/e96b6cee19bcd4ef22fc6fd58e5b84386639ca0b/main/libfontenc/APKBUILD",
+      "upstream": "https://xorg.freedesktop.org/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:libz.so.1"
+      ],
+      "provides": [
+        "so:libfontenc.so.1=1.0.0"
+      ]
+    },
+    {
+      "name": "libintl",
+      "version": "0.24.1-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libintl-0.24.1-r0.apk",
+      "sha256": "17bacc149386d7dcb2ed4488afddc2dba644081cbc134b5839fbbe5e1b875bf9",
+      "size_bytes": 41977,
+      "apk_checksum": "Q1q8UfSXFfILW6Z12rIfPoUUFEblc=",
+      "license": "LGPL-2.1-or-later",
+      "origin": "gettext",
+      "source_commit": "215a26431d1b09c56cb2a9ffe10175feb9518fd8",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/215a26431d1b09c56cb2a9ffe10175feb9518fd8/main/gettext/APKBUILD",
+      "upstream": "https://www.gnu.org/software/gettext/gettext.html",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libintl.so.8=8.4.3"
+      ]
+    },
+    {
+      "name": "libmount",
+      "version": "2.41.6-r1",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libmount-2.41.6-r1.apk",
+      "sha256": "1165810277d292a5986824447229c146bbb355f1641cea66b0741bbd891cc3e6",
+      "size_bytes": 122515,
+      "apk_checksum": "Q16aSDsG0olDcpMJyRvlYSYNgUfp4=",
+      "license": "LGPL-2.1-or-later",
+      "origin": "util-linux",
+      "source_commit": "b91fb14e28957c6f5a13c02eb9ec136c82ebd50e",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/b91fb14e28957c6f5a13c02eb9ec136c82ebd50e/main/util-linux/APKBUILD",
+      "upstream": "https://git.kernel.org/cgit/utils/util-linux/util-linux.git",
+      "dependencies": [
+        "so:libblkid.so.1",
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libmount.so.1=1.1.0"
+      ]
+    },
+    {
+      "name": "libpng",
+      "version": "1.6.59-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libpng-1.6.59-r0.apk",
+      "sha256": "93132da4155e062e12347aca01a761491b8fc40a1ffa955bd588d911550f2bdf",
+      "size_bytes": 97807,
+      "apk_checksum": "Q1P4cLnS4KsWgxbeHkViqKgzQV4/o=",
+      "license": "Libpng",
+      "origin": "libpng",
+      "source_commit": "e95748873fa2f7e0e54cf27557fe0deff27b6c80",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/e95748873fa2f7e0e54cf27557fe0deff27b6c80/main/libpng/APKBUILD",
+      "upstream": "http://www.libpng.org",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:libz.so.1"
+      ],
+      "provides": [
+        "so:libpng16.so.16=16.59.0"
+      ]
+    },
+    {
+      "name": "libxkbcommon",
+      "version": "1.8.1-r2",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libxkbcommon-1.8.1-r2.apk",
+      "sha256": "8a37b225bae2144e7caa0e7f01d7d65c6d9a8493ed640ca2a7a3836af70883dc",
+      "size_bytes": 139814,
+      "apk_checksum": "Q10YcSQosBbPAQAPs2pSreWzUqsOE=",
+      "license": "MIT AND MIT-open-group AND HPND AND HPND-sell-variant AND LicenseRef-digital-equipment-corporation",
+      "origin": "libxkbcommon",
+      "source_commit": "0bbcc16cbd21758cab1ee29c487e85ba8dc4f3b9",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/0bbcc16cbd21758cab1ee29c487e85ba8dc4f3b9/main/libxkbcommon/APKBUILD",
+      "upstream": "https://xkbcommon.org/",
+      "dependencies": [
+        "xkeyboard-config",
+        "so:libc.musl-aarch64.so.1",
+        "so:libxml2.so.2"
+      ],
+      "provides": [
+        "so:libxkbcommon.so.0=0.8.1",
+        "so:libxkbregistry.so.0=0.8.1"
+      ]
+    },
+    {
+      "name": "libxml2",
+      "version": "2.13.9-r1",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/libxml2-2.13.9-r1.apk",
+      "sha256": "e358e1c32ba6923386263dd641a6e4bcb56a0345fecadef9ef1103892cf3d81d",
+      "size_bytes": 497173,
+      "apk_checksum": "Q1LJRb2fJ1xkXuYDUWotUcmV8D87U=",
+      "license": "MIT",
+      "origin": "libxml2",
+      "source_commit": "0f705887341201fb4fffd22984d951f63eedce79",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/0f705887341201fb4fffd22984d951f63eedce79/main/libxml2/APKBUILD",
+      "upstream": "https://gitlab.gnome.org/GNOME/libxml2",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:liblzma.so.5",
+        "so:libz.so.1"
+      ],
+      "provides": [
+        "so:libxml2.so.2=2.13.9"
+      ]
+    },
+    {
+      "name": "mkfontscale",
+      "version": "1.2.3-r1",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/mkfontscale-1.2.3-r1.apk",
+      "sha256": "dd87a99312a7c5ab8c66f8e7148e2ddf199fb120869e94c8f53fdb7070c7da1e",
+      "size_bytes": 16049,
+      "apk_checksum": "Q14sCgZaChX74L7h4Z0TP//JscepE=",
+      "license": "MIT",
+      "origin": "mkfontscale",
+      "source_commit": "d3b558e1b8572decb53ac74fe4f3a5393fdb2eb9",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/d3b558e1b8572decb53ac74fe4f3a5393fdb2eb9/main/mkfontscale/APKBUILD",
+      "upstream": "https://xorg.freedesktop.org/",
+      "dependencies": [
+        "/bin/sh",
+        "so:libc.musl-aarch64.so.1",
+        "so:libfontenc.so.1",
+        "so:libfreetype.so.6",
+        "so:libz.so.1"
+      ],
+      "provides": [
+        "mkfontdir=1.2.3-r1",
+        "cmd:mkfontdir=1.2.3-r1",
+        "cmd:mkfontscale=1.2.3-r1"
+      ]
+    },
+    {
+      "name": "ncurses-terminfo",
+      "version": "6.5_p20250503-r0",
+      "repository": "main",
+      "architecture": "noarch",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/ncurses-terminfo-6.5_p20250503-r0.apk",
+      "sha256": "d545b7fcee1434664eece87ced502c55b8427becc396182476ab368138aaf0bc",
+      "size_bytes": 559847,
+      "apk_checksum": "Q1fW0nwegvIdAQrYcb99Wswb0DeiY=",
+      "license": "X11",
+      "origin": "ncurses",
+      "source_commit": "3fefbe8dda8b3e85458edb190e2f3a69ad16035c",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/3fefbe8dda8b3e85458edb190e2f3a69ad16035c/main/ncurses/APKBUILD",
+      "upstream": "https://invisible-island.net/ncurses/",
+      "dependencies": [
+        "ncurses-terminfo-base=6.5_p20250503-r0",
+        "ncurses-terminfo-base=6.5_p20250503-r0"
+      ],
+      "provides": []
+    },
+    {
+      "name": "ncurses-terminfo-base",
+      "version": "6.5_p20250503-r0",
+      "repository": "main",
+      "architecture": "noarch",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/ncurses-terminfo-base-6.5_p20250503-r0.apk",
+      "sha256": "3d37403e0b5ab9eb0c1ce269444e4a385faec9fe6af452c1c6956806b13d2bd6",
+      "size_bytes": 21749,
+      "apk_checksum": "Q11Yrfe1KShgLsmr6BN7B/JKdEVBg=",
+      "license": "X11",
+      "origin": "ncurses",
+      "source_commit": "3fefbe8dda8b3e85458edb190e2f3a69ad16035c",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/3fefbe8dda8b3e85458edb190e2f3a69ad16035c/main/ncurses/APKBUILD",
+      "upstream": "https://invisible-island.net/ncurses/",
+      "dependencies": [],
+      "provides": []
+    },
+    {
+      "name": "pcre2",
+      "version": "10.46-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/pcre2-10.46-r0.apk",
+      "sha256": "62fdc4a3d6b48ca211cf6480c5da55664b489ec2b192ca8942e5b1d60ebe9496",
+      "size_bytes": 295514,
+      "apk_checksum": "Q12YIcAqQrxHM3uSWIzNRpWJ0NFyM=",
+      "license": "BSD-3-Clause",
+      "origin": "pcre2",
+      "source_commit": "a22c8c27a78e00ea7cf03e09c6033a6336ee22a2",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/a22c8c27a78e00ea7cf03e09c6033a6336ee22a2/main/pcre2/APKBUILD",
+      "upstream": "https://pcre.org/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libpcre2-8.so.0=0.14.0",
+        "so:libpcre2-posix.so.3=3.0.6"
+      ]
+    },
+    {
+      "name": "pixman",
+      "version": "0.46.4-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/pixman-0.46.4-r0.apk",
+      "sha256": "35128ab74fdcdc1cd1edc3621905a9520396b332ac756cc01e0df3a2471756c7",
+      "size_bytes": 185631,
+      "apk_checksum": "Q1emS8aOclQRJ1tAK1OSt3+9uu6x0=",
+      "license": "MIT",
+      "origin": "pixman",
+      "source_commit": "43db2f639237fba90ef09320e83f847561d9b0fc",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/43db2f639237fba90ef09320e83f847561d9b0fc/main/pixman/APKBUILD",
+      "upstream": "https://gitlab.freedesktop.org/pixman",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libpixman-1.so.0=0.46.4"
+      ]
+    },
+    {
+      "name": "utf8proc",
+      "version": "2.10.0-r0",
+      "repository": "community",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/community/aarch64/utf8proc-2.10.0-r0.apk",
+      "sha256": "bbd30aa076ab7fc04101b5583a31c6455f90200a82c0a6456ea062abc94c16a0",
+      "size_bytes": 83232,
+      "apk_checksum": "Q1EP9V3k3MEtk/wskZmtAHPW2rr2A=",
+      "license": "MIT custom",
+      "origin": "utf8proc",
+      "source_commit": "757bb1a5ea371cfc5ed0254b37a82740a466856d",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/757bb1a5ea371cfc5ed0254b37a82740a466856d/community/utf8proc/APKBUILD",
+      "upstream": "https://github.com/JuliaStrings/utf8proc",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:libutf8proc.so.3=3.1.0"
+      ]
+    },
+    {
+      "name": "wayland-libs-client",
+      "version": "1.23.1-r3",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/wayland-libs-client-1.23.1-r3.apk",
+      "sha256": "9481b11de37951462cf26a8309e410346455f67b17f7f2d48f0d2326c522ebee",
+      "size_bytes": 21939,
+      "apk_checksum": "Q1ZcaWuNosnYV2slf/Pzoim4ADC0o=",
+      "license": "MIT",
+      "origin": "wayland",
+      "source_commit": "4abf33c74f2d6576e60fa01507040e9137709fc1",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/4abf33c74f2d6576e60fa01507040e9137709fc1/main/wayland/APKBUILD",
+      "upstream": "https://wayland.freedesktop.org",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:libffi.so.8"
+      ],
+      "provides": [
+        "so:libwayland-client.so.0=0.23.1"
+      ]
+    },
+    {
+      "name": "wayland-libs-cursor",
+      "version": "1.23.1-r3",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/wayland-libs-cursor-1.23.1-r3.apk",
+      "sha256": "c12e4c90ea1fa95d51c940d407405685ff25100bd63efabb71cd3dc067e070f6",
+      "size_bytes": 9463,
+      "apk_checksum": "Q106kn74V9DwEJra2PpCw0d9TTh7o=",
+      "license": "MIT",
+      "origin": "wayland",
+      "source_commit": "4abf33c74f2d6576e60fa01507040e9137709fc1",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/4abf33c74f2d6576e60fa01507040e9137709fc1/main/wayland/APKBUILD",
+      "upstream": "https://wayland.freedesktop.org",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1",
+        "so:libwayland-client.so.0"
+      ],
+      "provides": [
+        "so:libwayland-cursor.so.0=0.23.1"
+      ]
+    },
+    {
+      "name": "xkeyboard-config",
+      "version": "2.43-r0",
+      "repository": "main",
+      "architecture": "noarch",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/xkeyboard-config-2.43-r0.apk",
+      "sha256": "d0ba36ffc8d6b8614ec6d7ef5a2ef9edbb6f9016473ae9c077df3d0d9de38049",
+      "size_bytes": 555902,
+      "apk_checksum": "Q1CrdSh6vvI/xRVF2RGwZLThCjEbc=",
+      "license": "MIT",
+      "origin": "xkeyboard-config",
+      "source_commit": "4f37a562ee62763122c3f5d5060f2ee6ba0d01ea",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/4f37a562ee62763122c3f5d5060f2ee6ba0d01ea/main/xkeyboard-config/APKBUILD",
+      "upstream": "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config",
+      "dependencies": [],
+      "provides": []
+    },
+    {
+      "name": "xz-libs",
+      "version": "5.8.4-r0",
+      "repository": "main",
+      "architecture": "aarch64",
+      "index_architecture": "aarch64",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/xz-libs-5.8.4-r0.apk",
+      "sha256": "8a64b55223f29e24f934ccbc8167d535b913bf923dab5e14de7946a7c36091a7",
+      "size_bytes": 117354,
+      "apk_checksum": "Q1pf2JUBbDyZV3zAcAgdPTv4LHc60=",
+      "license": "GPL-2.0-or-later AND 0BSD AND Public-Domain AND LGPL-2.1-or-later",
+      "origin": "xz",
+      "source_commit": "4ad8da6dc8e2b7ed46653b9844835babc3a166ae",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/blob/4ad8da6dc8e2b7ed46653b9844835babc3a166ae/main/xz/APKBUILD",
+      "upstream": "https://tukaani.org/xz/",
+      "dependencies": [
+        "so:libc.musl-aarch64.so.1"
+      ],
+      "provides": [
+        "so:liblzma.so.5=5.8.4"
+      ]
+    }
+  ],
+  "verification": "Pinned official HTTPS index and SHA256; APKINDEX Q1 control SHA1 + .PKGINFO datahash SHA256; RSA signatures not independently verified"
+}

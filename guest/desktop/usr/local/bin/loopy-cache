@@ -1,0 +1,27 @@
+#!/bin/sh
+# Compile caches from the shipped, pinned data. No installation or network access.
+set -eu
+prefix=${LOOPY_CACHE_ROOT:-}
+schema=$prefix/usr/share/glib-2.0/schemas
+if [ -d "$schema" ]; then "$prefix/usr/bin/glib-compile-schemas" "$schema"; fi
+mime=$prefix/usr/share/mime
+if [ ! -f "$mime/mime.cache" ]; then
+    "$prefix/usr/bin/update-mime-database" "$mime"
+fi
+cache=$prefix/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+if [ -x "$prefix/usr/bin/gdk-pixbuf-query-loaders" ]; then
+    mkdir -p "${cache%/*}"
+    "$prefix/usr/bin/gdk-pixbuf-query-loaders" > "$cache.new"
+    mv "$cache.new" "$cache"
+fi
+# Package triggers are not executed by the rootfs assembler. GTK discovers its
+# dynamic Wayland input module through this registry, not the .so directory.
+cache=$prefix/usr/lib/gtk-3.0/3.0.0/immodules.cache
+if [ -x "$prefix/usr/bin/gtk-query-immodules-3.0" ]; then
+    mkdir -p "${cache%/*}"
+    "$prefix/usr/bin/gtk-query-immodules-3.0" > "$cache.new"
+    mv "$cache.new" "$cache"
+fi
+if [ ! -f "$prefix/usr/share/icons/Adwaita/icon-theme.cache" ]; then
+    "$prefix/usr/bin/gtk-update-icon-cache" -q -t "$prefix/usr/share/icons/Adwaita"
+fi

@@ -1,0 +1,164 @@
+{
+  "component": "guest-personal-neovim",
+  "files": {
+    "init.lua": {
+      "bytes": 1480,
+      "sha256": "dc718eed030a094f8b0d995a1fc072b1230e75c47f4abc0bbc56d81374078004",
+      "sourceSHA256": "fd4db86cd3db0731ee23655a2ae206773cd95b488e412f71529c4e4ef4551e97"
+    },
+    "lazy-lock.json": {
+      "bytes": 7820,
+      "sha256": "b750a2f780ae6220275ac89f60eb706c0b37cbf438b37a0fc4134fc0c3104b13",
+      "sourceSHA256": "b750a2f780ae6220275ac89f60eb706c0b37cbf438b37a0fc4134fc0c3104b13"
+    },
+    "lua/community.lua": {
+      "bytes": 5502,
+      "sha256": "456d08ae6012d500fe0cefef188589ddb7c376497c052a7980fd0f706fcb4a0a",
+      "sourceSHA256": "456d08ae6012d500fe0cefef188589ddb7c376497c052a7980fd0f706fcb4a0a"
+    },
+    "lua/lazy_setup.lua": {
+      "bytes": 1469,
+      "sha256": "ed4d63692bf73417377cde9247d0445c45a3d012a83c292ab4c1442b58147538",
+      "sourceSHA256": "0e0cc592eba5ca11cb2d597ffe216976bc7e71e80194ef635d77074a109b7c24"
+    },
+    "lua/plugins/astrocore.lua": {
+      "bytes": 6319,
+      "sha256": "695e4ed735b6e2911895d982a04ea6365a7b33de802f3c95a239e5ab75f247ef",
+      "sourceSHA256": "695e4ed735b6e2911895d982a04ea6365a7b33de802f3c95a239e5ab75f247ef"
+    },
+    "lua/plugins/astrolsp.lua": {
+      "bytes": 6146,
+      "sha256": "2884e8acb99065da51830831a4b2e90d50deed9cfa6083cc4f65c74eefa63abb",
+      "sourceSHA256": "2884e8acb99065da51830831a4b2e90d50deed9cfa6083cc4f65c74eefa63abb"
+    },
+    "lua/plugins/astrotheme.lua": {
+      "bytes": 1527,
+      "sha256": "a8dab5450568362ce9ba3bcadafa3f24f6b1d17eef0039e8145147651fda3d3e",
+      "sourceSHA256": "a8dab5450568362ce9ba3bcadafa3f24f6b1d17eef0039e8145147651fda3d3e"
+    },
+    "lua/plugins/astroui.lua": {
+      "bytes": 1628,
+      "sha256": "c92054743d7a0cc65a782034c82a7b7ba8a7e6043f15a99025a827d329fea88d",
+      "sourceSHA256": "c92054743d7a0cc65a782034c82a7b7ba8a7e6043f15a99025a827d329fea88d"
+    },
+    "lua/plugins/autoread.lua": {
+      "bytes": 1089,
+      "sha256": "2c570f0fde51056740e283a3199b659efa4048bf7a116be62865ed8537cfad10",
+      "sourceSHA256": "2c570f0fde51056740e283a3199b659efa4048bf7a116be62865ed8537cfad10"
+    },
+    "lua/plugins/claudecode.lua": {
+      "bytes": 311,
+      "sha256": "d8208ac05cc98da39002c746f28c0ec6f467246b89ce21f6c25d048535b36c8e",
+      "sourceSHA256": "d8208ac05cc98da39002c746f28c0ec6f467246b89ce21f6c25d048535b36c8e"
+    },
+    "lua/plugins/dap-keymaps.lua": {
+      "bytes": 405,
+      "sha256": "666cdc92d2a3c5cbbd1d18747c4880f149473a23ec03b6a3019ee0c442bd85d9",
+      "sourceSHA256": "666cdc92d2a3c5cbbd1d18747c4880f149473a23ec03b6a3019ee0c442bd85d9"
+    },
+    "lua/plugins/deno.lua": {
+      "bytes": 84,
+      "sha256": "4689a28950ee4ac563456a53d75c1abf8af5515ab1e08be0247abf4b01a0231d",
+      "sourceSHA256": "4689a28950ee4ac563456a53d75c1abf8af5515ab1e08be0247abf4b01a0231d"
+    },
+    "lua/plugins/flutter.lua": {
+      "bytes": 236,
+      "sha256": "e96042fa95d240a51bddb1a987c57a1d13ad8fe1cea1e4c8c72fe8e151da8b5c",
+      "sourceSHA256": "e96042fa95d240a51bddb1a987c57a1d13ad8fe1cea1e4c8c72fe8e151da8b5c"
+    },
+    "lua/plugins/image.lua": {
+      "bytes": 1123,
+      "sha256": "48b14099ae84eba189376fd7e64c39f213092984f9e3d2cf8a4faefef076c6a1",
+      "sourceSHA256": "37648c9adcb669d9ea9cfbbdb6c095b0cd493c019ee0af2b70c0a9069682796d"
+    },
+    "lua/plugins/lazygit.lua": {
+      "bytes": 339,
+      "sha256": "96e989f2b76cad9801daf92d4564ad259c842a5fb0ed949864ea37406a9cb555",
+      "sourceSHA256": "96e989f2b76cad9801daf92d4564ad259c842a5fb0ed949864ea37406a9cb555"
+    },
+    "lua/plugins/lint_on_save.lua": {
+      "bytes": 2410,
+      "sha256": "1278c7ff489d74141daec492388b2865ad5c1fcace7d3ded338ac855978abbe3",
+      "sourceSHA256": "1278c7ff489d74141daec492388b2865ad5c1fcace7d3ded338ac855978abbe3"
+    },
+    "lua/plugins/luarocks.lua": {
+      "bytes": 115,
+      "sha256": "ced14477002823eb0d6f274475b760e90e7f783927df75778abcc4ec8f964e85",
+      "sourceSHA256": "ced14477002823eb0d6f274475b760e90e7f783927df75778abcc4ec8f964e85"
+    },
+    "lua/plugins/markdown.lua": {
+      "bytes": 1308,
+      "sha256": "9f1d53c36a35479ca9dcbc4a068318b166c40e7e1f6956ac10dcb693acab0063",
+      "sourceSHA256": "9f1d53c36a35479ca9dcbc4a068318b166c40e7e1f6956ac10dcb693acab0063"
+    },
+    "lua/plugins/mason.lua": {
+      "bytes": 957,
+      "sha256": "1ac8f8c6e2e8c7699508097ee94c80b4488c41a1bfc6aac4f1271843359b3898",
+      "sourceSHA256": "1ac8f8c6e2e8c7699508097ee94c80b4488c41a1bfc6aac4f1271843359b3898"
+    },
+    "lua/plugins/none-ls.lua": {
+      "bytes": 827,
+      "sha256": "d8cbed24254678a50f4e7e0ca3bde0414cdd9077ad2ca3fabb82941aa833d95d",
+      "sourceSHA256": "d8cbed24254678a50f4e7e0ca3bde0414cdd9077ad2ca3fabb82941aa833d95d"
+    },
+    "lua/plugins/satellite.lua": {
+      "bytes": 906,
+      "sha256": "fca3dfbb62f9956c7bf4804c93736c95fc44a5677cf7dead9323b6f0e914e6b3",
+      "sourceSHA256": "fca3dfbb62f9956c7bf4804c93736c95fc44a5677cf7dead9323b6f0e914e6b3"
+    },
+    "lua/plugins/sessions.lua": {
+      "bytes": 928,
+      "sha256": "f2b9fe2f21156b45f6d09f37be2aaf9347bb933235686bdeec727c750cd354f1",
+      "sourceSHA256": "f2b9fe2f21156b45f6d09f37be2aaf9347bb933235686bdeec727c750cd354f1"
+    },
+    "lua/plugins/telescope.lua": {
+      "bytes": 2678,
+      "sha256": "6e7950f7112e033fd48467ea8a95ba7a89244129775d4fbd912bfd2584495ca0",
+      "sourceSHA256": "6e7950f7112e033fd48467ea8a95ba7a89244129775d4fbd912bfd2584495ca0"
+    },
+    "lua/plugins/transparent.lua": {
+      "bytes": 1485,
+      "sha256": "6a19fae63f547124056f9f4442eaee7c17bdd1fd5dab43d782a3469256f17a4c",
+      "sourceSHA256": "6a19fae63f547124056f9f4442eaee7c17bdd1fd5dab43d782a3469256f17a4c"
+    },
+    "lua/plugins/treesitter.lua": {
+      "bytes": 304,
+      "sha256": "9bb6305c6d43f15ddaa8e41e455e3da15248a3ae9bb71c8037892bd67b345a15",
+      "sourceSHA256": "9bb6305c6d43f15ddaa8e41e455e3da15248a3ae9bb71c8037892bd67b345a15"
+    },
+    "lua/plugins/typst.lua": {
+      "bytes": 782,
+      "sha256": "dc7df4cfd38c9a3af6118827dea885fa166fe69e9e60d970942d9370ad5e2891",
+      "sourceSHA256": "dc7df4cfd38c9a3af6118827dea885fa166fe69e9e60d970942d9370ad5e2891"
+    },
+    "lua/plugins/user.lua": {
+      "bytes": 3469,
+      "sha256": "484bf2dda90e2622a6bfbd29044ab7edfafed9379e0b80c486bff4cc86bb18c6",
+      "sourceSHA256": "484bf2dda90e2622a6bfbd29044ab7edfafed9379e0b80c486bff4cc86bb18c6"
+    },
+    "lua/plugins/vscode_ux.lua": {
+      "bytes": 1460,
+      "sha256": "0495b6fdcf7b1357bf9545d813e3baacafe6560588300cb988dbbc14d53b4d32",
+      "sourceSHA256": "0495b6fdcf7b1357bf9545d813e3baacafe6560588300cb988dbbc14d53b4d32"
+    },
+    "lua/plugins/zzz_android.lua": {
+      "bytes": 856,
+      "sha256": "225de1332f15aabc7197a05a1f0150f93363a757801568ec5aedfe25533a8e71"
+    },
+    "lua/polish.lua": {
+      "bytes": 7429,
+      "sha256": "46cb55664ce1cd58c4a578a981194829d751bf89a8cc3c6ef45fee336279a3d0",
+      "sourceSHA256": "57c4ec9289771f04f46e38ea66b362039ccbc5afa736f921cb3dec6c6e04a706"
+    }
+  },
+  "lockedPlugins": 81,
+  "policy": {
+    "automaticPluginInstall": false,
+    "automaticToolInstall": false,
+    "existingConfig": "preserve",
+    "lazyConcurrency": 1,
+    "networkOnInstall": false
+  },
+  "schema": 1,
+  "sourceFiles": 29
+}

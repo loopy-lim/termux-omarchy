@@ -1,0 +1,53 @@
+# Portable adaptation of the current Mac profile. No host paths or credentials.
+[[ -o interactive ]] || return 0
+[[ $TERM != xterm-ghostty ]] || export TERM=xterm-256color
+typeset -U path PATH
+export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
+export BUN_INSTALL="$HOME/.bun"
+path=($HOME/.local/bin $PNPM_HOME $BUN_INSTALL/bin $HOME/.cargo/bin $HOME/.pub-cache/bin $path)
+export EDITOR=nvim VISUAL=nvim
+alias vi=nvim vim=nvim
+(( $+commands[fvm] )) && alias flutter='fvm flutter'
+[[ -s $HOME/.bun/_bun ]] && source "$HOME/.bun/_bun"
+[[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
+(( $+commands[fnm] )) && eval "$(fnm env --use-on-cd --shell zsh)"
+
+mkdir -p "$HOME/.cache/zsh" "$HOME/.local/state/loopy"
+HISTFILE="$HOME/.local/state/loopy/zsh_history"
+HISTSIZE=10000 SAVEHIST=10000
+setopt append_history hist_ignore_all_dups hist_ignore_space share_history auto_cd interactive_comments
+bindkey -e
+autoload -Uz compinit
+compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
+source /usr/share/loopy/shell/git.zsh
+source /usr/share/loopy/shell/git.plugin.zsh
+
+export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type=d --hidden --strip-cwd-prefix --exclude .git'
+export FZF_DEFAULT_OPTS='--color=fg:#CBE0F0,bg:#011628,hl:#B388FF,fg+:#CBE0F0,bg+:#143652,hl+:#B388FF,info:#06BCE4,prompt:#2CF9ED,pointer:#2CF9ED,marker:#2CF9ED,spinner:#2CF9ED,header:#2CF9ED'
+export BAT_THEME=Dracula
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+_fzf_compgen_path() { fd --hidden --exclude .git . "$1"; }
+_fzf_compgen_dir() { fd --type=d --hidden --exclude .git . "$1"; }
+_fzf_comprun() {
+  local command=$1
+  shift
+  case "$command" in
+    cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview 'printf "%s\n" {}' "$@" ;;
+    ssh) fzf --preview 'getent hosts {}' "$@" ;;
+    *) fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
+  esac
+}
+eval "$(fzf --zsh)"
+[[ -f $HOME/fzf-git.sh/fzf-git.sh ]] && source "$HOME/fzf-git.sh/fzf-git.sh"
+alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+[[ $CLAUDECODE == 1 ]] || eval "$(zoxide init --cmd cd zsh)"
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/loopy/shell/p10k.zsh
+typeset -g POWERLEVEL9K_DISABLE_GITSTATUS=true
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+source /usr/share/loopy/shell/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,27 +1,17 @@
 __pycache__/
-*.py[cod]
+*.pyc
 .DS_Store
-.venv/
 build/
-cache/
-dist/
-local/
+native/**/target/
+
+# Download caches and separately managed public distribution repository
+third_party/cache/
+public/termux-omarchy/
+
+# Historical device captures and frozen binary validation inputs
+# Keep top-level validation summaries; raw runs remain local.
+docs/validation/*/
 .env
 .env.*
-*.apk
-*.aab
-*.dex
-*.class
-*.so
-*.deb
-*.pkg.tar.*
-*.tar
-*.tar.gz
-*.tar.xz
-*.zip
-*.jks
 *.keystore
-*.p12
-*.pem
-*.key
-gitleaks-report.json
+*.jks

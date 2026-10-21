@@ -1,0 +1,226 @@
+--- a/usr/share/omarchy/shell/plugins/panels/network/Panel.qml
++++ b/usr/share/omarchy/shell/plugins/panels/network/Panel.qml
+@@ -66,7 +66,7 @@
+     "Bending light",
+   ]
+   readonly property string connectionPhrase: connectionPhrases[connectionPhraseIndex % connectionPhrases.length]
+-  readonly property bool networkManagerAvailable: Networking.backend === NetworkBackendType.NetworkManager
++  readonly property bool networkManagerAvailable: !root.prootMode && Networking.backend === NetworkBackendType.NetworkManager
+   readonly property var networkDevices: Networking.devices ? Networking.devices.values : []
+   readonly property var wifiDevice: findDevice(DeviceType.Wifi)
+   readonly property var wifiNetworkObjects: wifiDevice && wifiDevice.networks ? wifiDevice.networks.values : []
+@@ -164,7 +164,7 @@
+   readonly property bool bandBusy: pendingBand !== ""
+   // The speed test needs an interface to test, so its hero action only
+   // appears once there is one.
+-  readonly property bool canRunSpeedTest: !!info.iface
++  readonly property bool canRunSpeedTest: !root.prootMode && !!info.iface
+   property int bandIndex: 0
+   // The band section has up to two cursor rows: the Automatic switch on the
+   // header line, then the pills. Same shape as wifiActionFocused.
+@@ -203,6 +203,7 @@
+   }
+ 
+   function toggleNetwork() {
++    if (root.prootMode) { androidSettings.launch(); return }
+     if (!networkManagerAvailable) return
+     Networking.wifiEnabled = !Networking.wifiEnabled
+     Qt.callLater(function() { root.refresh(true) })
+@@ -320,6 +321,7 @@
+   // what makes the SUPER+CTRL+W keybind land here with navigation ready.
+   onOpenedChanged: {
+     if (opened) {
++      if (root.prootMode) androidSettings.launch()
+       refresh(true)
+       selectedIndex = wifiNetworks.length > 0 ? 0 : -1
+       wifiActionFocused = false
+@@ -440,7 +442,7 @@
+   readonly property string kind: {
+     // Android owns the real connection; NetworkManager inside PRoot cannot
+     // see or control it, though the guest shares the phone's working network.
+-    if (root.prootMode) return "ethernet"
++    if (root.prootMode) return "android"
+     if (wiredDevice && wiredDevice.connected) return "ethernet"
+     if (connectedWifiNetwork) return "wifi"
+     return "disconnected"
+@@ -454,7 +456,7 @@
+     Quickshell.execDetached(["bash", "-c", "printf %s " + Util.shellQuote(value) + " | wl-copy"])
+   }
+ 
+-  readonly property string icon: Model.connectionIcon(kind, signalStrength)
++  readonly property string icon: root.prootMode ? "󰖩" : Model.connectionIcon(kind, signalStrength)
+ 
+   // The share card is its own panel plugin (omarchy.wifiqr) so a replacement
+   // design can take it over; summon() routes to whichever implementation is
+@@ -462,6 +464,7 @@
+   // IPC route forces self-detection instead: details polling stops while the
+   // panel is closed, so its cached interface can be stale.
+   function summonWifiQr(forceDetect) {
++    if (root.prootMode) { androidSettings.launch(); return }
+     controller.hide()
+     cancelPasswordPrompt()
+     var payload = {}
+@@ -475,7 +478,7 @@
+   function refresh(scanWifi) {
+     if (scanWifi === undefined) scanWifi = false
+     if (root.prootMode) {
+-      root.info = ({ iface: "Android", type: "ethernet" })
++      root.info = ({ iface: "Android", type: "android" })
+       root.dnsProvider = "Android"
+       root.syncWifiNetworks()
+       return
+@@ -1071,6 +1074,7 @@
+         }
+       }
+       onActivateRequested: {
++        if (root.prootMode) { androidSettings.launch(); return }
+         if (root.cursorActive) {
+           if (root.focusSection === "header") root.activateHeader()
+           else if (root.focusSection === "band") root.activateBand()
+@@ -1104,7 +1108,7 @@
+           color: root.bar.foreground
+           font.family: root.bar.fontFamily
+           font.pixelSize: Style.font.display
+-          opacity: root.networkManagerAvailable ? 1.0 : 0.5
++          opacity: root.prootMode || root.networkManagerAvailable ? 1.0 : 0.5
+           anchors.left: parent.left
+           anchors.verticalCenter: parent.verticalCenter
+         }
+@@ -1183,6 +1187,7 @@
+             width: parent.width
+ 
+             readonly property string title: {
++              if (root.prootMode) return "Android Wi-Fi"
+               if (root.info.type === "wifi") return root.info.ssid || "Wi-Fi"
+               if (root.info.type === "ethernet") return "Ethernet"
+               return root.info.iface || (root.kind === "disconnected" ? "Disconnected" : "No connection")
+@@ -1222,9 +1227,19 @@
+ 
+       }
+ 
++      AndroidSettings {
++        id: androidSettings
++        visible: root.prootMode
++        width: parent.width
++        action: "wifi"
++        foreground: root.bar.foreground
++        fontFamily: root.bar.fontFamily
++        onAccepted: root.close()
++      }
++
+       // Connection details: transfer metrics first, then IP/Gateway.
+       Column {
+-        visible: !!root.info.iface
++        visible: !root.prootMode && !!root.info.iface
+         width: parent.width
+         spacing: Style.spacing.labelGap
+ 
+@@ -1407,10 +1422,12 @@
+ 
+       // DNS provider selection.
+       PanelSeparator {
++        visible: !root.prootMode
+         foreground: root.bar.foreground
+       }
+ 
+       Column {
++        visible: !root.prootMode
+         width: parent.width
+         spacing: Style.space(10)
+ 
+--- a/usr/share/omarchy/shell/plugins/panels/bluetooth/Panel.qml
++++ b/usr/share/omarchy/shell/plugins/panels/bluetooth/Panel.qml
+@@ -10,6 +10,7 @@
+ 
+ Panel {
+   id: root
++  readonly property bool prootMode: Quickshell.env("OMARCHY_PROOT") === "1"
+   moduleName: "omarchy.bluetooth"
+   ipcTarget: "omarchy.bluetooth"
+   // manageIpc: false so this panel can own the single IpcHandler the target
+@@ -56,6 +57,7 @@
+   readonly property var discoveredDevices: deviceGroups.discovered || []
+ 
+   readonly property string icon: {
++    if (root.prootMode) return "󰂯"
+     if (!adapter) return ""
+     if (!adapter.enabled) return "󰂲"
+     if (connectedDevices.length > 0) return "󰂱"
+@@ -75,6 +77,7 @@
+   ]
+   readonly property bool rotatingPhrases: adapter && adapter.enabled
+   readonly property string heroStatusText: {
++    if (root.prootMode) return "Android settings"
+     if (!adapter) return "No adapter"
+     if (!adapter.enabled) return "Turned Off"
+     return activePhrases[phraseIndex % activePhrases.length]
+@@ -406,6 +409,10 @@
+   }
+ 
+   onOpenedChanged: {
++    if (root.prootMode) {
++      if (opened) androidSettings.launch()
++      return
++    }
+     if (opened) {
+       // Adopt a discovery session that is already running — a popout handoff
+       // from another monitor, or one leaked by an instance that could not
+@@ -633,6 +640,7 @@
+   // switch only moves once BlueZ catches up, so a second click inside that window
+   // would re-read the old state and undo the first.
+   function toggleBluetooth() {
++    if (root.prootMode) { androidSettings.launch(); return }
+     if (!adapter) return
+     Quickshell.execDetached(["omarchy-bluetooth-power", adapter.enabled ? "off" : "on"])
+   }
+@@ -677,7 +685,10 @@
+         if (dy !== 0) root.moveCursor(dy)
+         else if (dx !== 0) root.moveCursorH(dx)
+       }
+-      onActivateRequested: if (root.cursorActive) root.activateCursor()
++      onActivateRequested: {
++        if (root.prootMode) androidSettings.launch()
++        else if (root.cursorActive) root.activateCursor()
++      }
+       onCloseRequested: root.close()
+       onTabRequested: function(direction) { root.switchPanel(direction) }
+       onDeleteRequested: if (root.cursorActive) root.deleteSelected()
+@@ -705,7 +716,7 @@
+             color: root.bar.foreground
+             font.family: root.bar.fontFamily
+             font.pixelSize: Style.font.display
+-            opacity: root.adapter && root.adapter.enabled ? 1.0 : 0.5
++            opacity: root.prootMode || (root.adapter && root.adapter.enabled) ? 1.0 : 0.5
+           }
+ 
+           // Compact on/off switch on the trailing edge of the hero, and the
+@@ -762,9 +773,20 @@
+           }
+         }
+ 
++        AndroidSettings {
++          id: androidSettings
++          visible: root.prootMode
++          width: parent.width
++          action: "bluetooth"
++          foreground: root.bar.foreground
++          fontFamily: root.bar.fontFamily
++          onAccepted: root.close()
++        }
++
+         // Scrollable device list — capped so a noisy neighborhood doesn't
+         // grow the popup past the screen.
+         PanelSeparator {
++          visible: !root.prootMode
+           foreground: root.bar.foreground
+         }
+ 
+--- a/usr/share/omarchy/shell/Ui/qmldir
++++ b/usr/share/omarchy/shell/Ui/qmldir
+@@ -1,4 +1,6 @@
+ module qs.Ui
++
++AndroidSettings 1.0 AndroidSettings.qml
+ 
+ BarIndicator 1.0 BarIndicator.qml
+ BarIconButton 1.0 BarIconButton.qml

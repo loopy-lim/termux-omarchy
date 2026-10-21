@@ -1,0 +1,238 @@
+{
+  "queried_at": "2026-10-05T08:12:22.908517+00:00",
+  "scope": "Documentation/local references and pinned official-source availability; not product build or VM/Y900 runtime proof",
+  "markdown_files_checked": 9,
+  "missing_local_references": [],
+  "code_line_counts": {
+    "tools/audit_device.py": 288,
+    "tools/probes/runtime-capabilities.c": 269,
+    "dev/device-check": 4,
+    "dev/runtime-check": 51,
+    "dev/vm-start": 61
+  },
+  "pinned_source_head_checks": [
+    {
+      "url": "https://github.com/Linux-on-droid/vendor_lindroid/blob/eadbb70f13209133d96a5355464388db8c6578de/README.md",
+      "raw_url": "https://raw.githubusercontent.com/Linux-on-droid/vendor_lindroid/eadbb70f13209133d96a5355464388db8c6578de/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/RikkaApps/Shizuku-API/blob/a27f6e4151ba7b39965ca47edb2bf0aeed7102e5/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/RikkaApps/Shizuku-API/a27f6e4151ba7b39965ca47edb2bf0aeed7102e5/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/RikkaApps/Shizuku-API/blob/a27f6e4151ba7b39965ca47edb2bf0aeed7102e5/README.md",
+      "raw_url": "https://raw.githubusercontent.com/RikkaApps/Shizuku-API/a27f6e4151ba7b39965ca47edb2bf0aeed7102e5/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/RikkaApps/Shizuku/blob/b844bc491f1790c72328e1a8e5b2349f8978f0ea/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/RikkaApps/Shizuku/b844bc491f1790c72328e1a8e5b2349f8978f0ea/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/RikkaApps/Shizuku/blob/b844bc491f1790c72328e1a8e5b2349f8978f0ea/README.md",
+      "raw_url": "https://raw.githubusercontent.com/RikkaApps/Shizuku/b844bc491f1790c72328e1a8e5b2349f8978f0ea/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Shelnutt2/wldroid/blob/9560e767bb3e31f3d9b72d280e051c47cda35cf1/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/Shelnutt2/wldroid/9560e767bb3e31f3d9b72d280e051c47cda35cf1/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Shelnutt2/wldroid/blob/9560e767bb3e31f3d9b72d280e051c47cda35cf1/README.md",
+      "raw_url": "https://raw.githubusercontent.com/Shelnutt2/wldroid/9560e767bb3e31f3d9b72d280e051c47cda35cf1/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/README.md",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/app/libawl/src/main/java/com/anlandnext/awl/AwlWindowActivity.java",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/app/libawl/src/main/java/com/anlandnext/awl/AwlWindowActivity.java",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_data_device.c",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_data_device.c",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_input.c",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_input.c",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_renderer.cpp",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_renderer.cpp",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_surface.c",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_surface.c",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/SuperTurtleDev/anland/blob/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_xdg.c",
+      "raw_url": "https://raw.githubusercontent.com/SuperTurtleDev/anland/851e1bdd2896af94214b1be7f3b3f9595b903da2/services/waylandbridge/awl_xdg.c",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Xtr126/wlroots-android-bridge/blob/52178bb20b1672a63a765c9a2666cb04163cdfee/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/Xtr126/wlroots-android-bridge/52178bb20b1672a63a765c9a2666cb04163cdfee/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Xtr126/wlroots-android-bridge/blob/52178bb20b1672a63a765c9a2666cb04163cdfee/README.md",
+      "raw_url": "https://raw.githubusercontent.com/Xtr126/wlroots-android-bridge/52178bb20b1672a63a765c9a2666cb04163cdfee/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Xtr126/wlroots-android-bridge/blob/52178bb20b1672a63a765c9a2666cb04163cdfee/app/src/main/java/com/xtr/tinywl/SurfaceViewActivity.kt",
+      "raw_url": "https://raw.githubusercontent.com/Xtr126/wlroots-android-bridge/52178bb20b1672a63a765c9a2666cb04163cdfee/app/src/main/java/com/xtr/tinywl/SurfaceViewActivity.kt",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Xtr126/wlroots-android-bridge/blob/52178bb20b1672a63a765c9a2666cb04163cdfee/tinywl/src/main/aidl/com/xtr/tinywl/ITinywlSurface.aidl",
+      "raw_url": "https://raw.githubusercontent.com/Xtr126/wlroots-android-bridge/52178bb20b1672a63a765c9a2666cb04163cdfee/tinywl/src/main/aidl/com/xtr/tinywl/ITinywlSurface.aidl",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/farmerbb/Taskbar/blob/e2a00b9a3f3adda069059abb9aebcb8b4e18954f/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/farmerbb/Taskbar/e2a00b9a3f3adda069059abb9aebcb8b4e18954f/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/farmerbb/Taskbar/blob/e2a00b9a3f3adda069059abb9aebcb8b4e18954f/README.md",
+      "raw_url": "https://raw.githubusercontent.com/farmerbb/Taskbar/e2a00b9a3f3adda069059abb9aebcb8b4e18954f/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/keymapperorg/KeyMapper/blob/dc70a64bdb17769d7a2632c381596d77dfb2d919/LICENSE.md",
+      "raw_url": "https://raw.githubusercontent.com/keymapperorg/KeyMapper/dc70a64bdb17769d7a2632c381596d77dfb2d919/LICENSE.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/keymapperorg/KeyMapper/blob/dc70a64bdb17769d7a2632c381596d77dfb2d919/README.md",
+      "raw_url": "https://raw.githubusercontent.com/keymapperorg/KeyMapper/dc70a64bdb17769d7a2632c381596d77dfb2d919/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/keymapperorg/KeyMapper/blob/dc70a64bdb17769d7a2632c381596d77dfb2d919/sysbridge/src/main/aidl/io/github/sds100/keymapper/sysbridge/ISystemBridge.aidl",
+      "raw_url": "https://raw.githubusercontent.com/keymapperorg/KeyMapper/dc70a64bdb17769d7a2632c381596d77dfb2d919/sysbridge/src/main/aidl/io/github/sds100/keymapper/sysbridge/ISystemBridge.aidl",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/keymapperorg/KeyMapper/blob/dc70a64bdb17769d7a2632c381596d77dfb2d919/sysbridge/src/main/java/io/github/sds100/keymapper/sysbridge/service/SystemBridge.kt",
+      "raw_url": "https://raw.githubusercontent.com/keymapperorg/KeyMapper/dc70a64bdb17769d7a2632c381596d77dfb2d919/sysbridge/src/main/java/io/github/sds100/keymapper/sysbridge/service/SystemBridge.kt",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/README.md",
+      "raw_url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/manifest.yaml",
+      "raw_url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/manifest.yaml",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/patches/build-proot-android/build/proot/src/execve/enter.c",
+      "raw_url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/patches/build-proot-android/build/proot/src/execve/enter.c",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/src/android/proot/process.rs",
+      "raw_url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/src/android/proot/process.rs",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/src/android/proot/setup.rs",
+      "raw_url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/src/android/proot/setup.rs",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/src/bin/build_apk.rs",
+      "raw_url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/src/bin/build_apk.rs",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/proot-distro/blob/c76286a2fb57884dae11bc2ea469949bbcdec135/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/termux/proot-distro/c76286a2fb57884dae11bc2ea469949bbcdec135/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/proot-distro/blob/c76286a2fb57884dae11bc2ea469949bbcdec135/README.md",
+      "raw_url": "https://raw.githubusercontent.com/termux/proot-distro/c76286a2fb57884dae11bc2ea469949bbcdec135/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/proot-distro/blob/c76286a2fb57884dae11bc2ea469949bbcdec135/proot-distro.py",
+      "raw_url": "https://raw.githubusercontent.com/termux/proot-distro/c76286a2fb57884dae11bc2ea469949bbcdec135/proot-distro.py",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-gui/blob/be24a5f34681096a788a6b0559caf833f87bd691/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-gui/be24a5f34681096a788a6b0559caf833f87bd691/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-gui/blob/be24a5f34681096a788a6b0559caf833f87bd691/Protocol.md",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-gui/be24a5f34681096a788a6b0559caf833f87bd691/Protocol.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-gui/blob/be24a5f34681096a788a6b0559caf833f87bd691/README.md",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-gui/be24a5f34681096a788a6b0559caf833f87bd691/README.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-gui/blob/be24a5f34681096a788a6b0559caf833f87bd691/app/src/main/AndroidManifest.xml",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-gui/be24a5f34681096a788a6b0559caf833f87bd691/app/src/main/AndroidManifest.xml",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-gui/blob/be24a5f34681096a788a6b0559caf833f87bd691/app/src/main/java/com/termux/gui/views/HardwareBufferSurfaceView.kt",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-gui/be24a5f34681096a788a6b0559caf833f87bd691/app/src/main/java/com/termux/gui/views/HardwareBufferSurfaceView.kt",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-x11/blob/0e1ebb4c180f4e8e7a14a80f7cd0db8301791b6d/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-x11/0e1ebb4c180f4e8e7a14a80f7cd0db8301791b6d/LICENSE",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-x11/blob/0e1ebb4c180f4e8e7a14a80f7cd0db8301791b6d/lorie/src/main/cpp/lorie/buffer.c",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-x11/0e1ebb4c180f4e8e7a14a80f7cd0db8301791b6d/lorie/src/main/cpp/lorie/buffer.c",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/termux/termux-x11/blob/0e1ebb4c180f4e8e7a14a80f7cd0db8301791b6d/lorie/src/main/java/com/termux/x11/LorieView.java",
+      "raw_url": "https://raw.githubusercontent.com/termux/termux-x11/0e1ebb4c180f4e8e7a14a80f7cd0db8301791b6d/lorie/src/main/java/com/termux/x11/LorieView.java",
+      "status": 200
+    }
+  ],
+  "independent_review": {
+    "material_findings": 2,
+    "corrections": [
+      "Add target SDK/app-data exec restriction and concrete nativeLibraryDir PRoot/loader precedent to first runtime experiment",
+      "Keep Korean IME extension outside MVP 0.1 acceptance gate"
+    ],
+    "status": "addressed in documentation; no implementation/runtime claim"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source": "lanweikayu/android_device_lenovo_TB522FU",
+  "revision": "2ed9572c0869180d2b48b0b765970233fb8cd481",
+  "files": {
+    "BoardConfig.mk": {
+      "url": "https://raw.githubusercontent.com/lanweikayu/android_device_lenovo_TB522FU/2ed9572c0869180d2b48b0b765970233fb8cd481/BoardConfig.mk",
+      "sha256": "29003fa98512ebf2498acb8168b27b621a701a935a2364e2d978a0f9e8d208c1",
+      "bytes": 6216
+    },
+    "device.mk": {
+      "url": "https://raw.githubusercontent.com/lanweikayu/android_device_lenovo_TB522FU/2ed9572c0869180d2b48b0b765970233fb8cd481/device.mk",
+      "sha256": "c5af425dbf05c0a1172af07548571988d4c58966da603dbe503538d876bb27de",
+      "bytes": 1244
+    },
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/lanweikayu/android_device_lenovo_TB522FU/2ed9572c0869180d2b48b0b765970233fb8cd481/README.md",
+      "sha256": "cda5aee55b512f935a1e61b56b3c2245637345c8764d5163e8d0391ea5126704",
+      "bytes": 8707
+    },
+    "recovery.fstab": {
+      "url": "https://raw.githubusercontent.com/lanweikayu/android_device_lenovo_TB522FU/2ed9572c0869180d2b48b0b765970233fb8cd481/recovery.fstab",
+      "sha256": "40ed0f98466bd9e8bdbd1d508f293be286a1bf7e254936d5512ed87b7432ab20",
+      "bytes": 3032
+    }
+  },
+  "scope": "read-only source audit; no source copied into product, kernel/ROM build or flashing performed"
+}

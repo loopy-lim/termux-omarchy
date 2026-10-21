@@ -1,0 +1,35 @@
+--- a/start/src/main.cpp
++++ b/start/src/main.cpp
+@@ -4,6 +4,7 @@
+ 
+ #include "helpers/Logger.hpp"
+ #include "helpers/Nix.hpp"
++#include "helpers/LoopyGpuRecovery.hpp"
+ #include "core/State.hpp"
+ #include "core/Instance.hpp"
+ 
+@@ -101,6 +102,7 @@
+     if (Nix::shouldUseNixGL())
+         g_logger->log(Hyprutils::CLI::LOG_DEBUG, "Hyprland was compiled with Nix - will use nixGL");
+ 
++    LoopyOmarchy::CGpuRecovery gpuRecovery;
+     bool safeMode    = false;
+     bool lockedCrash = false;
+ 
+@@ -111,8 +113,15 @@
+         g_instance.reset();
+ 
+         if (!RET) {
++            const auto recovery = gpuRecovery.unexpectedExit();
++            if (recovery == LoopyOmarchy::CGpuRecovery::Action::FAILED) {
++                g_logger->log(Hyprutils::CLI::LOG_ERR, "Loopy GPU recovery exhausted; stopping watchdog");
++                return 1;
++            }
++            if (recovery == LoopyOmarchy::CGpuRecovery::Action::SOFTWARE_RETRY)
++                g_logger->log(Hyprutils::CLI::LOG_WARN, "Loopy GPU session failed; retrying once on software");
+             g_logger->log(Hyprutils::CLI::LOG_ERR, "Hyprland exit not-cleanly, restarting");
+-            safeMode = true;
++            safeMode = recovery != LoopyOmarchy::CGpuRecovery::Action::SOFTWARE_RETRY;
+             continue;
+         }
+ 

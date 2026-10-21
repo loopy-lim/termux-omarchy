@@ -1,0 +1,42 @@
+--- a/omarchy_resources.py
++++ b/omarchy_resources.py
+@@ -102,6 +102,29 @@
+     path = Path(short) / relative
+     peer = live_peer(path, records)
+     return bool(peer and row(path) == after)
++
++
++def fixed_quickshell_index_rebind(short, relative, before, after, directories):
++    """Permit only the immutable index into a recorded private shell directory.
++
++    This index is recreated by short-lived qs IPC clients as well as the shell.
++    Their lifetime is not the index lifetime. The literal target and the owned
++    directory inode are the authority; cleanup only removes the link itself.
++    """
++    match = re.fullmatch(r'quickshell/by-path/([a-f0-9]{32})', relative)
++    if not match or not isinstance(before, list) or len(before) != 4 \
++            or before[0] != after[0] or before[1] == after[1] or before[2:] != after[2:] \
++            or not stat.S_ISLNK(before[3]):
++        return False
++    target = 'quickshell/by-shell/' + match[1]
++    # Guest absolute links cannot be resolved in the native namespace. Check
++    # the literal selector and the already recorded native directory instead.
++    path = Path(short) / relative
++    directory = row(Path(short) / target)
++    if not stat.S_ISDIR(directory[3]) or os.readlink(path) != '/run/user/1000/' + target \
++            or directories.get(target) != directory[:3]:
++        return False
++    return row(path) == after and row(Path(short) / target) == directory
+ 
+ 
+ def capture(short, prefix, value, x_records, *, runtime_records=()):
+@@ -124,7 +147,8 @@
+             name = 'runtime:' + relative
+             if name in resources and not same_runtime_entry(resources[name], current) \
+                     and not authenticated_yazi_rebind(short, relative, resources[name], current,
+-                                                     runtime_records):
++                                                     runtime_records) \
++                    and not fixed_quickshell_index_rebind(short, relative, resources[name], current, directories):
+                 raise ResourceFailure('resource-replaced')
+             resources[name] = current
+     if len(resources) > 256:

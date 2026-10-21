@@ -1,0 +1,30 @@
+--- a/src/output/Monitor.cpp
++++ b/src/output/Monitor.cpp
+@@ -232,9 +232,12 @@
+ 
+         m_forceSize = SIZE;
+ 
+-        auto rule = m_activeMonitorRule;
+-
+-        if (SIZE == rule.m_resolution)
++        auto       rule = m_activeMonitorRule;
++
++        const auto PARENTMODE           = m_output->preferredMode();
++        const bool parentRefreshChanged = m_output->getBackend()->type() == Aquamarine::AQ_BACKEND_WAYLAND && PARENTMODE && PARENTMODE->refreshRate >= 30000 &&
++            PARENTMODE->refreshRate <= 144100 && std::abs(PARENTMODE->refreshRate / 1000.f - m_refreshRate) > 0.01f;
++        if (SIZE == rule.m_resolution && !parentRefreshChanged)
+             return;
+ 
+         rule.m_resolution = SIZE;
+@@ -725,6 +728,11 @@
+     if (m_forceSize.has_value())
+         m_activeMonitorRule.m_resolution = m_forceSize.value();
+ 
++    // xdg_toplevel cannot change the parent's actual presentation cadence.
++    const auto PARENTMODE = m_output->preferredMode();
++    if (m_output->getBackend()->type() == Aquamarine::AQ_BACKEND_WAYLAND && PARENTMODE && PARENTMODE->refreshRate >= 30000 && PARENTMODE->refreshRate <= 144100)
++        pMonitorRule.m_refreshRate = PARENTMODE->refreshRate / 1000.f;
++
+     const auto RULE = &pMonitorRule;
+ 
+     // if it's disabled, disable and ignore

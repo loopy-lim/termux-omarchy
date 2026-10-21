@@ -1,0 +1,65 @@
+{
+  "upstream_commit": "efb50993780079460b0cbed1363e2166a2de1d9f",
+  "patch_sha256": "ca4a6f491ece044c1ef8b3d26f1047a960800ecc1cdf3e7206d9a19db2c9961d",
+  "files": {
+    "src/render/OpenGL.hpp": {
+      "preimage_sha256": "e08060838c88d6bf650fd2e2b695acbda48e10f04a317a397d35f2f1dff9c813",
+      "patched_sha256": "5f2fd4493179333760221c8107de52d3feac857d0b65c42c9d4dd76cec47a422"
+    },
+    "src/render/OpenGL.cpp": {
+      "preimage_sha256": "7bbf0f8f6714cc7ed7b6d17dbc670d75f5f17db54637def8d8b322ac3b873d58",
+      "patched_sha256": "6c6fb0cc934e8252ddbfab790d30c7534d2232d22b4d2ec58b18963198c66c04"
+    },
+    "src/render/gl/GLRenderbuffer.hpp": {
+      "preimage_sha256": "bf9d413f32bd821611509db79929e4bd06036aa07165cbdc4fb23533f58795ee",
+      "patched_sha256": "e295565882307d1768efedd3f9f3b9c4704b9c9001025092401f88bee0f2f03a"
+    },
+    "src/render/gl/GLRenderbuffer.cpp": {
+      "preimage_sha256": "7e3ed4429007885fc3874f080c5cbf810f67525e53c74d6d4e881ecbf6ea163e",
+      "patched_sha256": "603cdadda3630ed314fb85bf0fe3d4cdd2b7668b433c3c54eb87c1efd9e152ef"
+    },
+    "src/render/GLRenderer.cpp": {
+      "preimage_sha256": "2072807043b5d53a0910ebcc3936e69905abdf5905457d363f70d8c1043a4a81",
+      "patched_sha256": "85d2cb449486117fede446b49f550b04f2f76b320d7a7cc605abba6e4e5afa1a"
+    },
+    "src/output/Monitor.cpp": {
+      "preimage_sha256": "9cf88e154eb5dae676c79d37b5b055ca6134838857cecdbb89a3b747a6821927",
+      "patched_sha256": "c90e62f60df38012ddaa42370ef88224961c5f0d515fbeb6ea97f332f4e294f9"
+    }
+  },
+  "added_files": {
+    "src/render/gl/LoopyShmReadback.cpp": "5605efc0d8fa49522012bf75295ca2ffcca4e9392de2410c0a7895f129a94ea4",
+    "src/render/gl/LoopyShmReadback.hpp": "a0a982480c94ff8dc357a14edb65f8af177a6b5413c7c03812a80a65adb21cb8"
+  },
+  "build_inputs": [
+    {
+      "repo": "stephenberry/glaze",
+      "tag": "v7.2.0",
+      "commit": "b518eec7a22e56ffa238b072c07f47efa7cea97f",
+      "archive_url": "https://codeload.github.com/stephenberry/glaze/tar.gz/b518eec7a22e56ffa238b072c07f47efa7cea97f",
+      "archive_sha256": "0d108903feb443df316fb53eaec2fd6c1c6d96b368562ad830debc5c6c29c304",
+      "archive_bytes": 1534564,
+      "git_blobs_verified": 582,
+      "source_directory": "build/omarchy-sources/glaze-build-source"
+    },
+    {
+      "repo": "canihavesomecoffee/udis86",
+      "commit": "5336633af70f3917760a6d441ff02d93477b0c86",
+      "archive_url": "https://codeload.github.com/canihavesomecoffee/udis86/tar.gz/5336633af70f3917760a6d441ff02d93477b0c86",
+      "archive_sha256": "2f459fafa19535ef1be417bf7614e4f92475e5787d7ba76df20287cc29d1b5a9",
+      "archive_bytes": 116983,
+      "git_blobs_verified": 105,
+      "source_directory": "build/omarchy-sources/udis86-build-source"
+    },
+    {
+      "repo": "hyprwm/hyprland-protocols",
+      "commit": "bd153e76f751f150a09328dbdeb5e4fab9d23622",
+      "archive_url": "https://codeload.github.com/hyprwm/hyprland-protocols/tar.gz/bd153e76f751f150a09328dbdeb5e4fab9d23622",
+      "archive_sha256": "f31112800ec83ec529d0d35699a3d20fa0ed3cbb97d344146340815fec5ac055",
+      "archive_bytes": 11543,
+      "git_blobs_verified": 16,
+      "source_directory": "build/omarchy-sources/hyprland-protocols-build-source"
+    }
+  ],
+  "scope": "Guarded surfaceless EGL and explicit source FBO row order for top-down Hyprland SHM output. Current compositor rebuild and Android orientation/focus acceptance pending."
+}

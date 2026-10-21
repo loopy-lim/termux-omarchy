@@ -1,0 +1,3 @@
+#!/bin/sh
+export GDK_BACKEND=wayland
+exec /usr/bin/python3 /usr/local/lib/loopy/remote_connections.py "$@"

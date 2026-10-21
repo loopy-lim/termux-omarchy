@@ -1,0 +1,26 @@
+{
+  "upstream_commit": "f31c47a1b9d300847d8fc3108ad959448103dfc1",
+  "patch_sha256": "b61d9dedb48d08fcf6e16e295d06822951aab2d5f19cbd7472f049c796dabdc7",
+  "files": {
+    "CMakeLists.txt": {
+      "preimage_sha256": "f3f42c392358ddf4010d1722da17646202b6f58d0f6d7b89e3be3c59ad8e43ab",
+      "patched_sha256": "b7ef5ab6779f971cf2ff8a27adc89ca39e213d1c54742d2f7401cdd706eee60b"
+    },
+    "include/aquamarine/backend/Wayland.hpp": {
+      "preimage_sha256": "4d00fa81774657c6a39a8c777932540cb890f12e3b8056437a2b7b0fe7c638ed",
+      "patched_sha256": "17cc890ec45359920a2ee983f8f88a84eaca94767dc92a8d1e103bbdc09ecef7"
+    },
+    "src/backend/Wayland.cpp": {
+      "preimage_sha256": "8f27f2019960ff6bedf12772a0fd3c9e6c79b5d1b57458516f7abaa28df1bc05",
+      "patched_sha256": "4709bbb649389aa74e7d5f0c29fdf2c24e48edaf44b2113fe3afb27287897f9f"
+    },
+    "src/allocator/Swapchain.cpp": {
+      "preimage_sha256": "bf11ebd3ed8ddad7166a8c07c5a38e2bcc1aad045ecaeb8b89271717363b1cfb",
+      "patched_sha256": "4250901ea7eb192deb6a3613d82688e27bdfc43b98b5dbe6eb2126972620f102"
+    }
+  },
+  "added_files": {
+    "cmake/GuardWaylandDestructors.cmake": "f16ec3e75cba3802028c4c2bd3e63aa5623eaaa35586c2fc95158f159c0c65ba"
+  },
+  "scope": "Actual opt-in Aquamarine SHM output, release-safe swapchain, xdg configure ordering and version-safe proxy teardown. Not a Hyprland renderer, Android or GPU acceptance."
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "artifacts": [
+    {
+      "name": "libproot.so",
+      "path": "arm64-v8a/libproot.so",
+      "url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/assets/libs/arm64-v8a/libproot.so",
+      "sha256": "2d278e9a3f96ca275776909551c63eb878fb96a6d1b7a6b0c6f94e7f9a2e056a",
+      "size_bytes": 245816,
+      "format": "elf-aarch64",
+      "source": "https://github.com/localdesktop/localdesktop.github.io/tree/e6a8b580a3376e842cca2e44327a99498d7fb6dc/patches/build-proot-android/build/proot",
+      "upstream_commit": "ab2e3464d04483b98a0614b470f3f8950d5a6468",
+      "license": "GPL-2.0-or-later AND LGPL-3.0-or-later (statically linked talloc)",
+      "license_url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/patches/build-proot-android/build/proot/COPYING",
+      "linked_talloc": {
+        "version": "2.4.3",
+        "source": "https://download.samba.org/pub/talloc/talloc-2.4.3.tar.gz",
+        "license": "LGPL-3.0-or-later",
+        "sha256": "dc46c40b9f46bb34dd97fe41f548b0e8b247b77a918576733c528e83abd854dd"
+      }
+    },
+    {
+      "name": "libproot_loader.so",
+      "path": "arm64-v8a/libproot_loader.so",
+      "url": "https://raw.githubusercontent.com/localdesktop/localdesktop.github.io/e6a8b580a3376e842cca2e44327a99498d7fb6dc/assets/libs/arm64-v8a/libproot_loader.so",
+      "sha256": "cf4f87772e1baf5950e35af9a729a1402898a81492e0aa011bcde3007455ddc8",
+      "size_bytes": 5464,
+      "format": "elf-aarch64",
+      "source": "https://github.com/localdesktop/localdesktop.github.io/tree/e6a8b580a3376e842cca2e44327a99498d7fb6dc/patches/build-proot-android/build/proot",
+      "upstream_commit": "ab2e3464d04483b98a0614b470f3f8950d5a6468",
+      "license": "GPL-2.0-or-later",
+      "license_url": "https://github.com/localdesktop/localdesktop.github.io/blob/e6a8b580a3376e842cca2e44327a99498d7fb6dc/patches/build-proot-android/build/proot/src/loader/loader.c"
+    },
+    {
+      "name": "rootfs.tar.gz",
+      "path": "rootfs.tar.gz",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64/alpine-minirootfs-3.22.6-aarch64.tar.gz",
+      "sha256": "821565fa8f3953eefd12497b166b4b50add2f7c57fb312e75862f5867e06fefe",
+      "size_bytes": 3969729,
+      "format": "alpine-minirootfs-aarch64",
+      "source": "https://gitlab.alpinelinux.org/alpine/aports/-/tree/3.22-stable",
+      "version": "3.22.6",
+      "license": "Mixed; per-package SPDX licenses recorded in NOTICE.md and lib/apk/db/installed",
+      "checksum_url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64/alpine-minirootfs-3.22.6-aarch64.tar.gz.sha256"
+    }
+  ]
+}

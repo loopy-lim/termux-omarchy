@@ -1,0 +1,17 @@
+{
+  "slate": {
+    "background": "16191f", "surface": "20252d", "ink": "e2e6ed", "muted": "a1acba",
+    "border": "404a59", "accent": "9cb8d7", "red": "d4a0a0", "green": "a6bea7",
+    "yellow": "c7bc98", "magenta": "b8a7c9", "cyan": "9ebfc0"
+  },
+  "forest": {
+    "background": "18211d", "surface": "222f29", "ink": "e1e9df", "muted": "a3b2a4",
+    "border": "46584b", "accent": "a8c59f", "red": "d7a1a1", "green": "a8c59f",
+    "yellow": "d0c395", "magenta": "bea8c7", "cyan": "9ebfc0"
+  },
+  "paper": {
+    "background": "ece9e1", "surface": "f7f5ef", "ink": "303b44", "muted": "68747e",
+    "border": "bdc4c6", "accent": "547999", "red": "a85a5a", "green": "527b5b",
+    "yellow": "957b35", "magenta": "846396", "cyan": "417b80"
+  }
+}

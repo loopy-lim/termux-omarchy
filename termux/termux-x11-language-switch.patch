@@ -1,0 +1,11 @@
+diff --git a/lorie/src/main/cpp/lorie/lorie.h b/lorie/src/main/cpp/lorie/lorie.h
+--- a/lorie/src/main/cpp/lorie/lorie.h
++++ b/lorie/src/main/cpp/lorie/lorie.h
+@@ -495,6 +495,7 @@ static int android_to_linux_keycode[304] = {
+         [ 168  /* ANDROID_KEYCODE_ZOOM_IN */] = KEY_ZOOMIN,
+         [ 169  /* ANDROID_KEYCODE_ZOOM_OUT */] = KEY_ZOOMOUT,
+         [ 170  /* ANDROID_KEYCODE_TV */] = KEY_TV,
++        [ 204  /* ANDROID_KEYCODE_LANGUAGE_SWITCH */] = KEY_HANGEUL,
+         [ 208  /* ANDROID_KEYCODE_CALENDAR */] = KEY_CALENDAR,
+         [ 210  /* ANDROID_KEYCODE_CALCULATOR */] = KEY_CALC,
+ };

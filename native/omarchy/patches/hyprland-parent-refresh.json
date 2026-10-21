@@ -1,0 +1,13 @@
+{
+  "upstream_commit": "efb50993780079460b0cbed1363e2166a2de1d9f",
+  "patch_sha256": "1fd137e48eeca3a0df13946bb81ad6b4ed487e6c2de904156049b74f148a412e",
+  "files": {
+    "src/output/Monitor.cpp": {
+      "preimage_sha256": "c90e62f60df38012ddaa42370ef88224961c5f0d515fbeb6ea97f332f4e294f9",
+      "patched_sha256": "c94931185fe7951dc231f1a115a5029452ed9a7ce48c5a5f2988701fef5c70ba"
+    }
+  },
+  "added_files": {},
+  "build_inputs": [],
+  "scope": "Propagate valid actual parent CURRENT wl_output refresh into nested SHM output modes; metadata and bounded Linux frame callbacks are separate from physical Android acceptance."
+}

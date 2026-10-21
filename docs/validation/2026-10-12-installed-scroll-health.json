@@ -1,0 +1,55 @@
+{
+  "session": "0133090c-85e9-4d4a-8e4e-69333c1473e9",
+  "phase": "ready",
+  "monitors": [
+    {
+      "width": 3840,
+      "height": 2560,
+      "scale": 2.5,
+      "refreshRate": 120.0
+    }
+  ],
+  "browserPrimaryCount": 1,
+  "debugEnabled": false,
+  "windows": [
+    {
+      "class": "LoopyNativeBrowser",
+      "pid": 22095,
+      "profileActive": false,
+      "code": false
+    },
+    {
+      "class": "LoopyNativeBrowser",
+      "pid": 22095,
+      "profileActive": true,
+      "code": true
+    },
+    {
+      "class": "LoopyNativeBrowser",
+      "pid": 22095,
+      "profileActive": false,
+      "code": false
+    }
+  ],
+  "memoryKiB": {
+    "MemAvailable": 1295404,
+    "SwapFree": 2741556
+  },
+  "sha256": {
+    "omarchy_commands.py": "12ea29e0358e2ca435888d5c2319490495a322c32192b6d8b257faeefc9b46fa",
+    "omarchy_runtime.py": "976fa75c259ecf97c0b105786f0f22e0f4245a0d2e51e549da5e57c7510dd4d4",
+    "omarchy_resources.py": "e3276fcdd7af97cdc7286d7f694cac5bf9eff2d7b87dda679f661ef52499fff3",
+    "omarchy_android.py": "89fb4bb6cb2c76e0350ea460303479ac2d076834b80674d0adb357f7c0b34fad",
+    "omarchy_terminal.py": "91f4b623c23f5bb1c6a52ad9136d7fa68d0cc2041e552f41bdbb623ba080837d"
+  },
+  "refreshSelection": {
+    "schema": 1,
+    "refreshMhz": 120000
+  },
+  "wheelFactorPersisted": true,
+  "westonConfigRestoredAbsent": true,
+  "previewHttpStatus": 200,
+  "gpuFutexLoaded": true,
+  "gpuMailboxEnv": true,
+  "status": "PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "base": "BlackFireAlex/omarchy-android",
+  "pin": "c189d33bf34a7a50fad3ff46bbd97e5c29b48910",
+  "hyprland_patch": "build/omarchy-v011-source/patches/hyprland/0001-render-carry-proven-Android-KGSL-presentation-path.patch",
+  "apply": "experiments/hyprland-export-fence/apply.py",
+  "launcher_defaults_unchanged": true
+}

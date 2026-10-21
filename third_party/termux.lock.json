@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-06",
+  "sources": {
+    "termux_app_release": "5b657c6adf4304e5198951ce815fe0205dcac29c",
+    "termux_x11": "e85aa491a99ee78e3569dba477e12ca4d79148e4",
+    "termux_packages": "7945fdb5a62d773e98cae56f2e43438d859f9009"
+  },
+  "artifacts": [
+    {
+      "name": "termux-v0.118.3-arm64-v8a.apk",
+      "package": "com.termux",
+      "version": "0.118.3",
+      "url": "https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.118.3%2Bgithub-debug_arm64-v8a.apk",
+      "asset_id": 257237301,
+      "size_bytes": 35106607,
+      "sha256": "72fdb596045116bf5ba1b5bdf5b26fddb9acc0bd074ad9f2da9eb0ae85e83a4e",
+      "signer_sha256": "b6da01480eefd5fbf2cd3771b8d1021ec791304bdd6c4bf41d3faabad48ee5e1",
+      "license": "GPL-3.0-only; see upstream LICENSE.md for component exceptions",
+      "source": "https://github.com/termux/termux-app/tree/5b657c6adf4304e5198951ce815fe0205dcac29c"
+    },
+    {
+      "name": "termux-x11-20261005.apk",
+      "package": "com.termux.x11",
+      "version": "nightly-20261005",
+      "url": "https://github.com/termux/termux-x11/releases/download/nightly/termux-x11-universal-debug.apk",
+      "asset_id": 613161547,
+      "size_bytes": 14693940,
+      "sha256": "dde066f1d1510ffe45fcfa019c8baf0236d6115265e83e9418b7a10c83e349b0",
+      "signer_sha256": "b6da01480eefd5fbf2cd3771b8d1021ec791304bdd6c4bf41d3faabad48ee5e1",
+      "license": "GPL-3.0; Xorg and library submodules retain their own licenses",
+      "source": "https://github.com/termux/termux-x11/tree/e85aa491a99ee78e3569dba477e12ca4d79148e4"
+    }
+  ],
+  "optional_shared_uid": {
+    "url": "https://github.com/termux/termux-x11/releases/download/nightly/termux-x11-universal-sharedUid-debug.apk",
+    "asset_id": 613161548,
+    "size_bytes": 14693968,
+    "sha256": "2d410ef26d98b630aa011c3e22f1dc4e6d41b971ec0d5d7c2c868890969403cb",
+    "requires": "GitHub-signed Termux; explicit choice; do not replace another installed source"
+  }
+}

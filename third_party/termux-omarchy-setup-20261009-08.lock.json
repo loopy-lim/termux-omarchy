@@ -1,0 +1,736 @@
+{
+  "componentCounts": {
+    "developerPackages": 29,
+    "guestFiles": 11,
+    "inputConfigFiles": 5,
+    "inputPackages": 7,
+    "privateProotFiles": 3,
+    "runtimeFiles": 11,
+    "sourceFiles": 21,
+    "westonFiles": 87,
+    "workflowFiles": 15
+  },
+  "externalBundle": {
+    "bytes": 1181941760,
+    "included": false,
+    "sha256": "7e9f1cd67533bc0d3988b5cb3831aef52f1527dd90391d9d868ed9345021cdb2",
+    "url": "https://github.com/BlackFireAlex/omarchy-android/releases/download/v0.1.1/omarchy-android-aarch64-0.1.1.bundle.tar"
+  },
+  "files": {
+    "Omarchy-LICENSE": {
+      "bytes": 1070,
+      "mode": 384,
+      "sha256": "1285802f4c30eb389f65a9e0aadb307802778937e477b81423e1a7112b9fa867",
+      "source": "build/deliverables/LoopyOmarchy-Termux-native-setup-20261009-05/Omarchy-LICENSE"
+    },
+    "Weston-COPYING": {
+      "bytes": 1393,
+      "mode": 384,
+      "sha256": "d4a8dc24555cbd8aa564147b537b792a103d2a3ecb6a80b2bf6494a0e6e19e34",
+      "source": "build/deliverables/LoopyOmarchy-Termux-native-setup-20261009-05/Weston-COPYING"
+    },
+    "bat-0.26.1-3-aarch64.pkg.tar.xz": {
+      "bytes": 2197780,
+      "mode": 384,
+      "sha256": "f795fe698a5b48f50994185bc75878838dde831f3a8181db6178dc54557db910",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/bat-0.26.1-3-aarch64.pkg.tar.xz"
+    },
+    "bat-0.26.1-3-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "2d542c3e3ca0fa182a884755c535427ac98b9cd247b68b5cb8439d7630e1a061",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/bat-0.26.1-3-aarch64.pkg.tar.xz.sig"
+    },
+    "eza-0.23.5-2-aarch64.pkg.tar.xz": {
+      "bytes": 587392,
+      "mode": 384,
+      "sha256": "007328c2870c274b6a2124e07a71cfca80ac33006fa4edd36b3abe78b8f1516c",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/eza-0.23.5-2-aarch64.pkg.tar.xz"
+    },
+    "eza-0.23.5-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "283dd333914cf521fa9cab71791d9bf25e870a5aeeb77c506aa5989abe9626c0",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/eza-0.23.5-2-aarch64.pkg.tar.xz.sig"
+    },
+    "fd-10.5.0-3-aarch64.pkg.tar.xz": {
+      "bytes": 963192,
+      "mode": 384,
+      "sha256": "2bfd85ad6f6331f5537c7afbf3ff18440e2dd71442707e2be1ec4a8bd4787d7d",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/fd-10.5.0-3-aarch64.pkg.tar.xz"
+    },
+    "fd-10.5.0-3-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "c16f88c91bd4bfe227977c8276da4997d22a9d7dfead78d7b0bbafe00e7052ab",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/fd-10.5.0-3-aarch64.pkg.tar.xz.sig"
+    },
+    "fzf-0.74.4-1-aarch64.pkg.tar.xz": {
+      "bytes": 1626232,
+      "mode": 384,
+      "sha256": "24a0ff6fb0a8952b6025dbe353bc210a4003c2880de5ade739ae26d3a0ecd779",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/fzf-0.74.4-1-aarch64.pkg.tar.xz"
+    },
+    "fzf-0.74.4-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "db577c8ca970832ddadbc7a7ed4827fe1ef9c5b89a8a29b28a82cb96d996d320",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/fzf-0.74.4-1-aarch64.pkg.tar.xz.sig"
+    },
+    "guest-manifest.json": {
+      "bytes": 2430,
+      "mode": 384,
+      "sha256": "23f46b7836d26ef0c2088ab172238b7f7c982cfc3d19f912e5325ded76a36547",
+      "source": "build/diagnostics/termux-omarchy-guest-payload-20261009-01/guest-manifest.json"
+    },
+    "guest-payload.tar": {
+      "bytes": 153600,
+      "mode": 384,
+      "sha256": "49112da74b842970dde875334a1a1fd488c35dbd24a42badfbbb2cf94beb5e4f",
+      "source": "build/diagnostics/termux-omarchy-guest-payload-20261009-01/guest-payload.tar"
+    },
+    "input-config-manifest.json": {
+      "bytes": 843,
+      "mode": 384,
+      "sha256": "319dcdfb751420c69a0b55fca7d1dbb94d4c1e71b078957f6ab56d62f1b54fea",
+      "source": "build/deliverables/Omarchy-Hangul-input-config-20261009-01/input-config-manifest.json"
+    },
+    "input-config-payload.tar": {
+      "bytes": 10240,
+      "mode": 384,
+      "sha256": "9f26836651238aa8cebae609c9b9b8774b367ad07b817ebbd054466b5db35e92",
+      "source": "build/deliverables/Omarchy-Hangul-input-config-20261009-01/input-config-payload.tar"
+    },
+    "korean-input/fcitx5-5.1.23-1-aarch64.pkg.tar.xz": {
+      "bytes": 8729248,
+      "mode": 384,
+      "sha256": "193ed425324cc6fa52a8a718aee9f3060b9d45b36312693e42507fd028510bf8",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-5.1.23-1-aarch64.pkg.tar.xz"
+    },
+    "korean-input/fcitx5-5.1.23-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "6a6fe931c497d709f43ed1a7090ff2096f6ba0e6f6225f49b9b28b2f91f8e004",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-5.1.23-1-aarch64.pkg.tar.xz.sig"
+    },
+    "korean-input/fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz": {
+      "bytes": 71600,
+      "mode": 384,
+      "sha256": "385425465f3d44fb92d46ffc522b00d96ab31bdb342f94b48a25f946fd140dab",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz"
+    },
+    "korean-input/fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "9733c1c376b4ba27d8de88684aa3a695e7ac74628773095a5bbbbc239fcb4c2b",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-gtk-5.1.7-1-aarch64.pkg.tar.xz.sig"
+    },
+    "korean-input/fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz": {
+      "bytes": 57540,
+      "mode": 384,
+      "sha256": "27c2f6b871b1af910162cbbba4fc4b67b2cb380d5ffe29ab035aed4e886c8647",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz"
+    },
+    "korean-input/fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "7228afe7306dfc3e8e94c8b15ff0cfb59f15aea3e8806e8bbc3511f36c8e53a1",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-hangul-5.1.11-1-aarch64.pkg.tar.xz.sig"
+    },
+    "korean-input/fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz": {
+      "bytes": 404072,
+      "mode": 384,
+      "sha256": "297392839b9cfebcbfd1405ae4aedb90999cb51eedc6ae20f7433f3eefdc527e",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz"
+    },
+    "korean-input/fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "2599a7f64a8c1ef9718f1273f46b40b91f39525e4b51ffcb30c3edc9f2e20cc3",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/fcitx5-qt-5.1.16-1-aarch64.pkg.tar.xz.sig"
+    },
+    "korean-input/ime-manifest.json": {
+      "bytes": 2526,
+      "mode": 384,
+      "sha256": "9a8c73ec14e3a8f0da611555d9d8a873a58fa02eeaf47ec262f22541493e1e1e",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/ime-manifest.json"
+    },
+    "korean-input/libhangul-0.2.0-1-aarch64.pkg.tar.xz": {
+      "bytes": 1853200,
+      "mode": 384,
+      "sha256": "816be6e912bd5f1dd7a8155a0d9571019f2ee04dd4548e88b421fcb5f5003a3c",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/libhangul-0.2.0-1-aarch64.pkg.tar.xz"
+    },
+    "korean-input/libhangul-0.2.0-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "339fe7e3bd8fe4ebd7e3c848434c231dde41b5ac49a557034b3655139f1ef46f",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/libhangul-0.2.0-1-aarch64.pkg.tar.xz.sig"
+    },
+    "korean-input/xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz": {
+      "bytes": 287420,
+      "mode": 384,
+      "sha256": "135b8a9ea48a2a205e166561a102300a552fd8bfb5fc911c3676321316a7a3bf",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz"
+    },
+    "korean-input/xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "41ecc6285dbf14ad29ae6288e64a513159da76a3119f0ac013c638dd7e1f2a2a",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/xcb-imdkit-1.0.9-1-aarch64.pkg.tar.xz.sig"
+    },
+    "korean-input/yoga-3.2.1-1-aarch64.pkg.tar.xz": {
+      "bytes": 81480,
+      "mode": 384,
+      "sha256": "f7e2e7016a042bd1cc5481ff96b9c242bc5da4f1cdbd480bb8cf088c9eed4a11",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/yoga-3.2.1-1-aarch64.pkg.tar.xz"
+    },
+    "korean-input/yoga-3.2.1-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "d2578cd13813f3d25199287af14ea80d7c3c8e6e53e28246c91d45611537f0ca",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/yoga-3.2.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "libgit2-1:1.9.7-1-aarch64.pkg.tar.xz": {
+      "bytes": 768812,
+      "mode": 384,
+      "sha256": "cacbf38f50e09c1fa4a8a94bb5dae5d7719dc4b7a4262a8a8e94f9d001bc0842",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libgit2-1:1.9.7-1-aarch64.pkg.tar.xz"
+    },
+    "libgit2-1:1.9.7-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "2d4e15982858794428446596475c285c54aa1d3fc7cccb27b57d5e310153729b",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libgit2-1:1.9.7-1-aarch64.pkg.tar.xz.sig"
+    },
+    "libluv-1.52.1-1-aarch64.pkg.tar.xz": {
+      "bytes": 54452,
+      "mode": 384,
+      "sha256": "d364544068c0551713756fe5c60a8496f4408d5ec4193b12b9d2fd2d2933ac4b",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libluv-1.52.1-1-aarch64.pkg.tar.xz"
+    },
+    "libluv-1.52.1-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "693bff92a3eb71e21c4f8111d8e9f14bafde7c9a40347dd6185fa0bcc8b117a7",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libluv-1.52.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "libutempter-1.2.3-1-aarch64.pkg.tar.xz": {
+      "bytes": 9420,
+      "mode": 384,
+      "sha256": "021811f6324ce414f482fa2a7c8be094ae31efc4b421916e912560305320f985",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libutempter-1.2.3-1-aarch64.pkg.tar.xz"
+    },
+    "libutempter-1.2.3-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "3bc28a40e8fab2979c7c9693eb77409f4f1c1b55971727e9eb256fcb50d2f657",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libutempter-1.2.3-1-aarch64.pkg.tar.xz.sig"
+    },
+    "libuv-1.52.1-2-aarch64.pkg.tar.xz": {
+      "bytes": 252776,
+      "mode": 384,
+      "sha256": "b7ef4dd7c5dd724a71ad37a28640057cc75988cf8f49b605d3b6b468ef2ee854",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libuv-1.52.1-2-aarch64.pkg.tar.xz"
+    },
+    "libuv-1.52.1-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "8d77a301695203bc18aa251413a267f88f0f6d3a880218e188b8b20ba4587784",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libuv-1.52.1-2-aarch64.pkg.tar.xz.sig"
+    },
+    "libvterm-0.3.3-2-aarch64.pkg.tar.xz": {
+      "bytes": 47076,
+      "mode": 384,
+      "sha256": "6284d9362c4079bc7ecb4f07f656dcf010bdeb2935ea71d4df9f55fb559cb8c2",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libvterm-0.3.3-2-aarch64.pkg.tar.xz"
+    },
+    "libvterm-0.3.3-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "cf201240640450c66f08eeb15b66b922dba8c9028f69bcd2714a922d8a940686",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/libvterm-0.3.3-2-aarch64.pkg.tar.xz.sig"
+    },
+    "licenses/PRoot-COPYING": {
+      "bytes": 19106,
+      "mode": 384,
+      "sha256": "0ffa6454acbe7e410ac6f0007df83b9b3161fe55484c1f4b87487c0f2d228a6d",
+      "source": "build/diagnostics/termux-omarchy-proot-guard-update-kit-20261009-02/licenses/PRoot-COPYING"
+    },
+    "llhttp-9.3.1-1-aarch64.pkg.tar.xz": {
+      "bytes": 28604,
+      "mode": 384,
+      "sha256": "ffcd28cd2f93b1c5e6676ff9e842d6f6e3d54e6290a57cab0f8447f77459026a",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/llhttp-9.3.1-1-aarch64.pkg.tar.xz"
+    },
+    "llhttp-9.3.1-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "b721df9fe91b661aad949ba19925968aa3265639399d65d766cbaf27ee87eb65",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/llhttp-9.3.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz": {
+      "bytes": 28064,
+      "mode": 384,
+      "sha256": "46c1c36d709095c9b13725ab82421056a792de9aa9a8f3e1ef4c12a712541ae4",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz"
+    },
+    "lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "c3a5427cf4a18018106a4c0711d9ba5d7d67b813a98857d21855b53fc19ff67a",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/lua51-lpeg-1.1.0-5-aarch64.pkg.tar.xz.sig"
+    },
+    "msgpack-c-7.0.1-1-aarch64.pkg.tar.xz": {
+      "bytes": 30196,
+      "mode": 384,
+      "sha256": "2e2f7f30a9de1a435d774865050c56b9eb7e861f438e2ef7c3557ca264b66262",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/msgpack-c-7.0.1-1-aarch64.pkg.tar.xz"
+    },
+    "msgpack-c-7.0.1-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "892f8265a8b1b960d089555633709f50198c5ce5f91a86fcaa22931c1bfbb0bc",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/msgpack-c-7.0.1-1-aarch64.pkg.tar.xz.sig"
+    },
+    "neovim-0.12.5-1-aarch64.pkg.tar.xz": {
+      "bytes": 7054276,
+      "mode": 384,
+      "sha256": "36c33d71ce98c981e63e6c5e50c2c2f6bafb57a541184186a79817451afeca5e",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/neovim-0.12.5-1-aarch64.pkg.tar.xz"
+    },
+    "neovim-0.12.5-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "3b540023ba2feddc1a3bd2fe2e872ee4420e2d10bab6ae441fcb40b09179bfc4",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/neovim-0.12.5-1-aarch64.pkg.tar.xz.sig"
+    },
+    "omarchy.py": {
+      "bytes": 4048,
+      "mode": 384,
+      "sha256": "304996e5d33c770a4d9cf2c28c6309bc0843af9d283b99a50d93d0e88707909f",
+      "source": "termux/omarchy.py"
+    },
+    "omarchy_android.py": {
+      "bytes": 9146,
+      "mode": 384,
+      "sha256": "efb681f01380e55992838ca0178db801fc9ac06db3ec4ccb9c4216fad854584d",
+      "source": "termux/omarchy_android.py"
+    },
+    "omarchy_android_client.py": {
+      "bytes": 5827,
+      "mode": 384,
+      "sha256": "d564423e4ed197b88737662b0d8b90f61d65d34ba2ac3d467508ab5a64a63f9b",
+      "source": "termux/omarchy_android_client.py"
+    },
+    "omarchy_audio.py": {
+      "bytes": 4509,
+      "mode": 384,
+      "sha256": "3cebf98a8ee56f4b37a8edc2ccba8a481b303589d6dc4f188797f9309e7fe105",
+      "source": "termux/omarchy_audio.py"
+    },
+    "omarchy_boot.py": {
+      "bytes": 5144,
+      "mode": 384,
+      "sha256": "2966eeaf3b02c593a2638f2a13f0e3c069c43899e6da66b5bab37991b38f0203",
+      "source": "termux/omarchy_boot.py"
+    },
+    "omarchy_commands.py": {
+      "bytes": 5448,
+      "mode": 384,
+      "sha256": "81dd805e093d061f8159b2953fd2ebde553d90e10f31fe94412610e4ddc167fd",
+      "source": "termux/omarchy_commands.py"
+    },
+    "omarchy_guest_install.py": {
+      "bytes": 14713,
+      "mode": 384,
+      "sha256": "2a4a86b404924e12112eb76b80dffdc2aaadc485417d6c87241f18327bd0dbb2",
+      "source": "termux/omarchy_guest_install.py"
+    },
+    "omarchy_host_install.py": {
+      "bytes": 14922,
+      "mode": 384,
+      "sha256": "b1ed9ec3be2cd805275617c3d5786ad733b2c9125cd4b49ba4e0e9286962cb2e",
+      "source": "termux/omarchy_host_install.py"
+    },
+    "omarchy_input.py": {
+      "bytes": 7831,
+      "mode": 384,
+      "sha256": "baa102398d8b1525f5061eaccf27bad84b668d57e7875a59758eeda999df3389",
+      "source": "termux/omarchy_input.py"
+    },
+    "omarchy_input_install.py": {
+      "bytes": 4662,
+      "mode": 384,
+      "sha256": "a6f08ffd43a3ee7aaed24d13c2ac0850bbd152a413429fa9d94547ba2e504ab4",
+      "source": "termux/omarchy_input_install.py"
+    },
+    "omarchy_install.py": {
+      "bytes": 22997,
+      "mode": 384,
+      "sha256": "35d7e721f607de81f9f4ffde6b26e9d8fecd0c07b332c753558e4af4f8831968",
+      "source": "termux/omarchy_install.py"
+    },
+    "omarchy_machine_id.py": {
+      "bytes": 11130,
+      "mode": 384,
+      "sha256": "c8457408b8d304cc14b7302295a3a5583d8e8d24a6ebd574ea50e7fe321953c6",
+      "source": "termux/omarchy_machine_id.py"
+    },
+    "omarchy_proot.py": {
+      "bytes": 3287,
+      "mode": 384,
+      "sha256": "4240de2a165af00be564f449c047a0e46614f4e9f4e1943756aa5d20f6e4d03a",
+      "source": "termux/omarchy_proot.py"
+    },
+    "omarchy_proot_install.py": {
+      "bytes": 6367,
+      "mode": 384,
+      "sha256": "038cc7368f07eb056f6b1c726f6211d5800296e7fcb261eda9abaf91c4590288",
+      "source": "termux/omarchy_proot_install.py"
+    },
+    "omarchy_resources.py": {
+      "bytes": 17104,
+      "mode": 384,
+      "sha256": "82cbc34975216e8cc08a61fb466d878deb129cb86f6ecff1303d2cc9dffc93d2",
+      "source": "termux/omarchy_resources.py"
+    },
+    "omarchy_runtime.py": {
+      "bytes": 27921,
+      "mode": 384,
+      "sha256": "9505572efb220dc4c24d7e77a49c54cdb49b1abcccb88abcb95625653ca3f855",
+      "source": "termux/omarchy_runtime.py"
+    },
+    "omarchy_setup.py": {
+      "bytes": 5671,
+      "mode": 384,
+      "sha256": "64e9ce6ddbc1e0858d962f9700ac822a3412d0ed48bd719d057e48931671f970",
+      "source": "termux/omarchy_setup.py"
+    },
+    "omarchy_tools_guest.py": {
+      "bytes": 10272,
+      "mode": 384,
+      "sha256": "bb37518a93f3ec228c589dfdac195db982c2728b48b2e59caa47222b907e0133",
+      "source": "termux/omarchy_tools_guest.py"
+    },
+    "omarchy_tools_install.py": {
+      "bytes": 9471,
+      "mode": 384,
+      "sha256": "cada397dfb0ebc3084de5e1e2a0ea7c9462d7b80a68d8ca7a22d2a4f30290a11",
+      "source": "termux/omarchy_tools_install.py"
+    },
+    "omarchy_workflow_install.py": {
+      "bytes": 1342,
+      "mode": 384,
+      "sha256": "79ec0aff78a6e58943af924d1a3f11c2c17755f03d3c80c076911d2aaa9ca117",
+      "source": "termux/omarchy_workflow_install.py"
+    },
+    "payload-manifest.json": {
+      "bytes": 13376,
+      "mode": 384,
+      "sha256": "6c07cb0968ef9aef7caaefc311aeaffe119290957eb5bbf11245d860f1155c3d",
+      "source": "build/diagnostics/termux-omarchy-weston-host-20261009-01/payload-manifest.json"
+    },
+    "payload.tar": {
+      "bytes": 2979840,
+      "mode": 384,
+      "sha256": "939ad9f94b1cfe96d4472b3c3bb9323c8ec9191d8c88fa2fca3e2064c273f728",
+      "source": "build/diagnostics/termux-omarchy-weston-host-20261009-01/payload.tar"
+    },
+    "processes.py": {
+      "bytes": 14393,
+      "mode": 384,
+      "sha256": "01b6307fb529348bd72666c3cb014a16c6e09df2f90deb3a79e2f2010d31c49e",
+      "source": "termux/processes.py"
+    },
+    "proot-exitkill.patch": {
+      "bytes": 560,
+      "mode": 384,
+      "sha256": "8d6466de0f1fd51206cb35b453d2abb676289ae503424c83360bd959b1df8a87",
+      "source": "build/diagnostics/termux-omarchy-proot-guard-update-kit-20261009-02/proot-exitkill.patch"
+    },
+    "proot-guard/libandroid-shmem.so": {
+      "bytes": 14432,
+      "mode": 384,
+      "sha256": "84475798e07c8174dbbfaec70a827fdb02f19ffa69a589380c13e7507fd0e731",
+      "source": "build/diagnostics/termux-omarchy-proot-private-runpath-build-20261009-01/arm64-v8a/libandroid-shmem.so"
+    },
+    "proot-guard/loader": {
+      "bytes": 17624,
+      "mode": 448,
+      "sha256": "95a47c09e5401637ce034304362bd179682fba470a9dab78d8be0a56d1f0745c",
+      "source": "build/diagnostics/termux-omarchy-proot-private-runpath-build-20261009-01/arm64-v8a/loader"
+    },
+    "proot-guard/proot": {
+      "bytes": 264024,
+      "mode": 448,
+      "sha256": "bdb15a8388038e2d1211ab6dd4d35fdf0bf3d9550cd03b24031eb4ba1de8c5c2",
+      "source": "build/diagnostics/termux-omarchy-proot-private-runpath-build-20261009-01/arm64-v8a/proot"
+    },
+    "proot-string-declarations.patch": {
+      "bytes": 300,
+      "mode": 384,
+      "sha256": "7508ab6e850dc1c1e687421085e69a24e770b4caabd050cf52da667b95c73178",
+      "source": "build/diagnostics/termux-omarchy-proot-guard-update-kit-20261009-02/proot-string-declarations.patch"
+    },
+    "provenance/ime-preparation.json": {
+      "bytes": 3869,
+      "mode": 384,
+      "sha256": "369b01a76974bb60afa72b0d24fda15705ef1ce1f2ac631a0ba31ad10434c76a",
+      "source": "build/deliverables/Omarchy-Hangul-input-packages-20261009-01/preparation-receipt.json"
+    },
+    "provenance/proot-build-receipt.json": {
+      "bytes": 32348,
+      "mode": 384,
+      "sha256": "58055543e598f988f1adaffb849fdece612134d34ff582e47c2e227375352490",
+      "source": "build/diagnostics/termux-omarchy-proot-private-runpath-build-20261009-01/build-receipt.json"
+    },
+    "provenance/proot-guard-update-kit02.json": {
+      "bytes": 1925,
+      "mode": 384,
+      "sha256": "043e0527f88095ac4f5ef0f55fb755abb983c4f03cee334f340c8abebe093299",
+      "source": "build/diagnostics/termux-omarchy-proot-guard-update-kit-20261009-02/provenance.json"
+    },
+    "provenance/tools-archives.json": {
+      "bytes": 12536,
+      "mode": 384,
+      "sha256": "dfa6460e4c3a33d7fd05c7637ee565ded2a396b0143da9b1635fbb41f8fcb770",
+      "source": "build/diagnostics/termux-omarchy-tools-archives-20261009-02/manifest.json"
+    },
+    "ripgrep-15.2.0-1-aarch64.pkg.tar.xz": {
+      "bytes": 1181456,
+      "mode": 384,
+      "sha256": "458f1c725cc64502616bfeed1d795cbce4f5479321b06d4b8fd91fa3b125b628",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/ripgrep-15.2.0-1-aarch64.pkg.tar.xz"
+    },
+    "ripgrep-15.2.0-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "5a85092f2e9b621badc1dbb7c11336f65f0ce80d4f644ae3a79da5f3f30a57d4",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/ripgrep-15.2.0-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tmux-3.7_c-1-aarch64.pkg.tar.xz": {
+      "bytes": 456696,
+      "mode": 384,
+      "sha256": "9a788f36af14ad0176097a17ee27452a8b8f647cdf3e91b302473fd54d48b49a",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tmux-3.7_c-1-aarch64.pkg.tar.xz"
+    },
+    "tmux-3.7_c-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "34e9ee5d74aef523c5fd3c15f2e6df838a260cdd305ebfc28544eabd4009a32b",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tmux-3.7_c-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tools-manifest.json": {
+      "bytes": 8328,
+      "mode": 384,
+      "sha256": "bb331b6bd248f2246f6caa6b3ff14b5f9771ebfca8049660c69a243e7383da84",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tools-manifest.json"
+    },
+    "tree-sitter-0.26.9-1-aarch64.pkg.tar.xz": {
+      "bytes": 95004,
+      "mode": 384,
+      "sha256": "3a6f5d5375f71268e4071f2a45525a2e20d1cc88bfc57d36cab943e66e2e0b5f",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-0.26.9-1-aarch64.pkg.tar.xz"
+    },
+    "tree-sitter-0.26.9-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "d42e855eccb8d8bc0a4d87cdbd0201053aa7e06a096a7d115f7e904642b2c5f5",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-0.26.9-1-aarch64.pkg.tar.xz.sig"
+    },
+    "tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz": {
+      "bytes": 52484,
+      "mode": 384,
+      "sha256": "4db4a8f04d80931f25183b63ab6ae28125218fdb640b449dd7588c56028a0b4a",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz"
+    },
+    "tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "56e9539fda92284d714f4f8a6cfee678557cfe3281f84c77a10bd42567f0c676",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-c-0.24.1-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz": {
+      "bytes": 17236,
+      "mode": 384,
+      "sha256": "d6268637743f884c5adb3c7577f0a33dcd87b2ebc1ee8e28f0738340623a6a64",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz"
+    },
+    "tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "156fd1fd8077a2a9d903ae3a9a1277ac6b63d03cd2101082730764be33f43fc7",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-lua-0.5.0-3-aarch64.pkg.tar.xz.sig"
+    },
+    "tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz": {
+      "bytes": 98496,
+      "mode": 384,
+      "sha256": "38ecd82de00a24c935161c67c1826f3fe23dba8c8b8a4d1d4e4e2dd9741ef424",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz"
+    },
+    "tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "9fddf678893cbb109fb54107c0919be42ebe9cb5e0bca68de94ea7724334ebbe",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-markdown-0.5.3-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz": {
+      "bytes": 13076,
+      "mode": 384,
+      "sha256": "5b90da1a303a771566e18425df463dd55faf3e27ac99f66ae4a56f0ce199b80e",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz"
+    },
+    "tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "7ae62f54759e80dac7b6632d3f01f6002849510b94ef2986b313cc1a5d02bcba",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-query-0.8.0-2-aarch64.pkg.tar.xz.sig"
+    },
+    "tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz": {
+      "bytes": 119840,
+      "mode": 384,
+      "sha256": "5f9e56c1a781a5384b2cc3b3575fa4656a763a606dcafc86aa8c767fe001fcda",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz"
+    },
+    "tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "cbb639a82af6bfc2f83eb7e07871574ff6d9f940920b31b8d92ab4a61fe5bf0c",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-vim-0.8.1-3-aarch64.pkg.tar.xz.sig"
+    },
+    "tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz": {
+      "bytes": 29836,
+      "mode": 384,
+      "sha256": "89b2412cdf23bcb4456a074c388f90172531b1e9b4f3130a080ff0b36a248fb1",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz"
+    },
+    "tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "517c09b87d4ab3f3aae4c0a8908e346c8974f8808e49a350257774885a0c7989",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/tree-sitter-vimdoc-4.1.0-2-aarch64.pkg.tar.xz.sig"
+    },
+    "unibilium-2.1.4-1-aarch64.pkg.tar.xz": {
+      "bytes": 83060,
+      "mode": 384,
+      "sha256": "cb42e23f4114a077998b73f12d4ff6f7d23eb2064656ab9bbfb86d85e1cf9992",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/unibilium-2.1.4-1-aarch64.pkg.tar.xz"
+    },
+    "unibilium-2.1.4-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "55086b09bc052c68a2738c5a6d49e433343f75dae2d2e5e9936a05c8536ad8ea",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/unibilium-2.1.4-1-aarch64.pkg.tar.xz.sig"
+    },
+    "waypipe-0.11.2-1-aarch64.pkg.tar.xz": {
+      "bytes": 582164,
+      "mode": 384,
+      "sha256": "eabf1dbc83c1ecc8db00546ad141038691ff6f2a12c678b4e1248e97bf214d97",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/waypipe-0.11.2-1-aarch64.pkg.tar.xz"
+    },
+    "waypipe-0.11.2-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "03571b66df4e72b5804c50f1a61a10052788de02febc2cf1969c26e790ce7509",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/waypipe-0.11.2-1-aarch64.pkg.tar.xz.sig"
+    },
+    "workflow-manifest.json": {
+      "bytes": 2672,
+      "mode": 384,
+      "sha256": "f4cc517629fe3f084a29ef519a0c2458ecde87b92ada5f229291fe0809024fd4",
+      "source": "build/diagnostics/termux-omarchy-workflow-payload-20261009-02/workflow-manifest.json"
+    },
+    "workflow-payload.tar": {
+      "bytes": 71680,
+      "mode": 384,
+      "sha256": "3555aa327cbb1327bb5a167b208b894c44c74bfa3065844d5f8560b603a3d486",
+      "source": "build/diagnostics/termux-omarchy-workflow-payload-20261009-02/workflow-payload.tar"
+    },
+    "yazi-26.9.1-2-aarch64.pkg.tar.xz": {
+      "bytes": 9822748,
+      "mode": 384,
+      "sha256": "1749e77086bbd027be809f86b2ab7d6971f0840c1a06e836f378b00a1dc41dca",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/yazi-26.9.1-2-aarch64.pkg.tar.xz"
+    },
+    "yazi-26.9.1-2-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "aa652b4697ce3a5d47867e653617ac189a8c5a858315299c52e22cefbe8e8351",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/yazi-26.9.1-2-aarch64.pkg.tar.xz.sig"
+    },
+    "zoxide-0.10.0-1-aarch64.pkg.tar.xz": {
+      "bytes": 380616,
+      "mode": 384,
+      "sha256": "fbc929938564d0973942b0144b2bcbc7bd8f9a4f5ac23bb37f039e2006469ee7",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zoxide-0.10.0-1-aarch64.pkg.tar.xz"
+    },
+    "zoxide-0.10.0-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "6ec2e68f0367fd70e41211dfb63003175dde3f7ea39e4aab9e38f0260a840b15",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zoxide-0.10.0-1-aarch64.pkg.tar.xz.sig"
+    },
+    "zsh-5.9.2-1-aarch64.pkg.tar.xz": {
+      "bytes": 2268624,
+      "mode": 384,
+      "sha256": "534fedfe544ef5b980d7bb9b3a8aa939f8202f69faa5677a44245dd4232760db",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zsh-5.9.2-1-aarch64.pkg.tar.xz"
+    },
+    "zsh-5.9.2-1-aarch64.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "76243578f07c42a9ee0dccad89e05541a4904455b0e0104e82b82c92d5b290b5",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zsh-5.9.2-1-aarch64.pkg.tar.xz.sig"
+    },
+    "zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz": {
+      "bytes": 15612,
+      "mode": 384,
+      "sha256": "f7518709486c1eac2b862d0af2de97011c6e95815e742759bd6adbcb541aeb82",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz"
+    },
+    "zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "8de60abc53799ee28b598f90b6e5df3cd2ce8ee1a1d13fc7231abaf48d59b859",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zsh-autosuggestions-0.7.1-1-any.pkg.tar.xz.sig"
+    },
+    "zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz": {
+      "bytes": 41420,
+      "mode": 384,
+      "sha256": "50895c0711772ea9d6197851027cfa7bc5f9b7eb3ea589b737b1f69f986d19b5",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz"
+    },
+    "zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz.sig": {
+      "bytes": 566,
+      "mode": 384,
+      "sha256": "784d1e0c437bfcd27a54a651bb1debb2c146ae4f90fe8dad2f26fef304658434",
+      "source": "build/diagnostics/termux-omarchy-tools-payload-20261009-01/zsh-syntax-highlighting-0.8.0-2-any.pkg.tar.xz.sig"
+    }
+  },
+  "kit": "LoopyOmarchy-Termux-native-setup-20261009-08",
+  "schema": 1,
+  "sourceClosure": [
+    "omarchy.py",
+    "omarchy_android.py",
+    "omarchy_android_client.py",
+    "omarchy_audio.py",
+    "omarchy_boot.py",
+    "omarchy_commands.py",
+    "omarchy_guest_install.py",
+    "omarchy_host_install.py",
+    "omarchy_input.py",
+    "omarchy_input_install.py",
+    "omarchy_install.py",
+    "omarchy_machine_id.py",
+    "omarchy_proot.py",
+    "omarchy_proot_install.py",
+    "omarchy_resources.py",
+    "omarchy_runtime.py",
+    "omarchy_setup.py",
+    "omarchy_tools_guest.py",
+    "omarchy_tools_install.py",
+    "omarchy_workflow_install.py",
+    "processes.py"
+  ]
+}

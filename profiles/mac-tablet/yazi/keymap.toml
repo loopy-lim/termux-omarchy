@@ -1,0 +1,10 @@
+[[mgr.prepend_keymap]]
+on = "J"
+run = "seek 5"
+desc = "Scroll preview down"
+
+[[mgr.prepend_keymap]]
+on = "K"
+run = "seek -5"
+desc = "Scroll preview up"
+

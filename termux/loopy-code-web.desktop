@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Visual Studio Code (Local Web)
+Comment=Local editor using the shared native browser
+Exec=/usr/local/bin/loopy-code-web %f
+Icon=/opt/loopy-vscode/1.141.0/resources/app/resources/linux/code.png
+Terminal=false
+Categories=Development;IDE;TextEditor;
+StartupNotify=false

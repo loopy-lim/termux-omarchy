@@ -1,0 +1,18 @@
+{
+  "source": "usr/share/ca-certificates/trust-source/mozilla.trust.p11-kit",
+  "source_sha256": "f1f3fabd78e17d7436093b5c69b91e4ac898d6b57ff3bb20f0de7ae22f3d4d55",
+  "trust_sha256": "92649f7fa3e89117c659b9be912dce6e639664eda1b37384d60320bf916026ab",
+  "command": [
+    "trust",
+    "extract",
+    "--format=pem-bundle",
+    "--filter=ca-anchors",
+    "--purpose=server-auth"
+  ],
+  "image": "7dcc1b5382007da2ef2a52d503ee646bdf863f00b45ad65098f8435d9689fd86",
+  "sha256": "5a88c31547f4676417351019576c7e8eaf8f724ff21105a9ee586ffa83866c88",
+  "bytes": 181603,
+  "certificates": 121,
+  "custom_anchor_directories_empty": true,
+  "tls_verification_disabled": false
+}

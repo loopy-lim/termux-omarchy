@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "files": {
+    "mac_commands.py": "3e40eadc4cf1d2a082350312e372b8dd9937582888668552521babf4191d889b",
+    "loopy_chords.py": "d9f57bab24ec6fd69f2f7698fb6d4419236d0d1c038f4940751676e0354cfb6f",
+    "loopy_input.py": "329da448ab5852cf1f2133fe6237478bfb3c1a8bd2b0558f4605cb2e3411bd4c",
+    "loopy_ime.py": "7ac042f1d2fbd9c94168ed2883fa4e5fed32f1d6b602560231a031020fe778de",
+    "loopy_input_trace.py": "eeb15581b2d84ae4cf8efec028b512e4a61ff473378f64f0fe23600e42d98423"
+  }
+}

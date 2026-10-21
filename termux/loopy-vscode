@@ -1,0 +1,15 @@
+#!/bin/sh
+# Private official portable VS Code in the Omarchy PRoot session.
+unset ELECTRON_RUN_AS_NODE VSCODE_IPC_HOOK_CLI
+export VSCODE_PORTABLE=/opt/loopy-vscode/1.141.0/data
+export TMPDIR=/run/user/1000
+export PULSE_SERVER=unix:/run/user/1000/pulse/native
+export PULSE_COOKIE=/run/user/1000/pulse/cookie
+exec /opt/loopy-vscode/1.141.0/bin/code \
+  --no-sandbox \
+  --disable-dev-shm-usage \
+  --password-store=basic \
+  --ozone-platform=wayland \
+  --user-data-dir=/opt/loopy-vscode/1.141.0/data/user-data \
+  --extensions-dir=/opt/loopy-vscode/1.141.0/data/extensions \
+  "$@"

@@ -1,0 +1,2 @@
+#!/data/data/com.termux/files/usr/bin/sh
+exec "${PREFIX:?}/bin/python3" "${HOME:?}/.local/share/loopy-omarchy/omarchy_display.py" "$@"

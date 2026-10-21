@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Loopy YouTube playback",
+  "version": "1.0.0",
+  "description": "Prefer H.264 on YouTube for the Y900 software decoder. YouTube H.264 is generally limited to 1080p.",
+  "content_scripts": [{
+    "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+    "js": ["prefer-h264.js"],
+    "run_at": "document_start",
+    "world": "MAIN"
+  }]
+}

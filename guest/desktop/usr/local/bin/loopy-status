@@ -1,0 +1,3 @@
+#!/bin/sh
+# A single persistent process reads only this session's language and settings.
+exec python3 /usr/local/lib/loopy/desktop_ui.py status

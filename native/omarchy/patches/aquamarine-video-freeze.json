@@ -1,0 +1,17 @@
+{
+  "upstream_commit": "f31c47a1b9d300847d8fc3108ad959448103dfc1",
+  "patch_sha256": "e69dad92ba07586856961a8f5b51423dab7a2dc273a2d68b0847bb4c0a142f8e",
+  "files": {
+    "src/backend/Wayland.cpp": {
+      "preimage_sha256": "9e4a701668f1a16e13d431d10ef3ceb66b668808175e65306bbba4349164f8e4",
+      "patched_sha256": "500bb85053c0e653264e0de70aafdb4f49f450f53a3a54d1f0e79a6190b25e4a"
+    },
+    "include/aquamarine/backend/Wayland.hpp": {
+      "preimage_sha256": "7bb1da51325bc58d183870a3d505dc3cee8a93a91f73c0b78ac239683fe4cf25",
+      "patched_sha256": "737372103f10de27a08cc1fcbf66e0e7d0360af1ab34874a4c929d6bd8d8f8d9"
+    }
+  },
+  "added_files": {},
+  "build_inputs": [],
+  "scope": "Loopy video-direct freeze: with the host lease present the nested Wayland output consumes pending state without attaching, idling the parent re-composite and present while a fullscreen client covers the desktop. Gate is the lease only: the device session runs the dmabuf nested path (no AQ_SHM_ONLY), so shm-only gating would never engage. Not a Hyprland renderer, Android or GPU acceptance."
+}

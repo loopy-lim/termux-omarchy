@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "binary_sha256": "2599af0dac9d026d327aacbc594c5ae692cab324ff7092e86480b8772aa43eb9",
+  "binary_bytes": 2517928,
+  "base_binary_sha256": "fc9424a4436c1bb3f9639ddd77887c7c83c71d4c30786d757102f5816703856a",
+  "base_binary_bytes": 2102288,
+  "base_image_sha256": "7dcc1b5382007da2ef2a52d503ee646bdf863f00b45ad65098f8435d9689fd86",
+  "build_receipt": "docs/validation/2026-10-06-omarchy/hyprtoolkit-build-02.json",
+  "source_directory": "build/omarchy-sources/hyprtoolkit-shm",
+  "source_receipt": "build/omarchy-sources/hyprtoolkit-shm/loopy-source-receipt.json",
+  "producer": "build/diagnostics/build-hyprtoolkit-shm-20261007.py",
+  "export_producer": "build/diagnostics/package-hyprtoolkit-shm-20261007.py",
+  "license_sha256": "953ddedbcd7b01e88a78f928a55b83ae1edc8436e2bbbca3a25a29a0660df143",
+  "android_validated": false,
+  "physical_device_validated": false,
+  "inputs": {
+    "docs/validation/2026-10-06-omarchy/hyprtoolkit-build-02.json": "60a18a16d67262279737d6df570ef10e393c88a3152779089b4e161b4e5ee4dd",
+    "build/omarchy-sources/hyprtoolkit-shm/loopy-source-receipt.json": "843977be28c3a95722c59878e669e93a168c2d42b7572c7599cc9cf63820b32a",
+    "build/diagnostics/build-hyprtoolkit-shm-20261007.py": "f02cbac253c0d372efd43efef9a5c3cff2b2e4b90f3d94f00f31287811fda278",
+    "build/diagnostics/package-hyprtoolkit-shm-20261007.py": "ac50bcd697235eca04eec6b9ae47ae12809318445fdef2ba518d7d82cd6c97ee",
+    "third_party/hyprtoolkit.lock.json": "c80c02878c3689527302555d7cefacd6de207cfb4f682611ce512b3dd05fba2f",
+    "tools/prepare_hyprtoolkit.py": "5d9cb90ace580aa2dbec32e78d40fc0bab686d838e4ab711f99930e70b90c817",
+    "tools/build_omarchy_graphics.py": "5a5620bdb3d167267f15ab89dbb38d5a7e3eb0ba2e36c94d802e9fe390a4204a",
+    "tools/prepare_omarchy.py": "12b33b3e961f56f55b4d36fc1aadaa2011c3c2ef5f9e052c7aea768f58ac182b",
+    "native/omarchy/hyprtoolkit/src/renderer/gl/LoopyShmReadback.cpp": "918439c6e9a5a739cac8379d74195532d12077f304d178b54124f0947e80470d",
+    "native/omarchy/hyprtoolkit/src/renderer/gl/LoopyShmReadback.hpp": "4f481b475b48a2cdd599ea5cf9f30bba13c929471f10087575f24560ce409ab7"
+  }
+}

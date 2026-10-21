@@ -1,0 +1,45 @@
+--- a/src/pointer/PointerManager.cpp
++++ b/src/pointer/PointerManager.cpp
+@@ -635,6 +635,11 @@
+     g_pHyprRenderer->endRender();
+     g_pHyprRenderer->m_renderData.pMonitor.reset();
+ 
++    // Full fake renders skip the desktop output resolve. Publish cursor pixels
++    // to SHM before the parent compositor consumes this separate surface.
++    if (!RBO->resolve())
++        return nullptr;
++
+     return buf;
+ }
+ 
+--- a/src/render/Renderbuffer.hpp
++++ b/src/render/Renderbuffer.hpp
+@@ -14,8 +14,9 @@
+         bool                    good();
+         SP<IFramebuffer>        getFB();
+ 
+-        virtual void            bind()   = 0;
+-        virtual void            unbind() = 0;
++        virtual void            bind()    = 0;
++        virtual void            unbind()  = 0;
++        virtual bool            resolve() = 0;
+ 
+         WP<Aquamarine::IBuffer> m_hlBuffer;
+ 
+--- a/src/render/gl/GLRenderbuffer.hpp
++++ b/src/render/gl/GLRenderbuffer.hpp
+@@ -13,11 +13,11 @@
+ 
+         void bind() override;
+         void unbind() override;
+-        bool resolve();
++        bool resolve() override;
+ 
+       private:
+-        void*  m_image = nullptr;
+-        GLuint m_rbo   = 0;
++        void*                m_image = nullptr;
++        GLuint               m_rbo   = 0;
+         std::vector<uint8_t> m_shmScratch;
+     };
+ }

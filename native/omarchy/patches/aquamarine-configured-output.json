@@ -1,0 +1,19 @@
+{
+  "upstream_commit": "f31c47a1b9d300847d8fc3108ad959448103dfc1",
+  "patch_sha256": "c9b2db3498bda0da18e9f5b1d7a90033f00038402dab8b7516525841bcd976ca",
+  "files": {
+    "include/aquamarine/backend/Wayland.hpp": {
+      "preimage_sha256": "17cc890ec45359920a2ee983f8f88a84eaca94767dc92a8d1e103bbdc09ecef7",
+      "patched_sha256": "6dc50c95233d9b5c768d1032199d4193d10eaea345129516480db3684657b2cf"
+    },
+    "src/backend/Wayland.cpp": {
+      "preimage_sha256": "4709bbb649389aa74e7d5f0c29fdf2c24e48edaf44b2113fe3afb27287897f9f",
+      "patched_sha256": "e254a9854c00514a0793254fa2c8cea414c75ffc35566f21aba1971f95c835a6"
+    },
+    "src/allocator/Swapchain.cpp": {
+      "preimage_sha256": "4250901ea7eb192deb6a3613d82688e27bdfc43b98b5dbe6eb2126972620f102",
+      "patched_sha256": "de12e96cbe51a135363e6ab19674b2fe995730b7932da4b9c22dfd8d319debb2"
+    }
+  },
+  "scope": "Announce a nested output after configure acknowledgement and valid mode; normalize nested presentation allocation without claiming DRM scanout support."
+}

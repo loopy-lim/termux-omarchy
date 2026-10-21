@@ -1,0 +1,176 @@
+--- a/src/render/OpenGL.hpp
++++ b/src/render/OpenGL.hpp
+@@ -314,6 +314,7 @@
+         bool                             m_hasModifiers = false;
+ 
+         int                              m_drmFD = -1;
++        bool                             m_shmOnly = false;
+         std::string                      m_extensions;
+ 
+         bool                             m_fakeFrame            = false;
+--- a/src/render/OpenGL.cpp
++++ b/src/render/OpenGL.cpp
+@@ -158,7 +158,8 @@
+ 
+     attrs.push_back(EGL_NONE);
+ 
+-    m_eglDisplay = m_proc.eglGetPlatformDisplayEXT(gbm ? EGL_PLATFORM_GBM_KHR : EGL_PLATFORM_DEVICE_EXT, gbm ? m_gbmDevice : m_eglDevice, attrs.data());
++    m_eglDisplay = m_proc.eglGetPlatformDisplayEXT(m_shmOnly ? EGL_PLATFORM_SURFACELESS_MESA : (gbm ? EGL_PLATFORM_GBM_KHR : EGL_PLATFORM_DEVICE_EXT),
++                                                m_shmOnly ? nullptr : (gbm ? m_gbmDevice : m_eglDevice), attrs.data());
+     if (m_eglDisplay == EGL_NO_DISPLAY)
+         RASSERT(false, "EGL: failed to create a platform display");
+ 
+@@ -287,6 +288,8 @@
+ }
+ 
+ CHyprOpenGLImpl::CHyprOpenGLImpl() : m_drmFD(g_pCompositor->m_drmRenderNode.fd >= 0 ? g_pCompositor->m_drmRenderNode.fd : g_pCompositor->m_drm.fd) {
++    const char* shmEnv = getenv("AQ_SHM_ONLY");
++    m_shmOnly = shmEnv && std::string_view(shmEnv) == "1" && m_drmFD < 0;
+     const std::string EGLEXTENSIONS = eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS);
+ 
+     Log::logger->log(Log::DEBUG, "Supported EGL global extensions: ({}) {}", std::ranges::count(EGLEXTENSIONS, ' '), EGLEXTENSIONS);
+@@ -307,8 +310,10 @@
+     loadGLProc(&m_proc.eglWaitSyncKHR, "eglWaitSyncKHR");
+ 
+     RASSERT(m_proc.eglCreateSyncKHR, "Display driver doesn't support eglCreateSyncKHR");
+-    RASSERT(m_proc.eglDupNativeFenceFDANDROID, "Display driver doesn't support eglDupNativeFenceFDANDROID");
+-    RASSERT(m_proc.eglWaitSyncKHR, "Display driver doesn't support eglWaitSyncKHR");
++    if (!m_shmOnly) {
++        RASSERT(m_proc.eglDupNativeFenceFDANDROID, "Display driver doesn't support eglDupNativeFenceFDANDROID");
++        RASSERT(m_proc.eglWaitSyncKHR, "Display driver doesn't support eglWaitSyncKHR");
++    }
+ 
+     if (EGLEXTENSIONS.contains("EGL_EXT_device_base") || EGLEXTENSIONS.contains("EGL_EXT_device_enumeration"))
+         loadGLProc(&m_proc.eglQueryDevicesEXT, "eglQueryDevicesEXT");
+@@ -330,7 +335,11 @@
+     RASSERT(eglBindAPI(EGL_OPENGL_ES_API) != EGL_FALSE, "Couldn't bind to EGL's opengl ES API. This means your gpu driver f'd up. This is not a hyprland issue.");
+ 
+     bool success = false;
+-    if (EGLEXTENSIONS.contains("EXT_platform_device") || !m_proc.eglQueryDevicesEXT || !m_proc.eglQueryDeviceStringEXT) {
++    if (m_shmOnly) {
++        RASSERT(EGLEXTENSIONS.contains("EGL_MESA_platform_surfaceless"), "SHM output requires a real surfaceless EGL provider");
++        success = true;
++        initEGL(false);
++    } else if (EGLEXTENSIONS.contains("EXT_platform_device") || !m_proc.eglQueryDevicesEXT || !m_proc.eglQueryDeviceStringEXT) {
+         m_eglDevice = eglDeviceFromDRMFD(m_drmFD);
+ 
+         if (m_eglDevice != EGL_NO_DEVICE_EXT) {
+@@ -513,6 +522,12 @@
+ }
+ 
+ void CHyprOpenGLImpl::initDRMFormats() {
++    if (m_shmOnly) {
++        // These are the output framebuffer formats, not DMA-BUF import support.
++        m_drmFormats = {SDRMFormat{.drmFormat = DRM_FORMAT_ARGB8888, .modifiers = {DRM_FORMAT_MOD_LINEAR}},
++                       SDRMFormat{.drmFormat = DRM_FORMAT_XRGB8888, .modifiers = {DRM_FORMAT_MOD_LINEAR}}};
++        return;
++    }
+     const auto DISABLE_MODS = Env::envEnabled("HYPRLAND_EGL_NO_MODIFIERS");
+     if (DISABLE_MODS)
+         Log::logger->log(Log::WARN, "HYPRLAND_EGL_NO_MODIFIERS set, disabling modifiers");
+@@ -2644,7 +2659,7 @@
+ }
+ 
+ bool CHyprOpenGLImpl::explicitSyncSupported() {
+-    return m_exts.EGL_ANDROID_native_fence_sync_ext;
++    return !m_shmOnly && m_exts.EGL_ANDROID_native_fence_sync_ext;
+ }
+ 
+ WP<CShader> CHyprOpenGLImpl::getShaderVariant(ePreparedFragmentShader frag, ShaderFeatureFlags features) {
+--- a/src/render/gl/GLRenderbuffer.hpp
++++ b/src/render/gl/GLRenderbuffer.hpp
+@@ -3,6 +3,7 @@
+ #include "../../helpers/memory/Memory.hpp"
+ #include "../Renderbuffer.hpp"
+ #include <aquamarine/buffer/Buffer.hpp>
++#include <vector>
+ 
+ namespace Render::GL {
+     class CGLRenderbuffer : public IRenderbuffer {
+@@ -12,9 +13,11 @@
+ 
+         void bind() override;
+         void unbind() override;
++        bool resolve();
+ 
+       private:
+         void*  m_image = nullptr;
+         GLuint m_rbo   = 0;
++        std::vector<uint8_t> m_shmScratch;
+     };
+ }
+--- a/src/render/gl/GLRenderbuffer.cpp
++++ b/src/render/gl/GLRenderbuffer.cpp
+@@ -1,4 +1,5 @@
+ #include "GLRenderbuffer.hpp"
++#include "LoopyShmReadback.hpp"
+ #include "../Renderer.hpp"
+ #include "../OpenGL.hpp"
+ #include "../../Compositor.hpp"
+@@ -32,6 +33,17 @@
+ }
+ 
+ CGLRenderbuffer::CGLRenderbuffer(SP<Aquamarine::IBuffer> buffer, uint32_t format) : IRenderbuffer(buffer, format) {
++    if (buffer->type() == Aquamarine::BUFFER_TYPE_SHM) {
++        const auto attrs = buffer->shm();
++        if (!attrs.success || attrs.format != format ||
++            (format != DRM_FORMAT_ARGB8888 && format != DRM_FORMAT_XRGB8888))
++            return;
++        m_framebuffer = makeShared<CGLFramebuffer>();
++        if (!m_framebuffer->alloc(buffer->size.x, buffer->size.y, format))
++            return;
++        m_good = true;
++        return;
++    }
+     auto dma = buffer->dmabuf();
+ 
+     m_image = g_pHyprOpenGL->createEGLImage(dma);
+@@ -73,3 +85,10 @@
+ void CGLRenderbuffer::unbind() {
+     GLFB(m_framebuffer)->unbind();
+ }
++
++bool CGLRenderbuffer::resolve() {
++    auto buffer = m_hlBuffer.lock();
++    if (!buffer) return false;
++    if (buffer->type() != Aquamarine::BUFFER_TYPE_SHM) return true;
++    return LoopyOmarchy::resolveToSHM(GLFB(m_framebuffer)->m_fb, *buffer, m_shmScratch, LoopyOmarchy::RowOrder::TopToBottom);
++}
+--- a/src/render/GLRenderer.cpp
++++ b/src/render/GLRenderer.cpp
+@@ -20,6 +20,7 @@
+ #include "./gl/GLElementRenderer.hpp"
+ #include "./gl/GLFramebuffer.hpp"
+ #include "./gl/GLTexture.hpp"
++#include "./gl/GLRenderbuffer.hpp"
+ 
+ #include <cstdint>
+ #include <hyprutils/memory/SharedPtr.hpp>
+@@ -105,6 +106,16 @@
+     if (m_renderMode == RENDER_MODE_FULL_FAKE)
+         return;
+ 
++    if (m_renderMode != RENDER_MODE_TO_BUFFER_READ_ONLY && m_currentRenderbuffer &&
++        !static_cast<CGLRenderbuffer*>(m_currentRenderbuffer.get())->resolve()) {
++        Log::logger->log(Log::ERR, "SHM framebuffer readback failed; rejecting output buffer");
++        if (m_renderMode == RENDER_MODE_NORMAL)
++            PMONITOR->m_output->state->setBuffer(nullptr);
++        m_usedAsyncBuffers.clear();
++        if (renderingDoneCallback) renderingDoneCallback();
++        return;
++    }
++
+     if (m_renderMode == RENDER_MODE_NORMAL)
+         PMONITOR->m_output->state->setBuffer(m_currentBuffer);
+ 
+--- a/src/output/Monitor.cpp
++++ b/src/output/Monitor.cpp
+@@ -2644,6 +2644,8 @@
+     if (STATE.buffer) {
+         if (const auto params = STATE.buffer->dmabuf(); params.success && params.format == m_owner->m_drmFormat)
+             return;
++        if (const auto params = STATE.buffer->shm(); params.success && params.format == m_owner->m_drmFormat)
++            return; // preserve the pixels rendered into the selected SHM buffer
+     }
+ 
+     // this is required for modesetting being possible and might be missing in case of first tests in the renderer

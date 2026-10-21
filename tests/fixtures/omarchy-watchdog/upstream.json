@@ -1,0 +1,17 @@
+{
+  "repo": "hyprwm/Hyprland",
+  "commit": "efb50993780079460b0cbed1363e2166a2de1d9f",
+  "archive_sha256": "5b05ce7ba5296fa46e666852bf108ab5af121bf577f8043787e2d2c252d8f109",
+  "files": {
+    "LICENSE": "e01df754903af0ab26babb317b5f5a62dd95f770b733c5275414dd3245d00ae7",
+    "start/CMakeLists.txt": "bbea5e5e7560abcc7f30d6ce0182a8606aa2ee9bf2ac6ea7a8f81b451479f38c",
+    "start/src/core/Instance.cpp": "5948b94455f633919b8c5d52101ab70b0bbe1900ddd83ca75a599ff83347b3a0",
+    "start/src/core/Instance.hpp": "2b428192560e1a6cb712fba9b18b6fa430cf75344b0a996a67abdaa312596727",
+    "start/src/core/State.hpp": "9d159d3e8852cf2d64cadda59b208f4875aa10f25f5fdedf548954069c051488",
+    "start/src/helpers/Logger.hpp": "598aa5069e18ddcf27a3e8569a9a392e1703711dcc2dc1e624facad5cf6e2f89",
+    "start/src/helpers/Memory.hpp": "bced45e92f63667e0049d0438bf4bea62a3af10ee8158da1dc0db9139f1417a3",
+    "start/src/helpers/Nix.cpp": "89a7f36e99a23bf8b2b77a788d6c424806ca5986a30b080993b665fed092ebb8",
+    "start/src/helpers/Nix.hpp": "c05059ed6a2308df82ce087384a98e4d872880eb92be918f5c3c5a0eb8427642",
+    "start/src/main.cpp": "75dc77407571bb668cee6b9f137b8d2162adfa75081efe794d8c7fafea8a873b"
+  }
+}

@@ -1,0 +1,271 @@
+--- a/src/backend/Wayland.cpp
++++ b/src/backend/Wayland.cpp
+@@ -69,6 +69,7 @@
+     keyboards.clear();
+     pointers.clear();
+     idleCallbacks.clear();
++    parentOutputs.clear();
+ 
+     waylandState.dmabufFeedback.reset();
+     waylandState.dmabuf.reset();
+@@ -101,7 +102,7 @@
+     backend->log(AQ_LOG_DEBUG, "Starting the Wayland backend!");
+ 
+     const char* shmEnv = getenv("AQ_SHM_ONLY");
+-    shmOnly = shmEnv && strcmp(shmEnv, "1") == 0;
++    shmOnly            = shmEnv && strcmp(shmEnv, "1") == 0;
+ 
+     waylandState.display = wl_display_connect(nullptr);
+ 
+@@ -147,7 +148,39 @@
+             }
+             const uint32_t boundVersion = std::min(version, 6u);
+             TRACE(backend->log(AQ_LOG_TRACE, std::format("  > binding to global: {} (version {}) with id {}", name, boundVersion, id)));
+-            waylandState.compositor = makeShared<CCWlCompositor>((wl_proxy*)wl_registry_bind((wl_registry*)waylandState.registry->resource(), id, &wl_compositor_interface, boundVersion));
++            waylandState.compositor =
++                makeShared<CCWlCompositor>((wl_proxy*)wl_registry_bind((wl_registry*)waylandState.registry->resource(), id, &wl_compositor_interface, boundVersion));
++        } else if (NAME == "wl_output" && shmOnly) {
++            if (version < 2u || parentOutputs.size() >= 16)
++                return;
++            auto parent    = makeShared<SParentOutput>();
++            parent->id     = id;
++            parent->output = makeShared<CCWlOutput>((wl_proxy*)wl_registry_bind((wl_registry*)waylandState.registry->resource(), id, &wl_output_interface, 2));
++            parentOutputs.push_back(parent);
++            parent->output->setMode([this, id](CCWlOutput* r, wl_output_mode flags, int32_t w, int32_t h, int32_t refresh) {
++                if (!(flags & WL_OUTPUT_MODE_CURRENT) || w <= 0 || h <= 0 || w > 16384 || h > 16384 || int64_t(w) * h > 16 * 1024 * 1024 || refresh < 30000 || refresh > 144100)
++                    return;
++                for (const auto& p : parentOutputs) {
++                    if (p->id != id)
++                        continue;
++                    p->pendingRefresh = refresh;
++                    p->pending        = true;
++                    break;
++                }
++            });
++            parent->output->setDone([this, id](CCWlOutput* r) {
++                for (const auto& p : parentOutputs) {
++                    if (p->id != id || !p->pending)
++                        continue;
++                    p->refresh = p->pendingRefresh;
++                    p->pending = false;
++                    p->current = true;
++                    auto held  = outputs;
++                    for (const auto& o : held)
++                        o->updateParentMode();
++                    break;
++                }
++            });
+         } else if (NAME == "wl_shm") {
+             TRACE(backend->log(AQ_LOG_TRACE, std::format("  > binding to global: {} (version {}) with id {}", name, 1, id)));
+             waylandState.shm = makeShared<CCWlShm>((wl_proxy*)wl_registry_bind((wl_registry*)waylandState.registry->resource(), id, &wl_shm_interface, 1));
+@@ -165,12 +198,24 @@
+             }
+         }
+     });
+-    waylandState.registry->setGlobalRemove([this](CCWlRegistry* r, uint32_t id) { backend->log(AQ_LOG_DEBUG, std::format("Global {} removed", id)); });
++    waylandState.registry->setGlobalRemove([this](CCWlRegistry* r, uint32_t id) {
++        backend->log(AQ_LOG_DEBUG, std::format("Global {} removed", id));
++        for (const auto& p : parentOutputs) {
++            if (p->id != id)
++                continue;
++            for (const auto& o : outputs)
++                std::erase(o->waylandState.parentOutputs, p->output->resource());
++            break;
++        }
++        std::erase_if(parentOutputs, [id](const auto& p) { return p->id == id; });
++        auto held = outputs;
++        for (const auto& o : held)
++            o->updateParentMode();
++    });
+ 
+     wl_display_roundtrip(waylandState.display);
+ 
+-    if (!waylandState.xdg || !waylandState.compositor || !waylandState.seat || !waylandState.shm ||
+-        (!shmOnly && (!waylandState.dmabuf || waylandState.dmabufFailed))) {
++    if (!waylandState.xdg || !waylandState.compositor || !waylandState.seat || !waylandState.shm || (!shmOnly && (!waylandState.dmabuf || waylandState.dmabufFailed))) {
+         backend->log(AQ_LOG_ERROR, "Wayland backend cannot start: Missing protocols");
+         return false;
+     }
+@@ -549,6 +594,15 @@
+         return;
+     }
+ 
++    waylandState.surface->setEnter([this](CCWlSurface* r, wl_proxy* parent) {
++        if (waylandState.parentOutputs.size() < 16 && std::ranges::find(waylandState.parentOutputs, parent) == waylandState.parentOutputs.end())
++            waylandState.parentOutputs.push_back(parent);
++        updateParentMode();
++    });
++    waylandState.surface->setLeave([this](CCWlSurface* r, wl_proxy* parent) {
++        std::erase(waylandState.parentOutputs, parent);
++        updateParentMode();
++    });
+     waylandState.xdgSurface = makeShared<CCXdgSurface>(backend->waylandState.xdg->sendGetXdgSurface(waylandState.surface->resource()));
+ 
+     if (!waylandState.xdgSurface->resource()) {
+@@ -562,7 +616,7 @@
+         // xdg_toplevel.configure precedes xdg_surface.configure. Only render
+         // after the latter's acknowledgement is queued ahead of buffer commit.
+         waylandState.configured = true;
+-        modes = {makeShared<SOutputMode>(SOutputMode{.pixelSize = waylandState.configureSize, .refreshRate = 60000, .preferred = true})};
++        updateParentMode();
+         announceConfigured();
+     });
+ 
+@@ -615,11 +669,33 @@
+         waylandState.surface->sendDestroy();
+ }
+ 
++void Aquamarine::CWaylandOutput::updateParentMode() {
++    if (!waylandState.configured)
++        return;
++    uint32_t refresh  = 60000;
++    bool     selected = false;
++    for (const auto& p : backend->parentOutputs) {
++        if (!p->current)
++            continue;
++        const bool entered = std::ranges::find(waylandState.parentOutputs, p->output->resource()) != waylandState.parentOutputs.end();
++        if (!entered && !(waylandState.parentOutputs.empty() && backend->parentOutputs.size() == 1))
++            continue;
++        refresh  = selected ? std::min(refresh, p->refresh) : p->refresh;
++        selected = true;
++    }
++    auto previous = preferredMode();
++    if (previous && previous->pixelSize == waylandState.configureSize && previous->refreshRate == refresh)
++        return;
++    modes = {makeShared<SOutputMode>(SOutputMode{.pixelSize = waylandState.configureSize, .refreshRate = refresh, .preferred = true})};
++    announceConfigured();
++}
++
+ void Aquamarine::CWaylandOutput::announceConfigured() {
+     if (!waylandState.configured || !backend->backend->ready || !swapchain)
+         return;
+     auto held = self.lock();
+-    if (!held) return;
++    if (!held)
++        return;
+     if (!waylandState.announced) {
+         waylandState.announced = true;
+         backend->backend->events.newOutput.emit(SP<IOutput>(held));
+@@ -768,9 +844,7 @@
+ }
+ 
+ SP<CWaylandBuffer> Aquamarine::CWaylandOutput::wlBufferFromBuffer(SP<IBuffer> buffer) {
+-    std::erase_if(backendState.buffers, [this](const auto& el) {
+-        return !el.second->pendingRelease && (el.first.expired() || !swapchain->contains(el.first.lock()));
+-    });
++    std::erase_if(backendState.buffers, [this](const auto& el) { return !el.second->pendingRelease && (el.first.expired() || !swapchain->contains(el.first.lock())); });
+ 
+     for (auto const& [k, v] : backendState.buffers) {
+         if (k != buffer)
+@@ -827,17 +901,14 @@
+ 
+     if (buffer->shm().success) {
+         auto attrs = buffer->shm();
+-        if (!std::isfinite(attrs.size.x) || !std::isfinite(attrs.size.y)
+-            || attrs.size.x < 1 || attrs.size.y < 1 || attrs.size.x > 8192 || attrs.size.y > 8192
+-            || std::trunc(attrs.size.x) != attrs.size.x || std::trunc(attrs.size.y) != attrs.size.y
+-            || attrs.stride < attrs.size.x * 4)
++        if (!std::isfinite(attrs.size.x) || !std::isfinite(attrs.size.y) || attrs.size.x < 1 || attrs.size.y < 1 || attrs.size.x > 8192 || attrs.size.y > 8192 ||
++            std::trunc(attrs.size.x) != attrs.size.x || std::trunc(attrs.size.y) != attrs.size.y || attrs.stride < attrs.size.x * 4)
+             return false;
+         auto [pixelData, fmt, bufLen] = buffer->beginDataPtr(0);
+         if (!pixelData)
+             return false;
+         Hyprutils::Utils::CScopeGuard accessGuard([buffer] { buffer->endDataPtr(); });
+-        if (fmt != attrs.format || bufLen < static_cast<uint64_t>(attrs.stride) * static_cast<uint64_t>(attrs.size.y)
+-            || bufLen > 64 * 1024 * 1024)
++        if (fmt != attrs.format || bufLen < static_cast<uint64_t>(attrs.stride) * static_cast<uint64_t>(attrs.size.y) || bufLen > 64 * 1024 * 1024)
+             return false;
+ 
+         int fd = allocateSHMFile(bufLen);
+@@ -936,14 +1007,11 @@
+ 
+ Aquamarine::CWaylandBuffer::CWaylandBuffer(SP<IBuffer> buffer_, Hyprutils::Memory::CWeakPointer<CWaylandBackend> backend_) : buffer(buffer_), backend(backend_) {
+     if (backend->shmOnly) {
+-        auto attrs = buffer_->shm();
++        auto        attrs = buffer_->shm();
+         struct stat extent{};
+-        if (!attrs.success || attrs.fd < 0 || attrs.offset < 0 || attrs.offset > INT32_MAX ||
+-            !std::isfinite(attrs.size.x) || !std::isfinite(attrs.size.y) ||
+-            attrs.size.x < 1 || attrs.size.y < 1 || attrs.size.x > 8192 || attrs.size.y > 8192 ||
+-            std::trunc(attrs.size.x) != attrs.size.x || std::trunc(attrs.size.y) != attrs.size.y ||
+-            attrs.stride < attrs.size.x * 4 ||
+-            (attrs.format != DRM_FORMAT_ARGB8888 && attrs.format != DRM_FORMAT_XRGB8888))
++        if (!attrs.success || attrs.fd < 0 || attrs.offset < 0 || attrs.offset > INT32_MAX || !std::isfinite(attrs.size.x) || !std::isfinite(attrs.size.y) || attrs.size.x < 1 ||
++            attrs.size.y < 1 || attrs.size.x > 8192 || attrs.size.y > 8192 || std::trunc(attrs.size.x) != attrs.size.x || std::trunc(attrs.size.y) != attrs.size.y ||
++            attrs.stride < attrs.size.x * 4 || (attrs.format != DRM_FORMAT_ARGB8888 && attrs.format != DRM_FORMAT_XRGB8888))
+             return;
+         const int64_t length = attrs.offset + static_cast<int64_t>(attrs.stride) * static_cast<int64_t>(attrs.size.y);
+         if (length > 64 * 1024 * 1024 || fstat(attrs.fd, &extent) || extent.st_size < length)
+@@ -956,8 +1024,9 @@
+         if (waylandState.buffer && waylandState.buffer->resource())
+             waylandState.buffer->setRelease([this](CCWlBuffer*) {
+                 pendingRelease = false;
+-                auto held = std::move(pendingBuffer);
+-                if (held) held->backendUnpin();
++                auto held      = std::move(pendingBuffer);
++                if (held)
++                    held->backendUnpin();
+             });
+         return;
+     }
+@@ -986,7 +1055,7 @@
+     if (waylandState.buffer && waylandState.buffer->resource())
+         waylandState.buffer->sendDestroy();
+     if (pendingBuffer) {
+-        auto held = std::move(pendingBuffer);
++        auto held      = std::move(pendingBuffer);
+         pendingRelease = false;
+         held->backendUnpin();
+     }
+--- a/include/aquamarine/backend/Wayland.hpp
++++ b/include/aquamarine/backend/Wayland.hpp
+@@ -66,6 +66,7 @@
+ 
+         void                                              onFrameDone();
+         void                                              announceConfigured();
++        void                                              updateParentMode();
+         void                                              onEnter(Hyprutils::Memory::CSharedPointer<CCWlPointer> pointer, uint32_t serial);
+ 
+         // frame loop — unified scheduler shared with DRM. See CFrameScheduler.
+@@ -93,8 +94,9 @@
+             Hyprutils::Memory::CSharedPointer<CCWlCallback>  frameCallback;
+             Hyprutils::Math::Vector2D                        surfaceSize;
+             Hyprutils::Math::Vector2D                        configureSize = {1280, 720};
+-            bool configured = false;
+-            bool announced = false;
++            bool                                             configured    = false;
++            bool                                             announced     = false;
++            std::vector<wl_proxy*>                           parentOutputs;
+         } waylandState;
+ 
+         friend class CWaylandBackend;
+@@ -172,6 +174,17 @@
+         Hyprutils::Memory::CWeakPointer<CWaylandOutput> focusedOutput;
+         uint32_t                                        lastEnterSerial = 0;
+ 
++        // A bounded parent-output inventory; only CURRENT modes affect refresh.
++        struct SParentOutput {
++            uint32_t                                      id = 0;
++            Hyprutils::Memory::CSharedPointer<CCWlOutput> output;
++            uint32_t                                      refresh        = 60000;
++            uint32_t                                      pendingRefresh = 60000;
++            bool                                          current        = false;
++            bool                                          pending        = false;
++        };
++        std::vector<Hyprutils::Memory::CSharedPointer<SParentOutput>> parentOutputs;
++
+         // state
+         size_t lastOutputID = 0;
+ 
+--- a/cmake/GuardWaylandDestructors.cmake
++++ b/cmake/GuardWaylandDestructors.cmake
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: BSD-3-Clause
+ # Scanner wrappers must destroy older proxies locally, without illegal requests.
+ file(READ "${GENERATED}" SOURCE)
+-foreach(SPEC "CCWlCompositor,7" "CCWlShm,2")
++foreach(SPEC "CCWlCompositor,7" "CCWlShm,2" "CCWlOutput,3")
+   string(REPLACE "," ";" PARTS "${SPEC}")
+   list(GET PARTS 0 CLASS)
+   list(GET PARTS 1 SINCE)

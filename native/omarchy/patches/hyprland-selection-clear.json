@@ -1,0 +1,13 @@
+{
+  "upstream_commit": "efb50993780079460b0cbed1363e2166a2de1d9f",
+  "patch_sha256": "25a8b81e6d407d409e6c452f34e9fff366cf0f8bb8481a4536b66657f2c28131",
+  "files": {
+    "src/managers/SeatManager.cpp": {
+      "preimage_sha256": "bd7485535c7e9f71382e587d92a7c73e048a0d7a5efcf518a1e671a188f94378",
+      "patched_sha256": "684dbc083c88ade70750ee4eb1c869ef9c35629ce59c3dfe8491f8d7838c1b21"
+    }
+  },
+  "added_files": {},
+  "build_inputs": [],
+  "scope": "Notify WLR and ext data-control consumers when clipboard or primary selection is cleared or its owner exits. Native compositor and Android acceptance are separate."
+}

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Video (GPU direct fullscreen)
+Exec=/usr/local/bin/loopy-video-direct %U
+Icon=video-display
+Terminal=false
+Categories=AudioVideo;Network;
+MimeType=x-scheme-handler/http;x-scheme-handler/https;video/mp4;video/webm;
+StartupNotify=false

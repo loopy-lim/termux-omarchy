@@ -1,0 +1,21 @@
+{
+  "schema": 2,
+  "binary_sha256": "f9bef874e04f4cc16b0e18d579671d002c868927886c4b528eeed1e0307a8955",
+  "binary_bytes": 17319752,
+  "base_binary_sha256": "4491b2dbc8c6e15596ec05c4fbcefbaa2d97814e616dc619dd24be8be9662b92",
+  "base_image_sha256": "7dcc1b5382007da2ef2a52d503ee646bdf863f00b45ad65098f8435d9689fd86",
+  "prior_binary_sha256": "7d65f7ea3c4c53f624b2dc43928c3b7271f1c90ee1d65ae232ce99190e00a600",
+  "component_candidate": "build/omarchy-refresh-20261008",
+  "component_receipt_sha256": "753d44a49b42fcb8bbe10b604e81d000d1288937e9603ad6ae0b872f18c58cc5",
+  "reused_inputs_sha256": "0d239ca543798c867fc4aa8b6154d06cd3055080daacd04c8a91711dfef9aff7",
+  "licenses": {
+    "Aquamarine-LICENSE": "52d07f3457591b4496ae2e79b05efd63c7df72135666fa12428d83078c4c0de5",
+    "Glaze-LICENSE": "5d49e66411a0807a7c8d6b911b9a26b59e940c71aebe561a3ad8b0b80ac4b7b6",
+    "Hyprland-LICENSE": "e01df754903af0ab26babb317b5f5a62dd95f770b733c5275414dd3245d00ae7",
+    "Omarchy-LICENSE": "717ba1949502290f8e47688ae2e323acd06c8ca47aec9f7596b15f678c1af4a2",
+    "hyprland-protocols-LICENSE": "ea36a60a50dfa150ca3c5816cb6b0ad5b559da380e9f5b2babd4abbf7962a35a",
+    "udis86-LICENSE": "1070640aab24327354da44507627d1db6c67482a6facc8375a758796a05e3dff"
+  },
+  "physical_device": false,
+  "refresh_acceptance": false
+}

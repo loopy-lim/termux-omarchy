@@ -1,0 +1,41 @@
+--- a/src/backend/Wayland.cpp
++++ b/src/backend/Wayland.cpp
+@@ -103,6 +103,10 @@
+ 
+     const char* shmEnv = getenv("AQ_SHM_ONLY");
+     shmOnly            = shmEnv && strcmp(shmEnv, "1") == 0;
++    // Loopy video-direct freeze: the owning host service creates/removes this lease
++    // while a fullscreen client covers the desktop output. See CWaylandOutput::commit().
++    if (const char* runtimeDir = getenv("XDG_RUNTIME_DIR"); runtimeDir && *runtimeDir)
++        loopyLeasePath = std::string(runtimeDir) + "/video-direct.lease";
+ 
+     waylandState.display = wl_display_connect(nullptr);
+ 
+@@ -783,6 +787,17 @@
+     if (!waylandState.configured)
+         return false;
+ 
++    // Loopy video-direct freeze: with the lease present the fullscreen host client
++    // covers this output, so consuming the pending state without attaching keeps the
++    // parent re-composite and present idle. Input damage re-wakes the ordinary path
++    // once the lease is gone; the last presented frame remains on screen meanwhile.
++    if (STATE.buffer && (STATE.committed & COutputState::AQ_OUTPUT_STATE_BUFFER) &&
++        !backend->loopyLeasePath.empty() && access(backend->loopyLeasePath.c_str(), F_OK) == 0) {
++        events.commit.emit();
++        state->consume(snapshot);
++        return true;
++    }
++
+     auto wlBuffer = wlBufferFromBuffer(STATE.buffer);
+ 
+     if (!wlBuffer) {
+--- a/include/aquamarine/backend/Wayland.hpp
++++ b/include/aquamarine/backend/Wayland.hpp
+@@ -162,6 +162,7 @@
+         bool initDmabuf();
+ 
+         bool shmOnly = false;
++        std::string loopyLeasePath; // Loopy video-direct freeze lease, probed per output commit.
+ 
+         //
+         Hyprutils::Memory::CWeakPointer<CBackend>                        backend;

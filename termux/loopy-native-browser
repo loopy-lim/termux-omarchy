@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+"""Open HTTP(S) URLs through the authenticated, session-owned native browser."""
+import subprocess
+import sys
+sys.path.insert(0, '/usr/local/lib/loopy-omarchy')
+from omarchy_android_client import browser_fields
+import os
+
+def main():
+    urls = sys.argv[1:] or ['https://www.google.com/']
+    if len(urls) > 8:
+        return 2
+    try:
+        for url in urls:
+            browser_fields({'url': url, 'display': os.environ.get('DISPLAY', '')})
+        for url in urls:
+            result = subprocess.run(['/usr/local/bin/omarchy-proot-settings', '--browser', url],
+                                    stdout=subprocess.DEVNULL, timeout=20)
+            if result.returncode:
+                return result.returncode
+    except (ValueError, OSError, subprocess.SubprocessError):
+        print('Native browser unavailable in this desktop session.', file=sys.stderr)
+        return 1
+    return 0
+
+sys.exit(main())

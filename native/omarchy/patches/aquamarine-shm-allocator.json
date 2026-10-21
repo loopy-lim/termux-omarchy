@@ -1,0 +1,23 @@
+{
+  "upstream_commit": "f31c47a1b9d300847d8fc3108ad959448103dfc1",
+  "patch_sha256": "cbcd815857413f7362e79c5845c0b1d42ea41f5be68a0dff51c01d2a45702e78",
+  "files": {
+    "include/aquamarine/allocator/Allocator.hpp": {
+      "preimage_sha256": "083dbe1602b1a9689f9fb079faca3ba3638cb7d8adf756865536ff29bae60288",
+      "patched_sha256": "009b8a2c17fbc04080df049f1c764f2d6347bee335a81f695867ba30b15b771f"
+    },
+    "src/backend/Backend.cpp": {
+      "preimage_sha256": "4908c6f81e8183274c906eff4e0545555a7ac5842ba5a96df54c2383ec2620f7",
+      "patched_sha256": "0ecd06e552c33bae8fba7d3416841b2111ffa21e37bb1b1680f594f85613c813"
+    },
+    "src/backend/Headless.cpp": {
+      "preimage_sha256": "2ecc7f54d033a85f6a7c5fa0e4eb14fc9e5e563be2146488e47b82a6358cbf02",
+      "patched_sha256": "744dcdc846542143f4c618faaacd57c661ea4e338ff4a2fa1526b25b76ea9444"
+    }
+  },
+  "added_files": {
+    "src/allocator/SHM.cpp": "b1feb3bb850486d3d867b49b105686d8b8cd107febd3dc0a5ac7d2e3b78bfba0",
+    "include/aquamarine/allocator/SHM.hpp": "6bcbff4a59257903f97c3f95639feea5afb82935efe80ba48d122bb03d4a4ced"
+  },
+  "scope": "Opt-in SHM allocator only. No Wayland output or compositor rendering acceptance."
+}

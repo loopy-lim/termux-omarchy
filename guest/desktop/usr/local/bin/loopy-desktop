@@ -1,0 +1,19 @@
+#!/bin/sh
+# The parent compositor belongs to Android; each Sway owns its own IPC paths.
+set -eu
+token=${1:?desktop session token required}
+case "$token" in *[!a-zA-Z0-9-]*|'') exit 64 ;; esac
+[ ${#token} -le 64 ] || exit 64
+export LOOPY_SESSION=$token
+export LOOPY_VIRGL_SOCKET=${2:-}
+export WLR_BACKENDS=wayland WLR_RENDERER=pixman WLR_WL_OUTPUTS=1
+export WLR_NO_HARDWARE_CURSORS=1
+export XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE=wayland
+export MOZ_ENABLE_WAYLAND=1
+export SWAYSOCK=/run/loopy/sway-$token.sock
+export HOME=/root SHELL=/bin/zsh
+export GDK_BACKEND=wayland GDK_GL=disable GSK_RENDERER=cairo
+python3 /usr/local/lib/loopy/identity.py
+python3 /usr/local/lib/loopy/desktop_ui.py initialize
+/usr/local/bin/loopy-cache
+exec /usr/bin/python3 /usr/local/lib/loopy/graphics_session.py "$token"

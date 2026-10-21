@@ -1,0 +1,7 @@
+{
+  "apk_sha256": "1370cdab3cbe96ba330cc7e430bbefcc163bca39fd1db8ffdce51eb8e290e713",
+  "manifest_sha256": "b466b8a4c0b6c0de98f4807f7a86d71e49e4d440ba4ce6685103d11f078e4508",
+  "package": "com.termux.x11",
+  "version": "1.03.01-6d3c688-27.08.26",
+  "source": "Actual device installed APK manifest; no user data"
+}

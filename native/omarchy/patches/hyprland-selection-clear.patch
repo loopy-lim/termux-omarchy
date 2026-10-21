@@ -1,0 +1,28 @@
+--- a/src/managers/SeatManager.cpp
++++ b/src/managers/SeatManager.cpp
+@@ -651,9 +651,9 @@
+     if (source) {
+         m_selection.destroySelection = source->m_events.destroy.listen([this] { setCurrentSelection(nullptr); });
+         PROTO::data->setSelection(source);
+-        PROTO::dataWlr->setSelection(source, false);
+-        PROTO::extDataDevice->setSelection(source, false);
+-    }
++    }
++    PROTO::dataWlr->setSelection(source, false);
++    PROTO::extDataDevice->setSelection(source, false);
+ 
+     m_events.setSelection.emit();
+ }
+@@ -677,9 +677,9 @@
+     if (source) {
+         m_selection.destroyPrimarySelection = source->m_events.destroy.listen([this] { setCurrentPrimarySelection(nullptr); });
+         PROTO::primarySelection->setSelection(source);
+-        PROTO::dataWlr->setSelection(source, true);
+-        PROTO::extDataDevice->setSelection(source, true);
+-    }
++    }
++    PROTO::dataWlr->setSelection(source, true);
++    PROTO::extDataDevice->setSelection(source, true);
+ 
+     m_events.setPrimarySelection.emit();
+ }

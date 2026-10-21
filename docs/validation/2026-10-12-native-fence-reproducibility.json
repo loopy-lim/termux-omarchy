@@ -1,0 +1,401 @@
+{
+  "schema": 1,
+  "kind": "scoped-live-validation-reproducibility-snapshot",
+  "captured_at_utc": "2026-10-12T08:41:52.568411+00:00",
+  "scope": "Y900 observed native Chromium / private futex / private Xwayland / Hyprland / native Weston AHB combination. Evidence inventory, not an installer or clean-install acceptance.",
+  "sources": [
+    {
+      "path": "termux/omarchy_android.py",
+      "sha256": "a19c528c1047294f369dea00738a755c7836b591aaf8d360e4410bde7c48f288",
+      "bytes": 18333
+    },
+    {
+      "path": "termux/omarchy_android_client.py",
+      "sha256": "6b0e9308e2b88337309450b7d32a3bc2963dbd4fcfbaf50c1e82dace20cb3823",
+      "bytes": 8300
+    },
+    {
+      "path": "termux/omarchy_terminal.py",
+      "sha256": "027bacc7f904966b2115d227b73c197919610d86f1da19e88e9483509f83e16b",
+      "bytes": 6579
+    },
+    {
+      "path": "termux/omarchy_code_web.py",
+      "sha256": "31e96da634691a19646ef0b03a841846e736b6d59989536e70f033e5419f5539",
+      "bytes": 9906
+    },
+    {
+      "path": "termux/omarchy_code_profile.py",
+      "sha256": "210733cfbfb47c0707137a77b0182ef6ad4c5683caa74005a54e724fc6c58fce",
+      "bytes": 3187
+    },
+    {
+      "path": "termux/loopy-code-web",
+      "sha256": "306b00e520d12fd3066f52d6e7283b88dee7b417e72c85d195316f9403b36ac9",
+      "bytes": 132
+    },
+    {
+      "path": "termux/loopy-code-web-export-profile",
+      "sha256": "7b4159ed6660ff4cdb8516d1b1c49e3242ba342f201b65628634b97fb091d4c4",
+      "bytes": 136
+    },
+    {
+      "path": "termux/loopy-code-web.desktop",
+      "sha256": "2ab81c707f25451bb3835daa2824fac8cabc91ae5a44e57868ae32bbe0919d60",
+      "bytes": 304
+    },
+    {
+      "path": "termux/loopy-native-browser",
+      "sha256": "4c8fcfe16f836735168064d99dafa4a8acdc01092231a4d04cdc7329b0c8f189",
+      "bytes": 932
+    },
+    {
+      "path": "termux/loopy-native-browser.desktop",
+      "sha256": "752e35e941927262558d38a055fc26b3a743d9d7076393e8109184d70f6d5501",
+      "bytes": 254
+    },
+    {
+      "path": "experiments/xshmfence-futex/build.py",
+      "sha256": "21a346ca248f2987cee5bd79239fcaa9adc070ed31e0970ed59004e520b4ee01",
+      "bytes": 3620
+    },
+    {
+      "path": "experiments/xshmfence-futex/interop.c",
+      "sha256": "3cc674c227f5cceb8728a5a8d8dcdf0c69a54938b53fd2ea17d92ec78d87d6c4",
+      "bytes": 4428
+    },
+    {
+      "path": "experiments/xshmfence-futex/run-pair.py",
+      "sha256": "6acca9ebc8c18c0ab9700696003b430f2ea38124d2b4fb14f2e1f0135c20d203",
+      "bytes": 3065
+    },
+    {
+      "path": "experiments/xwayland-kgsl-v3/apply.py",
+      "sha256": "a1e4e9e9678cbff581d591051e30449ac028c94804db778d2da30290ff977a4b",
+      "bytes": 3554
+    },
+    {
+      "path": "experiments/xwayland-kgsl-v3/apply-present-diagnostics.py",
+      "sha256": "e25f42dfda3d405d81ff422946833024dbcca6e55d95ef203d3086f04d4cc3bd",
+      "bytes": 4785
+    },
+    {
+      "path": "experiments/termux-x11-ahb-wsi/apply.py",
+      "sha256": "c67b62944cc9cc3305144a46d798764be1d2fdccf991bc4169db9034f8d2323d",
+      "bytes": 3837
+    },
+    {
+      "path": "experiments/termux-x11-ahb-wsi/ahb_wsi.inc",
+      "sha256": "5dce300eb10cc716915017d155ca5bd9b17ece39c3505bf5eaba0f3741b10845",
+      "bytes": 8991
+    },
+    {
+      "path": "experiments/termux-x11-ahb-wsi/mesa-native-ahb.patch",
+      "sha256": "8426cd25feb7c43199c0841f93968c45b2e5f282637a6cd1a433a30a9e26db96",
+      "bytes": 15180
+    },
+    {
+      "path": "tests/test_omarchy_native_browser.py",
+      "sha256": "40538d6eac3a14a5d23dab6e8fa51f32330c183cd8bf0b406e82f78a70acd5c0",
+      "bytes": 2170
+    },
+    {
+      "path": "tests/test_omarchy_code_web.py",
+      "sha256": "428caa05c47f24e2a9382cd6faf8360962060ae101d0e178df0f98a0690007ad",
+      "bytes": 5229
+    }
+  ],
+  "local_artifacts": [
+    {
+      "path": "build/xshmfence-futex-20261012/libxshmfence-1.3.3.tar.xz",
+      "sha256": "d4a4df096aba96fea02c029ee3a44e11a47eb7f7213c1a729be83e85ec3fde10",
+      "bytes": 264860,
+      "provenance_note": "Local file hash only; deployment identity must be checked against the cited deployment receipt."
+    },
+    {
+      "path": "build/xshmfence-futex-20261012/libxshmfence.so",
+      "sha256": "ffd9e69982a4937fe6ce3c23379fb6fd3980660c2b63cfee2b57cc2d34f4e87c",
+      "bytes": 12072,
+      "provenance_note": "Local file hash only; deployment identity must be checked against the cited deployment receipt."
+    },
+    {
+      "path": "experiments/xwayland-kgsl-v3/Xwayland",
+      "sha256": "261a6c20b7efe7d3411a9d843fa6cbb5253893135e13d75d0a208e1aff3e16fe",
+      "bytes": 552,
+      "provenance_note": "Local file hash only; deployment identity must be checked against the cited deployment receipt."
+    },
+    {
+      "path": "build/diagnostics/xwayland-source-20261007/xwayland-24.1.13.tar.xz",
+      "sha256": "173aea3d6f79609164c04528e1c8e4c9b60fcd59391c3c9dad4667297d727fb6",
+      "bytes": 1306456,
+      "provenance_note": "Local file hash only; deployment identity must be checked against the cited deployment receipt."
+    },
+    {
+      "path": "build/x11-copy-20261012/libvulkan_freedreno.so",
+      "sha256": "7f05d872e36f32fc130477fb2d6c01da88715dd97b22155bbbca4945092c14d1",
+      "bytes": 15448200,
+      "provenance_note": "Local file hash only; deployment identity must be checked against the cited deployment receipt."
+    },
+    {
+      "path": "build/x11-copy-20261012/build-receipt.json",
+      "sha256": "738c74dc3bf35414b30f52ef32e4c472270e281b5a8368bec51e4661da196f54",
+      "bytes": 884,
+      "provenance_note": "Local file hash only; deployment identity must be checked against the cited deployment receipt."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/webcode12-youtube-long.json",
+      "sha256": "4d1f203c7dc754783045b172e054a020a922c6b1aa92180c215d77d2b7553458",
+      "bytes": 100322
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/webcode12-youtube-long.mjs",
+      "sha256": "b56f812adb3e543673c6d378e9b4a77301155a43295e65a10af553135a9cd468",
+      "bytes": 4942
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/webcode12-memory-watch.jsonl",
+      "sha256": "efb2d0291fe85e4d2323cf3202525cf0a612e23ef7ae021b7a9d6165bca7d10b",
+      "bytes": 619210
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/webcode12-memory-watch-done.json",
+      "sha256": "cec18a5bef9a9f8cd3f2ce369ca4ef80b2a4d68e881df29860d0b100188623ae",
+      "bytes": 16
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/webcode11-pixel-gate.json",
+      "sha256": "2dc678f2fc55fbfc83250fd4cebf54aa205768f72be28733cf5e36d8327d3199",
+      "bytes": 365
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/fence-interop.json",
+      "sha256": "950cf1190464d4a913098b3841a90060465f7314aa97baa34adf74420b1f749f",
+      "bytes": 901
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/native-chromium-upgrade2.json",
+      "sha256": "e8c73efbb034a151e631a0ee60878276bef18d4183c9c72071c18fef527722e0",
+      "bytes": 1425
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/native-browser-install.json",
+      "sha256": "c5f87ee2959ddca18ef64d625883041fda8b78a0b5257daa5063460f508d2ff8",
+      "bytes": 3665
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/native-custom-inspect.json",
+      "sha256": "1e2b0c9f8f75b3bd080067b4424d7d6260e45f5b90e566e33d859f52551123bb",
+      "bytes": 359
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-lifecycle-install.json",
+      "sha256": "d55deb322ac86bbadaf54f1b6b6e6e38da8d960ffb47dfa0d3ba6e9d9a0ce89c",
+      "bytes": 1401
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-browser-restart-open.json",
+      "sha256": "00edd232a031e877abf581bf286adffe78949a352053ba10882cadd9a9e09edc",
+      "bytes": 432
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-editor-restart.json",
+      "sha256": "a93c1f164a3ae80f0d36f74848a81df5bc98931ebfb84eb35af4400578fb0e74",
+      "bytes": 680
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-lifecycle-second.json",
+      "sha256": "7df669168586cb8069b31a8f7304be71e9d72525aadb70141aa3b1895504ac72",
+      "bytes": 1605
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-final-open.json",
+      "sha256": "30cdd6812861436bb19dd4e326e800a4013c61a0f5e4e4964a15e7572c6ea385",
+      "bytes": 425
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-code-final-retry.json",
+      "sha256": "a003d143cae8a5deca758967485445b53e8293821963b18498132df49148e62c",
+      "bytes": 223
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-editor-final-retry.json",
+      "sha256": "07add9a5b237ab8bb5e067d8083fe4abedb652022be9a71fdcba4ee760d24746",
+      "bytes": 682
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-desktop-integration.json",
+      "sha256": "1a6db4bfea589a0eb3da256a257b16bf275c62dc61810ecae2bf913c0dbed8b6",
+      "bytes": 1767
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/code-port-reuse-regression.json",
+      "sha256": "baa5c4241b54734329d0dfc383faca113578a11a048dc0dcb7430c548e174cfd",
+      "bytes": 92
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-reuse-cycle.json",
+      "sha256": "81ffe2cf84ed8b010cadb4e27555dc3368940ae36c03658f511bb3e3cbe94401",
+      "bytes": 1194
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-code-reuse-open.json",
+      "sha256": "4518d2a167d632da7d4823b2a0c110d2ab56dc11a9990fcc386f391e9d4267fe",
+      "bytes": 129
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-warm-restart.json",
+      "sha256": "13dfe321c37d514066bc8badf6565f71e3a3346f29b326a9b2eac412d066fbe3",
+      "bytes": 1331
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-fixture-restored.json",
+      "sha256": "e54929dd605a2bb39b74e2ba37d3c90c6b0a863d1c1de750b411a55f41d25035",
+      "bytes": 324
+    },
+    {
+      "path": "build/diagnostics/termux-omarchy-performance-20261012/production-final-health-verified.json",
+      "sha256": "c4106c1070309584e30cedddc2c128bba667a3c7c0265877b15d8e408b9d72c5",
+      "bytes": 1600
+    }
+  ],
+  "deployment_source_matches": [
+    {
+      "path": "termux/omarchy_android.py",
+      "receipt_sha256": "a19c528c1047294f369dea00738a755c7836b591aaf8d360e4410bde7c48f288",
+      "snapshot_sha256": "a19c528c1047294f369dea00738a755c7836b591aaf8d360e4410bde7c48f288",
+      "matches": true
+    },
+    {
+      "path": "termux/omarchy_terminal.py",
+      "receipt_sha256": "027bacc7f904966b2115d227b73c197919610d86f1da19e88e9483509f83e16b",
+      "snapshot_sha256": "027bacc7f904966b2115d227b73c197919610d86f1da19e88e9483509f83e16b",
+      "matches": true
+    },
+    {
+      "path": "termux/omarchy_android.py",
+      "receipt": "build/diagnostics/termux-omarchy-performance-20261012/production-final-health-verified.json",
+      "receipt_sha256": "a19c528c1047294f369dea00738a755c7836b591aaf8d360e4410bde7c48f288",
+      "snapshot_sha256": "a19c528c1047294f369dea00738a755c7836b591aaf8d360e4410bde7c48f288",
+      "matches": true
+    },
+    {
+      "path": "termux/omarchy_code_web.py",
+      "receipt": "build/diagnostics/termux-omarchy-performance-20261012/production-final-health-verified.json",
+      "receipt_sha256": "31e96da634691a19646ef0b03a841846e736b6d59989536e70f033e5419f5539",
+      "snapshot_sha256": "31e96da634691a19646ef0b03a841846e736b6d59989536e70f033e5419f5539",
+      "matches": true
+    }
+  ],
+  "versions": {
+    "native_chromium": "155.0.8059.39",
+    "code": "1.141.0",
+    "code_serve_web_commit": "2a59476c9bfcb90b3ddc372c36762471b7dfad1c",
+    "xwayland_source": "24.1.13",
+    "xshmfence_source": "1.3.3",
+    "native_ahb_mesa_bridge_commit": "8c095276f525605c67c5212aabd8e42ef588790a"
+  },
+  "accepted_evidence": {
+    "workload_receipt": "webcode12-youtube-long.json",
+    "frames": 10965,
+    "dropped_frames": 87,
+    "drop_percent": 0.7934336525307797,
+    "saved_edits": 20,
+    "edit_ids": [
+      371,
+      390
+    ],
+    "notion_scope": "signed-in idle; no document editing acceptance",
+    "decode": "FFmpeg software; platform video decoder false",
+    "memory_samples": 160,
+    "minimum_MemAvailable_KiB": 693296,
+    "minimum_SwapFree_KiB": 2237816,
+    "fence_interop_cycles": 80,
+    "production_stop_termination_confirmed": true,
+    "production_start_geometry": [
+      3840,
+      2560
+    ],
+    "production_start_shellReady": false,
+    "production_browser_reopen_pid": 29196,
+    "production_restart_edits": {
+      "first": [
+        401,
+        402,
+        403
+      ],
+      "after_explicit_retry": [
+        411,
+        412,
+        413
+      ],
+      "all_saved": true
+    },
+    "production_cold_start": "TIME_WAIT false-positive fixed by SO_REUSEADDR in the port probe. Native regression accepts TIME_WAIT and rejects active LISTEN. Two subsequent stop/start first-launch samples succeeded, including immediate restart while Code was open; not universal cold-start acceptance.",
+    "custom_extensions": [
+      {
+        "id": "mateocerquetella.xcode-12-theme",
+        "version": "5.2.0",
+        "files": 17,
+        "manifestSha256": "2312ea948ccceeee3c07d3700b05eed57b78ab6d7cc18cd32e87fad1ffd52cf4"
+      },
+      {
+        "id": "pkief.material-icon-theme",
+        "version": "5.39.0",
+        "files": 1277,
+        "manifestSha256": "6d8cf2882642334985cb3e456356346e2b7241d211ac23ca45db3e8f6c3f0dc2"
+      }
+    ],
+    "custom_extensions_scope": "Existing original theme/icon extension directories copied and hash verified after Marketplace signature UnknownError; signature checks not disabled. UI activation not accepted.",
+    "test_fixture_restored_edit": 421,
+    "final_health": {
+      "browser_primary_count": 1,
+      "window_count": 3,
+      "code_profile_active": true,
+      "debug_port_enabled": false,
+      "diagnostic_present_enabled": false,
+      "preview_http_status": 200,
+      "memory_snapshot_KiB": {
+        "MemAvailable": 852180,
+        "SwapFree": 2006664
+      },
+      "launch_logs_empty": true
+    }
+  },
+  "runtime_contract": {
+    "private_futex_scope": "native browser LD_LIBRARY_PATH only; do not replace system library or native Weston/Termux:X11 library",
+    "presentation": "Vulkan surface enabled; normal direct flip; diagnostic no-flip toggle removed per production integration report",
+    "profile": "persistent native Chromium profile distinct from preserved guest Chromium profile; no auth data included",
+    "code_server": "loopback 127.0.0.1:8765; fixed pinned official serve-web CLI; private persistent TMPDIR outside session IPC",
+    "stale_browser_lock": "prove absent live owner; let Chromium recover its own lock, no manual lock deletion"
+  },
+  "remaining_reproducibility_gates": [
+    "Generic installer does not yet have demonstrated clean-install acceptance for the complete adopted combination.",
+    "Resolve every final deployed graphics artifact identity against local artifacts; local hash alone is not proof of the loaded device library.",
+    "Capture and pin native Chromium package/dependency artifacts and downloaded Code server payload checksums for offline reproducibility.",
+    "Complete settings/keybindings/snippets/extensions migration and restart evidence separately; font match alone does not prove theme or extension parity.",
+    "No zero-latency, active Notion editing, remote SSH, unlimited apps, or hours-long thermal/OOM acceptance.",
+    "TIME_WAIT restart regression is corrected with two successful first-launch samples; broader cold-start / resource-pressure behavior remains bounded by that evidence.",
+    "Final deployed Xwayland hash differs from the checked local experimental binary; preserve or reconstruct the exact final binary before claiming identical installation reproduction."
+  ],
+  "excluded_evidence": [
+    "Pre-futex zero-drop counters with frozen physical presentation.",
+    "webcode11 broad workload PASS: editor failure was not included in old verdict. Its separate physical RGB gate remains valid.",
+    "production-final-health.json is collector traceback caused by local variable shadowing; not device-failure evidence or successful health evidence. Use production-final-health-verified.json."
+  ],
+  "final_device_artifacts": {
+    "evidence": "build/diagnostics/termux-omarchy-performance-20261012/production-final-health-verified.json",
+    "bridge_sha256": "a19c528c1047294f369dea00738a755c7836b591aaf8d360e4410bde7c48f288",
+    "code_web_sha256": "31e96da634691a19646ef0b03a841846e736b6d59989536e70f033e5419f5539",
+    "xwayland_sha256": "87f549719ab28d39b4ba432513064881dd2b25815f01610de03b4fc381efac6f",
+    "futex_sha256": "ffd9e69982a4937fe6ce3c23379fb6fd3980660c2b63cfee2b57cc2d34f4e87c",
+    "loaded_browser_gpu_libraries": [
+      "/data/data/com.termux/files/home/.local/share/loopy-omarchy/graphics-native-futex/libxshmfence.so",
+      "/data/data/com.termux/files/usr/lib/chromium/libvulkan.so.1",
+      "/data/data/com.termux/files/usr/lib/libvulkan_freedreno.so"
+    ],
+    "local_xwayland_differs": true,
+    "xwayland_note": "Final device hash 87f549... differs from the local experimental artifact 261a6c...; do not deploy the local artifact as an identical final payload without rebuilding/verifying it."
+  }
+}

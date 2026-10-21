@@ -1,0 +1,11 @@
+{
+  "upstream_commit": "f31c47a1b9d300847d8fc3108ad959448103dfc1",
+  "patch_sha256": "c6a6f5e0e6ebbd56dcf42ac7a15d54c0294b6bbd685a433b690b03f88593109e",
+  "files": {
+    "src/backend/Wayland.cpp": {
+      "preimage_sha256": "e254a9854c00514a0793254fa2c8cea414c75ffc35566f21aba1971f95c835a6",
+      "patched_sha256": "4b49786b8c2e985da0141a05752d1b46c727cc99f6e9088336b7095e1260381f"
+    }
+  },
+  "scope": "Close SHM cursor read access on every success/failure path; bound dimensions, stride and data extent; reject inaccessible pinned or already-mapped buffers before copy."
+}

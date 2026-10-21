@@ -1,0 +1,90 @@
+--- a/include/aquamarine/backend/Wayland.hpp
++++ b/include/aquamarine/backend/Wayland.hpp
+@@ -65,6 +65,7 @@
+         Hyprutils::Memory::CSharedPointer<CWaylandBuffer> wlBufferFromBuffer(Hyprutils::Memory::CSharedPointer<IBuffer> buffer);
+ 
+         void                                              onFrameDone();
++        void                                              announceConfigured();
+         void                                              onEnter(Hyprutils::Memory::CSharedPointer<CCWlPointer> pointer, uint32_t serial);
+ 
+         // frame loop — unified scheduler shared with DRM. See CFrameScheduler.
+@@ -93,6 +94,7 @@
+             Hyprutils::Math::Vector2D                        surfaceSize;
+             Hyprutils::Math::Vector2D                        configureSize = {1280, 720};
+             bool configured = false;
++            bool announced = false;
+         } waylandState;
+ 
+         friend class CWaylandBackend;
+--- a/src/backend/Wayland.cpp
++++ b/src/backend/Wayland.cpp
+@@ -207,7 +207,8 @@
+     o->self = o;
+     if (backend->ready)
+         o->swapchain = CSwapchain::create(backend->primaryAllocator, self.lock());
+-    idleCallbacks.emplace_back([this, o]() { backend->events.newOutput.emit(SP<IOutput>(o)); });
++    // Initial size is only authoritative after xdg_surface.configure. Announce
++    // there so consumers never receive a newly created 0x0 monitor.
+     return true;
+ }
+ 
+@@ -260,6 +261,7 @@
+             backend->log(AQ_LOG_ERROR, std::format("Output {} failed: swapchain creation failed", o->name));
+             continue;
+         }
++        o->announceConfigured();
+     }
+ }
+ 
+@@ -559,9 +561,8 @@
+         // xdg_toplevel.configure precedes xdg_surface.configure. Only render
+         // after the latter's acknowledgement is queued ahead of buffer commit.
+         waylandState.configured = true;
+-        events.state.emit(SStateEvent{.size = waylandState.configureSize});
+-        needsFrame = true;
+-        sched.frameReady.emit();
++        modes = {makeShared<SOutputMode>(SOutputMode{.pixelSize = waylandState.configureSize, .refreshRate = 60000, .preferred = true})};
++        announceConfigured();
+     });
+ 
+     waylandState.xdgToplevel = makeShared<CCXdgToplevel>(waylandState.xdgSurface->sendGetToplevel());
+@@ -611,6 +612,20 @@
+         waylandState.xdgSurface->sendDestroy();
+     if (waylandState.surface)
+         waylandState.surface->sendDestroy();
++}
++
++void Aquamarine::CWaylandOutput::announceConfigured() {
++    if (!waylandState.configured || !backend->backend->ready || !swapchain)
++        return;
++    auto held = self.lock();
++    if (!held) return;
++    if (!waylandState.announced) {
++        waylandState.announced = true;
++        backend->backend->events.newOutput.emit(SP<IOutput>(held));
++    }
++    events.state.emit(SStateEvent{.size = waylandState.configureSize});
++    needsFrame = true;
++    sched.frameReady.emit();
+ }
+ 
+ std::vector<SDRMFormat> Aquamarine::CWaylandOutput::getRenderFormats() {
+--- a/src/allocator/Swapchain.cpp
++++ b/src/allocator/Swapchain.cpp
+@@ -19,9 +19,15 @@
+         return;
+ }
+ 
+-bool Aquamarine::CSwapchain::reconfigure(const SSwapchainOptions& options_) {
++bool Aquamarine::CSwapchain::reconfigure(const SSwapchainOptions& requested) {
+     if (!allocator)
+         return false;
++
++    auto options_ = requested;
++    // In a nested Wayland backend, output presentation uses wl_buffer, never
++    // a DRM scanout plane. Keep the allocator's actual scanout rejection intact.
++    if (allocator->type() == AQ_ALLOCATOR_TYPE_SHM && backendImpl && backendImpl->type() == AQ_BACKEND_WAYLAND)
++        options_.scanout = false;
+ 
+     if (options_.size == Vector2D{} || options_.length == 0) {
+         // clear the swapchain

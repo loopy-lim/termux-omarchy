@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "binary_sha256": "47e20a15c246b73880ec637c5334316ba5b85ade668537aade4d8484aec548a4",
+  "binary_bytes": 1741376,
+  "base_binary_sha256": "4b662e8a42595592378e970a5bdae1156f93ab909449d01c566be2d2c5bb4461",
+  "base_binary_bytes": 1736888,
+  "guest": "/usr/lib/libaquamarine.so.0.15.1",
+  "base_image_sha256": "7dcc1b5382007da2ef2a52d503ee646bdf863f00b45ad65098f8435d9689fd86",
+  "component_candidate": "build/omarchy-refresh-20261008",
+  "component_receipt_sha256": "753d44a49b42fcb8bbe10b604e81d000d1288937e9603ad6ae0b872f18c58cc5",
+  "physical_device": false,
+  "refresh_acceptance": false
+}

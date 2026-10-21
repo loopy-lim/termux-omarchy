@@ -1,0 +1,21 @@
+{
+  "upstream_commit": "efb50993780079460b0cbed1363e2166a2de1d9f",
+  "patch_sha256": "54a639f59176e5979c8e216d276f5df16518215e72af933c185f3eec079021b2",
+  "files": {
+    "src/pointer/PointerManager.cpp": {
+      "preimage_sha256": "83c69d93f09088f1e2383a9c85a54cf3f55718d9506a1121058afef77911223a",
+      "patched_sha256": "b943c920c1a3a419da9d482f7848d16d92fba56336d69d438051c197f4adcac0"
+    },
+    "src/render/Renderbuffer.hpp": {
+      "preimage_sha256": "358473978b1819eb56e1a95964cd4491e71cc8b7960db0f9b04727029de921b4",
+      "patched_sha256": "2a268f91b7e2e0b79f264904577af8122c765d80f3ebd643c6953fff0a0c0c85"
+    },
+    "src/render/gl/GLRenderbuffer.hpp": {
+      "preimage_sha256": "e295565882307d1768efedd3f9f3b9c4704b9c9001025092401f88bee0f2f03a",
+      "patched_sha256": "f42210daaa0c3bdf15916e5d685dcf62e369c18e0dc76f94ed1b264fd7487df8"
+    }
+  },
+  "added_files": {},
+  "build_inputs": [],
+  "scope": "Resolve the independently rendered hardware cursor into its SHM buffer before parent surface publication; failure falls back instead of publishing transparent stale pixels."
+}

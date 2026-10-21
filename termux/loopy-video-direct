@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+"""Open HTTP(S) URLs as fullscreen GPU-direct playback on the host X server.
+
+Bypasses the nested compositor chain for playback; the desktop resumes when
+the video browser closes.
+"""
+import sys
+sys.path.insert(0, '/usr/local/lib/loopy-omarchy')
+from omarchy_android_client import video
+import os
+
+
+def main():
+    urls = sys.argv[1:] or ['https://www.youtube.com/']
+    if len(urls) > 1:
+        return 2
+    if not os.environ.get('DISPLAY'):
+        print('Video direct unavailable outside the desktop session.', file=sys.stderr)
+        return 1
+    try:
+        return video(urls[0])['status'] == 'accepted' and 0 or 1
+    except (ValueError, OSError):
+        print('Video direct unavailable in this desktop session.', file=sys.stderr)
+        return 1
+
+
+sys.exit(main())

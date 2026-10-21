@@ -1,0 +1,9 @@
+{
+  "source_file": "src/backend/Wayland.cpp",
+  "upstream_commit": "f31c47a1b9d300847d8fc3108ad959448103dfc1",
+  "preimage_sha256": "1dd79e1cf212f5d13447c848fb83845d5d0491dfc897dce838165fe9449608fe",
+  "patched_sha256": "8f27f2019960ff6bedf12772a0fd3c9e6c79b5d1b57458516f7abaa28df1bc05",
+  "patch": "native/omarchy/patches/aquamarine-parent-versions.patch",
+  "patch_sha256": "08ef246f70a1469bdc2e9086777f1f3148bcc3e7e18e1609fae6b4ce3306888d",
+  "scope": "Wayland version negotiation only; no SHM renderer or GPU support claim."
+}

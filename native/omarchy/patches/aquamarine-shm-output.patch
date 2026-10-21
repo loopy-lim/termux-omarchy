@@ -1,0 +1,241 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -106,6 +106,9 @@
+            ${CMAKE_SOURCE_DIR}/protocols/wayland.hpp
+     COMMAND hyprwayland-scanner --wayland-enums --client
+             ${WAYLAND_SCANNER_PKGDATA_DIR}/wayland.xml ${CMAKE_SOURCE_DIR}/protocols/
++    COMMAND ${CMAKE_COMMAND}
++            -DGENERATED=${CMAKE_SOURCE_DIR}/protocols/wayland.cpp
++            -P ${CMAKE_SOURCE_DIR}/cmake/GuardWaylandDestructors.cmake
+     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+   target_sources(aquamarine PRIVATE protocols/wayland.cpp protocols/wayland.hpp)
+ endfunction()
+--- a/include/aquamarine/backend/Wayland.hpp
++++ b/include/aquamarine/backend/Wayland.hpp
+@@ -34,6 +34,7 @@
+         } waylandState;
+ 
+         Hyprutils::Memory::CWeakPointer<IBuffer>         buffer;
++        Hyprutils::Memory::CSharedPointer<IBuffer>       pendingBuffer;
+         Hyprutils::Memory::CWeakPointer<CWaylandBackend> backend;
+ 
+         friend class CWaylandOutput;
+@@ -90,6 +91,8 @@
+             Hyprutils::Memory::CSharedPointer<CCXdgToplevel> xdgToplevel;
+             Hyprutils::Memory::CSharedPointer<CCWlCallback>  frameCallback;
+             Hyprutils::Math::Vector2D                        surfaceSize;
++            Hyprutils::Math::Vector2D                        configureSize = {1280, 720};
++            bool configured = false;
+         } waylandState;
+ 
+         friend class CWaylandBackend;
+@@ -154,6 +157,8 @@
+         void initShell();
+         bool initDmabuf();
+ 
++        bool shmOnly = false;
++
+         //
+         Hyprutils::Memory::CWeakPointer<CBackend>                        backend;
+         std::vector<Hyprutils::Memory::CSharedPointer<CWaylandOutput>>   outputs;
+--- a/src/backend/Wayland.cpp
++++ b/src/backend/Wayland.cpp
+@@ -10,6 +10,8 @@
+ #include <gbm.h>
+ #include <fcntl.h>
+ #include <sys/mman.h>
++#include <sys/stat.h>
++#include <cmath>
+ #include <unistd.h>
+ 
+ using namespace Aquamarine;
+@@ -96,6 +98,9 @@
+ 
+ bool Aquamarine::CWaylandBackend::start() {
+     backend->log(AQ_LOG_DEBUG, "Starting the Wayland backend!");
++
++    const char* shmEnv = getenv("AQ_SHM_ONLY");
++    shmOnly = shmEnv && strcmp(shmEnv, "1") == 0;
+ 
+     waylandState.display = wl_display_connect(nullptr);
+ 
+@@ -145,7 +150,7 @@
+         } else if (NAME == "wl_shm") {
+             TRACE(backend->log(AQ_LOG_TRACE, std::format("  > binding to global: {} (version {}) with id {}", name, 1, id)));
+             waylandState.shm = makeShared<CCWlShm>((wl_proxy*)wl_registry_bind((wl_registry*)waylandState.registry->resource(), id, &wl_shm_interface, 1));
+-        } else if (NAME == "zwp_linux_dmabuf_v1") {
++        } else if (NAME == "zwp_linux_dmabuf_v1" && !shmOnly) {
+             if (version < 4u) {
+                 backend->log(AQ_LOG_DEBUG, "Wayland parent DMA-BUF feedback requires protocol version 4");
+                 return;
+@@ -163,7 +168,8 @@
+ 
+     wl_display_roundtrip(waylandState.display);
+ 
+-    if (!waylandState.xdg || !waylandState.compositor || !waylandState.seat || !waylandState.dmabuf || waylandState.dmabufFailed || !waylandState.shm) {
++    if (!waylandState.xdg || !waylandState.compositor || !waylandState.seat || !waylandState.shm ||
++        (!shmOnly && (!waylandState.dmabuf || waylandState.dmabufFailed))) {
+         backend->log(AQ_LOG_ERROR, "Wayland backend cannot start: Missing protocols");
+         return false;
+     }
+@@ -488,10 +494,15 @@
+ }
+ 
+ std::vector<SDRMFormat> Aquamarine::CWaylandBackend::getRenderFormats() {
++    if (shmOnly)
++        return {SDRMFormat{.drmFormat = DRM_FORMAT_ARGB8888, .modifiers = {DRM_FORMAT_MOD_LINEAR}},
++                SDRMFormat{.drmFormat = DRM_FORMAT_XRGB8888, .modifiers = {DRM_FORMAT_MOD_LINEAR}}};
+     return dmabufFormats;
+ }
+ 
+ std::vector<SDRMFormat> Aquamarine::CWaylandBackend::getCursorFormats() {
++    if (shmOnly)
++        return getRenderFormats();
+     return dmabufFormats;
+ }
+ 
+@@ -545,6 +556,12 @@
+     waylandState.xdgSurface->setConfigure([this](CCXdgSurface* r, uint32_t serial) {
+         backend->backend->log(AQ_LOG_DEBUG, std::format("Output {}: configure surface with {}", name, serial));
+         r->sendAckConfigure(serial);
++        // xdg_toplevel.configure precedes xdg_surface.configure. Only render
++        // after the latter's acknowledgement is queued ahead of buffer commit.
++        waylandState.configured = true;
++        events.state.emit(SStateEvent{.size = waylandState.configureSize});
++        needsFrame = true;
++        sched.frameReady.emit();
+     });
+ 
+     waylandState.xdgToplevel = makeShared<CCXdgToplevel>(waylandState.xdgSurface->sendGetToplevel());
+@@ -564,12 +581,7 @@
+             w = 1280;
+             h = 720;
+         }
+-        events.state.emit(SStateEvent{.size = {w, h}});
+-        // Kick off the first frame synchronously: the consumer expects events.frame in
+-        // the same dispatch cycle as the toplevel configure. Deferring via scheduleFrame's
+-        // idle races the first commit and can leave the output blank until the next event.
+-        needsFrame = true;
+-        sched.frameReady.emit();
++        waylandState.configureSize = {w, h};
+     });
+ 
+     waylandState.xdgToplevel->setClose([this](CCXdgToplevel* r) { destroy(); });
+@@ -676,6 +688,9 @@
+         return true;
+     }
+ 
++    if (!waylandState.configured)
++        return false;
++
+     auto wlBuffer = wlBufferFromBuffer(STATE.buffer);
+ 
+     if (!wlBuffer) {
+@@ -683,10 +698,20 @@
+         return false;
+     }
+ 
++    if (backend->shmOnly && (wlBuffer->pendingRelease || STATE.buffer->backendPinCount()))
++        return false;
++
++    if (backend->shmOnly && (STATE.buffer->shm().format != format || STATE.buffer->size != pixelSize))
++        return false;
++
+     if (wlBuffer->pendingRelease)
+         backend->backend->log(AQ_LOG_WARNING, std::format("Output {}: pending state has a non-released buffer??", name));
+ 
+     wlBuffer->pendingRelease = true;
++    if (backend->shmOnly) {
++        wlBuffer->pendingBuffer = STATE.buffer;
++        wlBuffer->pendingBuffer->backendPin();
++    }
+ 
+     waylandState.surface->sendAttach(wlBuffer->waylandState.buffer.get(), 0, 0);
+     waylandState.surface->sendDamageBuffer(0, 0, INT32_MAX, INT32_MAX);
+@@ -727,7 +752,9 @@
+ }
+ 
+ SP<CWaylandBuffer> Aquamarine::CWaylandOutput::wlBufferFromBuffer(SP<IBuffer> buffer) {
+-    std::erase_if(backendState.buffers, [this](const auto& el) { return el.first.expired() || !swapchain->contains(el.first.lock()); });
++    std::erase_if(backendState.buffers, [this](const auto& el) {
++        return !el.second->pendingRelease && (el.first.expired() || !swapchain->contains(el.first.lock()));
++    });
+ 
+     for (auto const& [k, v] : backendState.buffers) {
+         if (k != buffer)
+@@ -881,6 +908,33 @@
+ }
+ 
+ Aquamarine::CWaylandBuffer::CWaylandBuffer(SP<IBuffer> buffer_, Hyprutils::Memory::CWeakPointer<CWaylandBackend> backend_) : buffer(buffer_), backend(backend_) {
++    if (backend->shmOnly) {
++        auto attrs = buffer_->shm();
++        struct stat extent{};
++        if (!attrs.success || attrs.fd < 0 || attrs.offset < 0 || attrs.offset > INT32_MAX ||
++            !std::isfinite(attrs.size.x) || !std::isfinite(attrs.size.y) ||
++            attrs.size.x < 1 || attrs.size.y < 1 || attrs.size.x > 8192 || attrs.size.y > 8192 ||
++            std::trunc(attrs.size.x) != attrs.size.x || std::trunc(attrs.size.y) != attrs.size.y ||
++            attrs.stride < attrs.size.x * 4 ||
++            (attrs.format != DRM_FORMAT_ARGB8888 && attrs.format != DRM_FORMAT_XRGB8888))
++            return;
++        const int64_t length = attrs.offset + static_cast<int64_t>(attrs.stride) * static_cast<int64_t>(attrs.size.y);
++        if (length > 64 * 1024 * 1024 || fstat(attrs.fd, &extent) || extent.st_size < length)
++            return;
++        auto pool = makeShared<CCWlShmPool>(backend->waylandState.shm->sendCreatePool(attrs.fd, length));
++        if (!pool || !pool->resource())
++            return;
++        waylandState.buffer = makeShared<CCWlBuffer>(pool->sendCreateBuffer(attrs.offset, attrs.size.x, attrs.size.y, attrs.stride, shmFormatFromDRM(attrs.format)));
++        pool->sendDestroy();
++        if (waylandState.buffer && waylandState.buffer->resource())
++            waylandState.buffer->setRelease([this](CCWlBuffer*) {
++                pendingRelease = false;
++                auto held = std::move(pendingBuffer);
++                if (held) held->backendUnpin();
++            });
++        return;
++    }
++
+     auto params = makeShared<CCZwpLinuxBufferParamsV1>(backend->waylandState.dmabuf->sendCreateParams());
+ 
+     if (!params) {
+@@ -904,6 +958,11 @@
+ Aquamarine::CWaylandBuffer::~CWaylandBuffer() {
+     if (waylandState.buffer && waylandState.buffer->resource())
+         waylandState.buffer->sendDestroy();
++    if (pendingBuffer) {
++        auto held = std::move(pendingBuffer);
++        pendingRelease = false;
++        held->backendUnpin();
++    }
+ }
+ 
+ bool Aquamarine::CWaylandBuffer::good() {
+--- a/src/allocator/Swapchain.cpp
++++ b/src/allocator/Swapchain.cpp
+@@ -52,7 +52,7 @@
+ 
+     options = options_;
+     if (options.format == DRM_FORMAT_INVALID)
+-        options.format = buffers.at(0)->dmabuf().format;
++        options.format = buffers.at(0)->type() == BUFFER_TYPE_SHM ? buffers.at(0)->shm().format : buffers.at(0)->dmabuf().format;
+ 
+     allocator->getBackend()->log(AQ_LOG_DEBUG,
+                                  std::format("Swapchain: Reconfigured a swapchain to {} {} of length {}", options.size, fourccToName(options.format), options.length));
+@@ -62,6 +62,18 @@
+ SP<IBuffer> Aquamarine::CSwapchain::next(int* age) {
+     if (!allocator || options.length <= 0)
+         return nullptr;
++
++    if (allocator->type() == AQ_ALLOCATOR_TYPE_SHM) {
++        for (size_t i = 0; i < buffers.size(); ++i) {
++            lastAcquired = (lastAcquired + 1) % buffers.size();
++            if (!buffers.at(lastAcquired)->backendPinCount()) {
++                if (age) *age = 0; // full repaint until tracked damage history exists
++                return buffers.at(lastAcquired);
++            }
++        }
++        if (age) *age = 0;
++        return nullptr; // parent still owns all buffers
++    }
+ 
+     lastAcquired = (lastAcquired + 1) % options.length;
+ 

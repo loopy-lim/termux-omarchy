@@ -1,0 +1,13 @@
+{
+  "upstream_commit": "efb50993780079460b0cbed1363e2166a2de1d9f",
+  "patch_sha256": "b0df1dd0b4c62400ff5f7cafb2226fac14e8e6eaac7986ec545b098a833ac38c",
+  "files": {
+    "src/Compositor.cpp": {
+      "preimage_sha256": "74833ecbf0e2b6f8ad84345ac0716a3295a0e347420a188be0ab4f6a684af7c0",
+      "patched_sha256": "84aaf5f6079b4ede5c1c26061f666a07d0bcbc01b97aa78e164f1874b24e95b7"
+    }
+  },
+  "added_files": {},
+  "build_inputs": [],
+  "scope": "Deliver original user-config startup callbacks when the original Load config action leaves safe mode. Ordinary reload must not repeat startup."
+}

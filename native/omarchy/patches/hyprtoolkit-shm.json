@@ -1,0 +1,39 @@
+{
+  "upstream_commit": "f8cbaf42e1f7fdc9c7565d7be3e935f6d56c7a39",
+  "patch_sha256": "30e7f8e6d380a7b7e45cf5cbb2b6d5e80b84f6fa0866543eaad580f793caad7c",
+  "files": {
+    "src/window/IWaylandWindow.cpp": {
+      "preimage_sha256": "79fe76ebb0679ba29c79c14ef4af7b91ec97548e5b8aa3630a954b0fdc1bc8fc",
+      "patched_sha256": "bf57c9f13d490c67e938c0b6c8f4a3481282d3d32f2e0a03f2a409eff86060c4"
+    },
+    "src/window/IWaylandWindow.hpp": {
+      "preimage_sha256": "923cfb19c5a59ac984ae40709d9501f474d05167805648a8e83d83ca495d462a",
+      "patched_sha256": "1d237c5fdaf7b9ca05d756519a78ce5ff66375dc409ce4293b586c878e39f5ea"
+    },
+    "src/core/platforms/WaylandPlatform.hpp": {
+      "preimage_sha256": "337658b00fae7eee50d499e6a2595a7a73535b50e8a7b2be8da4a682ab4b8665",
+      "patched_sha256": "aafb84bea7695256f32b7acff226c93b3f44efac3cac7f24af8e469dbdb12532"
+    },
+    "src/core/platforms/WaylandPlatform.cpp": {
+      "preimage_sha256": "56ac4152f42dac085fd0d5b4eff5ca8f598316760c9b9727951637b1b5156cd6",
+      "patched_sha256": "150501df784ee718d86ed33cc5c0c390799f9bebde2a685086f7d43f2e27ee9b"
+    },
+    "src/renderer/gl/OpenGL.hpp": {
+      "preimage_sha256": "6c7574f36ce956b7e1462234a7f20b8305982852f187d71441ff1cc3b00f6826",
+      "patched_sha256": "96e03db59f137bde9c4025532c5878547fcf93dcaaf9574cd5138284fe316125"
+    },
+    "src/renderer/gl/OpenGL.cpp": {
+      "preimage_sha256": "0a275365d56f45d78ea743ea26f84a2aff5204c043063305acd96061d392ec60",
+      "patched_sha256": "c806be53043c56ae7c3fcb0d37412feaeb164b68eb404ebf4a961da5185bda67"
+    },
+    "src/renderer/gl/Renderbuffer.cpp": {
+      "preimage_sha256": "8c7cb7a53d60a9a02efd1f3b15aa66c1a7355eac1e065bf0ab80e80134d1483c",
+      "patched_sha256": "2ba2125b17c75b98afb67650eae3508631136ef167ac43656e69a2008c7f4bf6"
+    }
+  },
+  "added_files": {
+    "src/renderer/gl/LoopyShmReadback.cpp": "918439c6e9a5a739cac8379d74195532d12077f304d178b54124f0947e80470d",
+    "src/renderer/gl/LoopyShmReadback.hpp": "4f481b475b48a2cdd599ea5cf9f30bba13c929471f10087575f24560ce409ab7"
+  },
+  "scope": "Opt-in AQ_SHM_ONLY original toolkit rendering, bounded memory and buffer release ownership"
+}

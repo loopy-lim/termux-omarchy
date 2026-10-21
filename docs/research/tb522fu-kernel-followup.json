@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "observed_date": "2026-10-06",
+  "target": "TB522FU",
+  "scope": "read-only public source follow-up; no kernel build or flashing",
+  "files": [
+    {
+      "cache_path": "build/research/tb522fu-current/Makefile",
+      "url": "https://raw.githubusercontent.com/lenovo-basements/android_kernel_lenovo_sm8750/210981a0ad749c30080b853d31bc009d9db0592d/Makefile",
+      "bytes": 71735,
+      "sha256": "9525ae840e5b47e5ad8a7e604f412f93265ab65cbfe258fc57442e66cb044ae2"
+    },
+    {
+      "cache_path": "build/research/tb522fu-current/build.config.gki.aarch64",
+      "url": "https://raw.githubusercontent.com/lenovo-basements/android_kernel_lenovo_sm8750/210981a0ad749c30080b853d31bc009d9db0592d/build.config.gki.aarch64",
+      "bytes": 482,
+      "sha256": "b61cde9e200b2fb5ec897a9df04a195ed346bf6bd02daa8d8f9eac9d8067ea31"
+    },
+    {
+      "cache_path": "build/research/tb522fu-current/arch-arm64-configs-gki_defconfig",
+      "url": "https://raw.githubusercontent.com/lenovo-basements/android_kernel_lenovo_sm8750/210981a0ad749c30080b853d31bc009d9db0592d/arch/arm64/configs/gki_defconfig",
+      "bytes": 20280,
+      "sha256": "ae83ac453c7c8b4413479a6d9eadb993a2c480bf871361e29841e15212db72da"
+    },
+    {
+      "cache_path": "build/research/tb522fu-current/modules-qcom-opensource-display-drivers-Makefile",
+      "url": "https://raw.githubusercontent.com/lenovo-basements/android_kernel_lenovo_sm8750-modules/e1f324632d70b2427751820cd48eefc45baab0ce/qcom/opensource/display-drivers/Makefile",
+      "bytes": 552,
+      "sha256": "347fa46a10eb462d006c195083e843cf1b25403b2e8f38133e562d6807cdae92"
+    },
+    {
+      "cache_path": "build/research/tb522fu-current/modules-qcom-opensource-graphics-kernel-Makefile",
+      "url": "https://raw.githubusercontent.com/lenovo-basements/android_kernel_lenovo_sm8750-modules/e1f324632d70b2427751820cd48eefc45baab0ce/qcom/opensource/graphics-kernel/Makefile",
+      "bytes": 493,
+      "sha256": "b84245408f006992872376f4d2b2914b6064ab5db1e30b59a6ad22658f7b8d21"
+    }
+  ],
+  "kernel_tree": {
+    "truncated": true,
+    "entries": 75908
+  },
+  "remaining": [
+    "matching board DTB/DTBO and firmware identity",
+    "reproducible device module build",
+    "native Linux display/input/power verification",
+    "physical device and recovery plan"
+  ],
+  "physical_device_connected": false
+}

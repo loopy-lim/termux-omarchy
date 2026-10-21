@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+# This runs inside Sway, whose WAYLAND_DISPLAY differs from its parent.
+python3 /usr/local/lib/loopy/desktop_actions.py &
+actions=$!
+python3 /usr/local/lib/loopy/desktop_clipboard.py &
+clipboard=$!
+finish() {
+    kill "$actions" "$clipboard" 2>/dev/null || true
+    wait "$actions" "$clipboard" 2>/dev/null || true
+}
+trap finish EXIT
+trap 'exit 0' HUP INT TERM
+printf '%s\n' "$WAYLAND_DISPLAY" > /run/loopy/display-$LOOPY_SESSION.new
+mv /run/loopy/display-$LOOPY_SESSION.new /run/loopy/display-$LOOPY_SESSION
+printf 'ready\n' > /run/loopy/ready-$LOOPY_SESSION
+while [ -S "$SWAYSOCK" ]; do sleep 1; done

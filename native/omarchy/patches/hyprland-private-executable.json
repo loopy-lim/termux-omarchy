@@ -1,0 +1,13 @@
+{
+  "upstream_commit": "efb50993780079460b0cbed1363e2166a2de1d9f",
+  "patch_sha256": "1942f2e535855b205843297136dedc4b06a1612c747e0197455645559362fc33",
+  "files": {
+    "src/helpers/fs/FsUtils.cpp": {
+      "preimage_sha256": "5e0d73e0ed89fde329ac7ab000b260a52c0cfd621c3235109216b2eeff171a41",
+      "patched_sha256": "b4f9623908dfc0c99239fef06aae3fd36778c667f1110712e0e39ef3c9d26e0c"
+    }
+  },
+  "added_files": {},
+  "build_inputs": [],
+  "scope": "Respect actual user execute access when locating owner-private runtime programs; retain installed image permissions. Watchdog safe-mode dialog and Android acceptance remain separate."
+}

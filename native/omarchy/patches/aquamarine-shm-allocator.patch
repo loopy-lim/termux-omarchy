@@ -1,0 +1,55 @@
+--- a/include/aquamarine/allocator/Allocator.hpp
++++ b/include/aquamarine/allocator/Allocator.hpp
+@@ -17,6 +17,7 @@
+     enum eAllocatorType {
+         AQ_ALLOCATOR_TYPE_GBM = 0,
+         AQ_ALLOCATOR_TYPE_DRM_DUMB,
++        AQ_ALLOCATOR_TYPE_SHM,
+     };
+ 
+     class IAllocator {
+--- a/src/backend/Backend.cpp
++++ b/src/backend/Backend.cpp
+@@ -4,6 +4,8 @@
+ #include <aquamarine/backend/DRM.hpp>
+ #include <aquamarine/backend/Null.hpp>
+ #include <aquamarine/allocator/GBM.hpp>
++#include <aquamarine/allocator/SHM.hpp>
++#include <cstdlib>
+ #include <hyprutils/os/FileDescriptor.hpp>
+ #include <ranges>
+ #include <sys/timerfd.h>
+@@ -159,8 +161,20 @@
+         return failed;
+     });
+ 
+-    // TODO: obviously change this when (if) we add different allocators.
++    // SHM is opt-in; normal DRM/GBM sessions retain their original allocator.
++    const char* shmEnv = getenv("AQ_SHM_ONLY");
++    const bool useShm = shmEnv && strcmp(shmEnv, "1") == 0;
++    if (useShm) {
++        for (auto const& b : implementations) {
++            if (b->type() == AQ_BACKEND_HEADLESS || b->type() == AQ_BACKEND_WAYLAND) {
++                primaryAllocator = CSHMAllocator::create(self);
++                break;
++            }
++        }
++    }
+     for (auto const& b : implementations) {
++        if (useShm)
++            break;
+         if (b->drmFD() >= 0) {
+             auto fd = reopenDRMNode(b->drmFD());
+             if (fd < 0) {
+--- a/src/backend/Headless.cpp
++++ b/src/backend/Headless.cpp
+@@ -155,6 +155,9 @@
+ }
+ 
+ std::vector<SDRMFormat> Aquamarine::CHeadlessBackend::getRenderFormats() {
++    if (backend->primaryAllocator && backend->primaryAllocator->type() == AQ_ALLOCATOR_TYPE_SHM)
++        return {SDRMFormat{.drmFormat = DRM_FORMAT_ARGB8888, .modifiers = {DRM_FORMAT_MOD_LINEAR}},
++                SDRMFormat{.drmFormat = DRM_FORMAT_XRGB8888, .modifiers = {DRM_FORMAT_MOD_LINEAR}}};
+     for (const auto& impl : backend->getImplementations()) {
+         if (impl->type() != AQ_BACKEND_DRM || impl->getRenderableFormats().empty())
+             continue;

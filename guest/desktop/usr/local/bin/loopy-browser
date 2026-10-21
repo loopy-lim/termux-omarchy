@@ -1,0 +1,7 @@
+#!/bin/sh
+# WebKit has no additional Linux sandbox under PRoot. The browser explicitly
+# preserves Android app UID, SELinux and inherited process policy as its boundary.
+export GDK_BACKEND=wayland
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
+exec /usr/bin/python3 /usr/local/lib/loopy/browser.py "$@"

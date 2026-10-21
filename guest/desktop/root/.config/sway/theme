@@ -1,0 +1,7 @@
+# Central desktop roles; the foot palette below uses the same roles.
+set $background #16191f
+set $surface #20252d
+set $ink #e2e6ed
+set $muted #a1acba
+set $border #404a59
+set $accent #9cb8d7

@@ -1,0 +1,58 @@
+--- a/src/tracee/event.c
++++ b/src/tracee/event.c
+@@ -645,12 +645,13 @@
+ 
+ 		case SIGSYS: {
+ 			siginfo_t siginfo = {};
++			const bool had_pending_sysexit = !IS_IN_SYSENTER(tracee);
+ 			ptrace(PTRACE_GETSIGINFO, tracee->pid, NULL, &siginfo);
+ 			if (siginfo.si_code == SYS_SECCOMP) {
+ 				/* Signal cannot happen when we're inside syscall,
+ 				 * tracee would have to exit from syscall first.
+ 				 * Execute exit handler now if seccomp triggered sysexit skip.  */
+-				if (!IS_IN_SYSENTER(tracee)) {
++				if (had_pending_sysexit) {
+ 					VERBOSE(tracee, 1, "Handling syscall exit from SIGSYS");
+ 					translate_syscall(tracee);
+ 				}
+@@ -659,6 +660,40 @@
+ 					VERBOSE(tracee, 4, "suppressed SIGSYS after void syscall");
+ 					tracee->skip_next_seccomp_signal = false;
+ 					signal = 0;
++				} else if (siginfo.si_errno > 0) {
++					/* A positive SECCOMP_RET_TRAP data value is a guest tag.
++					 * Mozilla uses 1-based IDs for its own SIGSYS handler.
++					 * Android's base policy has data 0 and keeps PRoot's
++					 * existing emulation path below.  Never retry the trap. */
++					if (tracee->chain.syscalls != NULL ||
++					    tracee->restore_original_regs_after_seccomp_event ||
++					    peek_reg(tracee, ORIGINAL, SYSARG_NUM) !=
++					    (word_t) siginfo.si_syscall) {
++						/* A syscall exit stop can precede SIGSYS, so status alone
++						 * cannot invalidate ORIGINAL.  Require the saved guest
++						 * syscall to match the trapped one and no PRoot chain. */
++						signal = SIGKILL;
++					} else {
++						/* Syscall-stop snapshots contain ARM64's synthetic x7.
++						 * Refresh at the signal stop before writing any regs. */
++						if (fetch_regs(tracee) != 0) {
++							signal = SIGKILL;
++							break;
++						}
++
++						/* An exit handler may restore arguments 2..6 and SP,
++						 * but on ARM64 x0 is both result and argument 1.
++						 * Explicitly restore the full guest argument context. */
++						poke_reg(tracee, SYSARG_1, peek_reg(tracee, ORIGINAL, SYSARG_1));
++						poke_reg(tracee, SYSARG_2, peek_reg(tracee, ORIGINAL, SYSARG_2));
++						poke_reg(tracee, SYSARG_3, peek_reg(tracee, ORIGINAL, SYSARG_3));
++						poke_reg(tracee, SYSARG_4, peek_reg(tracee, ORIGINAL, SYSARG_4));
++						poke_reg(tracee, SYSARG_5, peek_reg(tracee, ORIGINAL, SYSARG_5));
++						poke_reg(tracee, SYSARG_6, peek_reg(tracee, ORIGINAL, SYSARG_6));
++						poke_reg(tracee, STACK_POINTER,
++						peek_reg(tracee, ORIGINAL, STACK_POINTER));
++						signal = push_specific_regs(tracee, false) == 0 ? SIGSYS : SIGKILL;
++					}
+ 				} else {
+ 					signal = handle_seccomp_event(tracee);
+ 				}

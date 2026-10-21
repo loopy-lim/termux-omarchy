@@ -1,0 +1,7 @@
+{
+  "mesaCommit": "8c095276f525605c67c5212aabd8e42ef588790a",
+  "baseSourceSHA256": "15840fbf2e563bef7a37e20c94834efa9a02da479a9ed04d3b23d64245d4ff33",
+  "patchedSourceSHA256": "700bc324dd846cd7c9a9fdb9823cea0138da8660237c6b779392c62a8f853e7e",
+  "packageSHA256": "06be0d0f44d2a0fd68c5e2804e614bcfed0623235fb11c7533680b18679b8570",
+  "status": "experimental-not-default"
+}

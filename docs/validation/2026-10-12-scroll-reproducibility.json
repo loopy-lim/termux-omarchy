@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "date": "2026-10-12",
+  "scope": "Actual wheel scrolling on Y900; scoped source and installed runtime evidence, not a complete installer release",
+  "installedRuntimeMatchesLocal": true,
+  "productionHealth": {
+    "session": "0133090c-85e9-4d4a-8e4e-69333c1473e9",
+    "phase": "ready",
+    "monitors": [
+      {
+        "width": 3840,
+        "height": 2560,
+        "scale": 2.5,
+        "refreshRate": 120.0
+      }
+    ],
+    "browserPrimaryCount": 1,
+    "debugEnabled": false,
+    "windows": [
+      {
+        "class": "LoopyNativeBrowser",
+        "pid": 22095,
+        "profileActive": false,
+        "code": false
+      },
+      {
+        "class": "LoopyNativeBrowser",
+        "pid": 22095,
+        "profileActive": false,
+        "code": false
+      },
+      {
+        "class": "LoopyNativeBrowser",
+        "pid": 22095,
+        "profileActive": true,
+        "code": true
+      }
+    ],
+    "memoryKiB": {
+      "MemAvailable": 960236,
+      "SwapFree": 2003996
+    },
+    "sha256": {
+      "omarchy_commands.py": "12ea29e0358e2ca435888d5c2319490495a322c32192b6d8b257faeefc9b46fa",
+      "omarchy_runtime.py": "976fa75c259ecf97c0b105786f0f22e0f4245a0d2e51e549da5e57c7510dd4d4",
+      "omarchy_resources.py": "e3276fcdd7af97cdc7286d7f694cac5bf9eff2d7b87dda679f661ef52499fff3",
+      "omarchy_android.py": "89fb4bb6cb2c76e0350ea460303479ac2d076834b80674d0adb357f7c0b34fad",
+      "omarchy_terminal.py": "91f4b623c23f5bb1c6a52ad9136d7fa68d0cc2041e552f41bdbb623ba080837d"
+    },
+    "refreshSelection": {
+      "schema": 1,
+      "refreshMhz": 120000
+    },
+    "wheelFactorPersisted": true,
+    "westonConfigRestoredAbsent": true,
+    "previewHttpStatus": 200,
+    "gpuFutexLoaded": true,
+    "gpuMailboxEnv": true,
+    "status": "PASS"
+  },
+  "validEnduranceRuns": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "excludedEnduranceRuns": {
+    "6": "video paused at end and physical visibility failed"
+  },
+  "validVideoFrames": 8298,
+  "validVideoDropped": 105,
+  "validInputCount": 1280,
+  "priorBaseManifest": "2026-10-12-native-fence-reproducibility.json",
+  "sha256": {
+    "termux/omarchy_commands.py": "12ea29e0358e2ca435888d5c2319490495a322c32192b6d8b257faeefc9b46fa",
+    "termux/omarchy_runtime.py": "976fa75c259ecf97c0b105786f0f22e0f4245a0d2e51e549da5e57c7510dd4d4",
+    "termux/omarchy_resources.py": "e3276fcdd7af97cdc7286d7f694cac5bf9eff2d7b87dda679f661ef52499fff3",
+    "termux/omarchy_android.py": "89fb4bb6cb2c76e0350ea460303479ac2d076834b80674d0adb357f7c0b34fad",
+    "termux/omarchy_terminal.py": "91f4b623c23f5bb1c6a52ad9136d7fa68d0cc2041e552f41bdbb623ba080837d",
+    "termux/omarchy_install.py": "3c18de92656eb377c3dc3f4b7eb6f6c8d2c3fe6b959f26b9b4260ae4e4d00f0f",
+    "tests/test_omarchy_vscode_rebind.py": "483f0b784d16ca58346e72118b35174aa700b4a557ad18ba0a5091a54954a493",
+    "tests/test_omarchy_display_refresh.py": "13881aafa764b300d25af98c100ac9d194324c102ea8303618312ac9efdfe9b3",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-production-install.json": "370ced19da2b39d810b3ca1541013ba326d561b37ff7285605be7801dff311f5",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-production-backends.json": "e82cb170386a5aa6699ebfa1609ecd56d46c3b8aa63946a525ab30cb5627c584",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-production-open.json": "e000e9be48608c122e751a1a3b7439f2d561acfba90f22d4c7c05c348bdf9f52",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-production-health.json": "f5b4c85c288d8359dc709abe676145531ae3a69acca81e32302cc64c5adb9675",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-endurance-memory.jsonl": "a7e92d38c4c7ff9f441ebb86fb86bf9ecc3523b83e114b4346bc5b4f651e681f",
+    "build/diagnostics/termux-omarchy-performance-20261012/notion-scroll-final-long.json": "bb069805a08977774051998e28073019a95ddc86da108d93a859047dbf848d18",
+    "build/diagnostics/termux-omarchy-performance-20261012/code-scroll-final-long.json": "9351fe9cee8853d82647d4e0005c2561e0d6e972b49aedf07d966f3bda54d89f",
+    "build/diagnostics/termux-omarchy-performance-20261012/notion-scroll-mailbox-visible-long.json": "5b820807a3c0c0c28d9263d84f158b45da7bac66ffdf6b2e0682376f62af03c1",
+    "build/diagnostics/termux-omarchy-performance-20261012/code-scroll-mailbox-visible-long.json": "0dcfb5134c9fa8e1ab7dbf3e2ad6a7e813be11992a12da8621cc8856bf10edb2",
+    "build/diagnostics/termux-omarchy-performance-20261012/notion-scroll-frame-trace-summary.json": "b18061584bfcbefe490f826ee2d3df367b35282cd68cb0b848bc3384c2413754",
+    "build/diagnostics/termux-omarchy-performance-20261012/notion-scroll-mailbox-frame-trace-summary.json": "5f5e4bb8a9f5fc0948604f7808091483505c3bc4fc8d5cf64473de80f781497b",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-endurance-1.json": "77a8fab00f22849512f10e814e01cffaaca413d6007d96f0639d2f166c08cbb5",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-endurance-2.json": "f26fa690c23035e22b229b28722d2aa80ca24f060458f7e6b0b7aed5931c8dfa",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-endurance-3.json": "884e5c8b34819777d93f5477001bd77169ac45280f93a4faa3ea7b790c2bab3f",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-endurance-4.json": "136eb727300fd64a373440d18fdf2492cd90b1953668e29f2cf77511a9fe70da",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-endurance-5.json": "509d8a17b06ed76d3226cf5300865a5ea5415fb09a0b54a7fba0b4f57d88325a",
+    "build/diagnostics/termux-omarchy-performance-20261012/scroll-endurance-6.json": "36728ffde28895b1e12795cf138e2cc1cc425063df34dce7c198f839ad9af12b"
+  }
+}

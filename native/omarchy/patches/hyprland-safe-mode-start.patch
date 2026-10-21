@@ -1,0 +1,12 @@
+--- a/src/Compositor.cpp
++++ b/src/Compositor.cpp
+@@ -928,6 +928,9 @@
+         if (RES.starts_with(OPT_LOAD)) {
+             m_safeMode = false;
+             Config::mgr()->reload();
++            // The first frame in safe mode already emitted start. The freshly
++            // loaded user config still needs its original startup callbacks.
++            Event::bus()->m_events.start.emit();
+         } else if (RES.starts_with(OPT_OPEN)) {
+             std::string reportPath;
+             const auto  HOME       = getenv("HOME");

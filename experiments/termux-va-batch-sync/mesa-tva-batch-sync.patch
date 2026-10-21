@@ -1,0 +1,240 @@
+--- a/src/gallium/frontends/va/tva_bridge.c
++++ b/src/gallium/frontends/va/tva_bridge.c
+@@ -514,6 +514,12 @@
+ 
+     uint64_t next_unit;           /* index to assign to the next VCL unit (1-based) */
+     uint64_t frames_done;         /* staged frames counter (diagnostics) */
++    bool copy_profile;
++    uint64_t profile_batch_ok, profile_batch_fallback, profile_batch_ns, profile_batch_sync_end_ns;
++    uint64_t profile_planes, profile_export_ns, profile_map_ns;
++    uint64_t profile_sync_start_ns, profile_memcpy_ns, profile_sync_end_ns, profile_unmap_ns;
++    uint64_t profile_direct_ok, profile_direct_fail, profile_direct_ns;
++    uint64_t profile_staged_ok, profile_staged_ns;
+ 
+     /* synthesized CSD cache: re-sent to the daemon only when it changes */
+     uint8_t *csd;
+@@ -1227,7 +1233,7 @@
+  * output arrives, while the application-thread Gallium path remains available
+  * as a fallback for drivers that cannot mmap an exported BO. */
+ static bool
+-tva_direct_copy_plane(struct pipe_screen *screen, struct pipe_resource *res,
++tva_direct_copy_plane(struct tva_codec *c, struct pipe_screen *screen, struct pipe_resource *res,
+                       const uint8_t *data, unsigned w, unsigned h,
+                       unsigned src_stride)
+ {
+@@ -1241,6 +1247,7 @@
+    if (src_stride < row_bytes)
+       return false;
+ 
++   uint64_t stamp = c->copy_profile ? os_time_get_nano() : 0;
+    struct winsys_handle whandle;
+    memset(&whandle, 0, sizeof(whandle));
+    whandle.type = WINSYS_HANDLE_TYPE_FD;
+@@ -1248,6 +1255,7 @@
+                                     PIPE_HANDLE_USAGE_FRAMEBUFFER_WRITE))
+       return false;
+ 
++   if (c->copy_profile) { uint64_t now = os_time_get_nano(); c->profile_export_ns += now - stamp; stamp = now; }
+    const int fd = whandle.handle;
+    const size_t dst_stride = whandle.stride;
+    const uint64_t object_size = whandle.size;
+@@ -1280,6 +1288,7 @@
+       return false;
+    }
+ 
++   if (c->copy_profile) { uint64_t now = os_time_get_nano(); c->profile_map_ns += now - stamp; stamp = now; }
+    bool synced = false;
+    struct dma_buf_sync sync = {
+       .flags = DMA_BUF_SYNC_START | DMA_BUF_SYNC_WRITE,
+@@ -1292,6 +1301,7 @@
+               fd, errno);
+    }
+ 
++   if (c->copy_profile) { uint64_t now = os_time_get_nano(); c->profile_sync_start_ns += now - stamp; stamp = now; }
+    uint8_t *dst = map + delta;
+    if (dst_stride == src_stride) {
+       memcpy(dst, data, row_bytes * h);
+@@ -1301,15 +1311,109 @@
+                 data + (size_t)y * src_stride, row_bytes);
+    }
+ 
++   if (c->copy_profile) { uint64_t now = os_time_get_nano(); c->profile_memcpy_ns += now - stamp; stamp = now; }
+    if (synced) {
+       sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_WRITE;
+       if (ioctl(fd, DMA_BUF_IOCTL_SYNC, &sync) < 0 && getenv("DMD_VA_LOG"))
+          fprintf(stderr, "tva: direct dma-buf sync end failed fd=%d errno=%d\n",
+                  fd, errno);
+    }
++   if (c->copy_profile) { uint64_t now = os_time_get_nano(); c->profile_sync_end_ns += now - stamp; stamp = now; }
+    munmap(map, map_len);
+    close(fd);
++   if (c->copy_profile) { uint64_t now = os_time_get_nano(); c->profile_unmap_ns += now - stamp; stamp = now; }
++   if (c->copy_profile) c->profile_planes++;
+    return true;
++}
++
++
++/* Opt-in experiment. Both exported planes must alias the exact same dma-buf.
++ * CPU-access synchronization is object-wide, so enclose both plane writes in
++ * one START/END pair. Never remove synchronization or retain borrowed mappings. */
++static int
++tva_sync_retry(int fd, struct dma_buf_sync *sync)
++{
++    int rc;
++    do { rc = ioctl(fd, DMA_BUF_IOCTL_SYNC, sync); }
++    while (rc != 0 && (errno == EINTR || errno == EAGAIN));
++    return rc;
++}
++
++/* 0: unsupported before writes; 1: success; -1: failed END after writes. */
++static int
++tva_copy_shared_planes(struct tva_codec *c, struct pipe_resource **res,
++                       const uint8_t *y, const uint8_t *uv,
++                       unsigned w, unsigned h, unsigned uv_w, unsigned uv_h,
++                       unsigned src_stride)
++{
++    if (!getenv("DMD_VA_BATCH_SYNC") || strcmp(getenv("DMD_VA_BATCH_SYNC"), "1"))
++        return false;
++    struct winsys_handle handles[2] = {{0}, {0}};
++    struct stat info[2];
++    const unsigned widths[2] = {w, uv_w}, heights[2] = {h, uv_h};
++    const uint8_t *sources[2] = {y, uv};
++    size_t row_bytes[2], spans[2];
++    int fds[2] = {-1, -1};
++    uint8_t *map = MAP_FAILED;
++    size_t map_len = 0;
++    int result = 0;
++    uint64_t start = c->copy_profile ? os_time_get_nano() : 0;
++    for (unsigned i = 0; i < 2; i++) {
++        handles[i].type = WINSYS_HANDLE_TYPE_FD;
++        if (!c->pipe->screen->resource_get_handle(c->pipe->screen, NULL, res[i],
++                &handles[i], PIPE_HANDLE_USAGE_FRAMEBUFFER_WRITE))
++            goto out;
++        fds[i] = handles[i].handle;
++        if (fds[i] < 0 || fstat(fds[i], &info[i]) != 0 || !info[i].st_ino || info[i].st_size <= 0)
++            goto out;
++        unsigned block = util_format_get_blocksize(res[i]->format);
++        if (!block || !widths[i] || !heights[i] || widths[i] > SIZE_MAX / block)
++            goto out;
++        row_bytes[i] = (size_t)widths[i] * block;
++        if (src_stride < row_bytes[i] || handles[i].stride < row_bytes[i] ||
++            (size_t)(heights[i] - 1) > (SIZE_MAX - row_bytes[i]) / handles[i].stride)
++            goto out;
++        spans[i] = (size_t)(heights[i] - 1) * handles[i].stride + row_bytes[i];
++        if (handles[i].offset > (uint64_t)info[i].st_size ||
++            spans[i] > (uint64_t)info[i].st_size - handles[i].offset)
++            goto out;
++    }
++    if (info[0].st_dev != info[1].st_dev || info[0].st_ino != info[1].st_ino ||
++        info[0].st_size != info[1].st_size || (uint64_t)info[0].st_size > SIZE_MAX)
++        goto out;
++    if (!(handles[0].offset + spans[0] <= handles[1].offset ||
++          handles[1].offset + spans[1] <= handles[0].offset))
++        goto out;
++    map_len = (size_t)info[0].st_size;
++    map = mmap(NULL, map_len, PROT_READ | PROT_WRITE, MAP_SHARED, fds[0], 0);
++    if (map == MAP_FAILED)
++        goto out;
++    struct dma_buf_sync sync = {.flags = DMA_BUF_SYNC_START | DMA_BUF_SYNC_WRITE};
++    if (tva_sync_retry(fds[0], &sync) != 0) {
++        result = -1;
++        goto out;
++    }
++    for (unsigned i = 0; i < 2; i++) {
++        uint8_t *dst = map + handles[i].offset;
++        if (handles[i].stride == row_bytes[i] && src_stride == row_bytes[i])
++            memcpy(dst, sources[i], row_bytes[i] * heights[i]);
++        else
++            for (unsigned row = 0; row < heights[i]; row++)
++                memcpy(dst + (size_t)row * handles[i].stride,
++                       sources[i] + (size_t)row * src_stride, row_bytes[i]);
++    }
++    uint64_t sync_start = c->copy_profile ? os_time_get_nano() : 0;
++    sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_WRITE;
++    result = tva_sync_retry(fds[0], &sync) == 0 ? 1 : -1;
++    if (c->copy_profile) c->profile_batch_sync_end_ns += os_time_get_nano() - sync_start;
++out:
++    if (map != MAP_FAILED) munmap(map, map_len);
++    for (unsigned i = 0; i < 2; i++) if (fds[i] >= 0) close(fds[i]);
++    if (c->copy_profile) {
++        c->profile_batch_ns += os_time_get_nano() - start;
++        if (result > 0) c->profile_batch_ok++; else c->profile_batch_fallback++;
++    }
++    return result;
+ }
+ 
+ static bool
+@@ -1381,11 +1485,19 @@
+    if (y_end > src_size || uv_end > src_size)
+       return false;
+ 
++   int batch = tva_copy_shared_planes(c, p->resources, src + y_offset, src + uv_offset,
++                                     w, h, uv_w, uv_h, (unsigned)p->stride);
++   if (batch > 0)
++       return true;
++   if (batch < 0) {
++       tva_mark_broken_locked(c);
++       return false;
++   }
+    struct pipe_screen *screen = c->pipe->screen;
+-   if (!tva_direct_copy_plane(screen, p->resources[0], src + y_offset,
++   if (!tva_direct_copy_plane(c, screen, p->resources[0], src + y_offset,
+                                w, h, (unsigned)p->stride))
+       return false;
+-   if (!tva_direct_copy_plane(screen, p->resources[1], src + uv_offset,
++   if (!tva_direct_copy_plane(c, screen, p->resources[1], src + uv_offset,
+                               uv_w, uv_h, (unsigned)p->stride))
+       return false;
+    return true;
+@@ -1618,6 +1730,7 @@
+ 
+    tva_probe_resource(pipe, p->resources[0], w);
+     tva_probe_resource(pipe, p->resources[1], uv_w * 2);
++    if (c->copy_profile) { c->profile_staged_ok++; c->profile_staged_ns += os_time_get_nano() - copy_start_ns; }
+     TVA_TRACE("copy frame complete unit=%u duration=%.3f ms",
+               p->unit_seq,
+               (double)(os_time_get_nano() - copy_start_ns) / 1000000.0);
+@@ -1698,8 +1811,21 @@
+          * hidden references.  It is enabled by default for the validated
+          * linear resources; DMD_VA_READER_COPY=0 opts out.  A failed direct
+          * map falls back to the staged application-thread copy below. */
+-        if (tva_reader_copy_enabled() && tva_cpu_copy_enabled() &&
+-            tva_copy_frame_direct(c, p, f.data, f.size)) {
++        bool direct = false;
++        if (tva_reader_copy_enabled() && tva_cpu_copy_enabled()) {
++            uint64_t start = c->copy_profile ? os_time_get_nano() : 0;
++            direct = tva_copy_frame_direct(c, p, f.data, f.size);
++            if (c->copy_profile) {
++                c->profile_direct_ns += os_time_get_nano() - start;
++                if (direct) c->profile_direct_ok++; else c->profile_direct_fail++;
++            }
++        }
++        if (c->broken) {
++            mtx_unlock(&c->pend_mutex);
++            tva_session_release_frame(c->sess, &f);
++            break;
++        }
++        if (direct) {
+             p->copied = true;
+             p->ready = true;
+             c->frames_done++;
+@@ -4105,6 +4231,11 @@
+     mtx_destroy(&c->pend_mutex);
+     u_cnd_monotonic_destroy(&c->pend_cond);
+     TVA_TRACE("codec destroy: %llu units, %llu frames", (unsigned long long)c->next_unit, (unsigned long long)c->frames_done);
++    if (c->copy_profile) fprintf(stderr, "[LOOPY-VA-BATCH] ok=%llu fallback=%llu ns=%llu sync_end_ns=%llu\n",
++        (unsigned long long)c->profile_batch_ok, (unsigned long long)c->profile_batch_fallback,
++        (unsigned long long)c->profile_batch_ns, (unsigned long long)c->profile_batch_sync_end_ns);
++
++    if (c->copy_profile) fprintf(stderr, "[LOOPY-VA-PROFILE] planes=%llu export_ns=%llu map_ns=%llu sync_start_ns=%llu memcpy_ns=%llu sync_end_ns=%llu unmap_ns=%llu direct_ok=%llu direct_fail=%llu direct_ns=%llu staged_ok=%llu staged_ns=%llu\n", (unsigned long long)c->profile_planes, (unsigned long long)c->profile_export_ns, (unsigned long long)c->profile_map_ns, (unsigned long long)c->profile_sync_start_ns, (unsigned long long)c->profile_memcpy_ns, (unsigned long long)c->profile_sync_end_ns, (unsigned long long)c->profile_unmap_ns, (unsigned long long)c->profile_direct_ok, (unsigned long long)c->profile_direct_fail, (unsigned long long)c->profile_direct_ns, (unsigned long long)c->profile_staged_ok, (unsigned long long)c->profile_staged_ns);
+     tva_session_destroy(c->sess);
+     free(c->encode_packet);
+     free(c->csd);
+@@ -4280,6 +4411,7 @@
+     }
+ 
+     c->pipe = context;
++    c->copy_profile = getenv("DMD_VA_PROFILE") != NULL;
+     c->next_unit = 0;
+     c->pipeline_depth = pipeline_depth;
+     /* DMD_AV1_STRICT_PENDING=1 keeps AV1 output submissions within the

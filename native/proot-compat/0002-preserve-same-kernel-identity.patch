@@ -1,0 +1,55 @@
+--- a/src/tracee/seccomp.c
++++ b/src/tracee/seccomp.c
+@@ -1,3 +1,4 @@
++#include <stdio.h>     /* bounded kernel identity read */
+ #include <errno.h>     /* E*, */
+ #include <signal.h>    /* SIGSYS, */
+ #include <unistd.h>    /* getpgid, */
+@@ -16,6 +17,34 @@
+ #include "tracee/mem.h"
+ #include "tracee/statx.h"
+ #include "path/path.h"
++
++/* Android blocks legacy setuid/setgid even when they cannot change any
++ * identity. Accept only an exact no-op against all four kernel IDs of the
++ * stopped tracee. Never use the tracer's IDs or manufacture another identity. */
++static int same_kernel_identity(Tracee *tracee, const char *field, word_t requested)
++{
++	char path[64], line[256], tail;
++	unsigned long real, effective, saved, filesystem;
++	unsigned int count = 0;
++	int result = -EPERM;
++	FILE *status;
++
++	if (snprintf(path, sizeof(path), "/proc/%d/status", tracee->pid) >= (int) sizeof(path))
++		return -EPERM;
++	status = fopen(path, "re");
++	if (status == NULL)
++		return -EPERM;
++	while (count++ < 128 && fgets(line, sizeof(line), status) != NULL) {
++		if (strncmp(line, field, 4) != 0)
++			continue;
++		if (sscanf(line + 4, "%lu %lu %lu %lu %c", &real, &effective, &saved, &filesystem, &tail) == 4 &&
++		    requested == real && real == effective && real == saved && real == filesystem)
++			result = 0;
++		break;
++	}
++	fclose(status);
++	return result;
++}
+ 
+ static int handle_seccomp_event_common(Tracee *tracee);
+ 
+@@ -532,6 +561,12 @@
+ 		break;
+ 	}
+ 
++	case PR_setuid:
++	case PR_setgid:
++		set_result_after_seccomp(tracee, same_kernel_identity(tracee,
++			sysnum == PR_setuid ? "Uid:" : "Gid:", peek_reg(tracee, CURRENT, SYSARG_1)));
++		break;
++
+ 	case PR_setresuid:
+ 	case PR_setresgid:
+ 	{

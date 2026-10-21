@@ -1,0 +1,17 @@
+# Tablet-owned Android inside connection
+
+The user wants actual applications inside the Omarchy Wayland desktop, with native keyboard and mouse use, and has authorized autonomous implementation and device testing. This change replaces the ADB-owned broker startup with an on-tablet Shizuku UserService; it does not change the existing target/task/FD/input ownership contract or claim that every Android application can run on a secondary display.
+
+The session service owns one client connection. Shizuku must be installed, running, granted to Loopy, and actually UID2000. Root UID0 is refused. The native controls show installation, server, permission, binding, child startup, running, and cleanup-pending states separately. Opening Shizuku does not terminate Linux. Reboot still requires the user to restart Shizuku using its documented wireless-debugging flow.
+
+A typed Binder accepts START, STATUS, STOP and the documented Shizuku destroy transaction. START authenticates actual Binder UID/PID and proc birth against the installed Loopy UID, current sourceDir and compiled source build identity; it binds an owner Binder death recipient. The service launches only a fixed app_process argv with an internally derived APK classpath and a clean environment. No arbitrary shell, Binder forwarding, URL, command, file path or task adoption is exposed. The child owns the proven com.android.shell context, attribution, ExternalProvider and existing actor protocol.
+
+The child reports bounded ASCII `READY\tPID\tBIRTH\tGENERATION\n` only after a successful provider take. It accepts only stdin `STOP\n` or EOF. It reports `STOPPED\ttrue|false\tGENERATION\n` after cooperative retirement. Clean requires all actors retired, no unresolved input/task/display/focus cleanup, and the parent has reaped the exact owned Process. Exit alone, binder connection alone, old callbacks, or missing ACK never establish readiness or cleanup. Cleanup uncertainty blocks replacement.
+
+Stop order is: stop new Hub admissions while retaining active focus grants; cooperative child retirement; typed clean ACK plus reap; close Hub; retire Linux. Activity changes do not own that lifecycle. An owner or Shizuku death invalidates the current generation; no input or frames are replayed.
+
+Dependencies are the Maven-published Shizuku API/provider/aidl/shared13.1.5 artifacts plus annotation1.3.0, pinned by exact size/SHA256, with the MIT license. The custom builder verifies and includes them as app DEX program inputs; tests use only the app classpath. Hidden Android compile-only stubs remain absent from DEX. A generated source-content identity and positive28bit service version replace the fixed package versionCode1 as UserService code-version authority.
+
+Each modified/new Java or Python module stays at or below500 lines. Root alone runs compilers, downloads dependencies, builds APKs, and operates Y900. Existing app data, HOME, KeyBridge, settings, Android roles and microphone denial are preserved. Existing user Chrome task131 remains on display0. No flash/unlock/wipe, publication, commit or push.
+
+Acceptance requires host behavioral RED/GREEN, exact new APK identity and source/dependency receipt, update-only installation with no unsaved editor, and physical-device startup through Shizuku plus public inside draw/key/click/scroll/resize/CLOSED and owned lifecycle cleanup/recovery. USB-free startup is separate from a connected ADB test. General Chromium sandboxed web use, physical60/144FPS and the complete Omarchy feature audit remain separate acceptance items.

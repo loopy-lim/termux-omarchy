@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Figma
+Exec=/usr/local/bin/loopy-launch-webapp https://www.figma.com/files
+Terminal=false
+Type=Application
+Icon=chromium
+StartupNotify=true
+Categories=Graphics;

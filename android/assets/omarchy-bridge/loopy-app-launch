@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+# Android-only caller transport. The owning PRoot session retains these descendants.
+# This does not provide systemd user scopes or emulate the UWSM service.
+if [[ ! ${LOOPY_SESSION-} =~ ^[A-Za-z0-9-]{1,64}$ ]] || [[ $# -lt 2 || $1 != -- ]]; then
+  printf '%s\n' 'An active Loopy session and -- command are required' >&2
+  exit 64
+fi
+shift
+if [[ ( $# == 2 || $# == 3 ) && $2 == chromium.desktop && ( $1 == gtk-launch || $1 == /usr/bin/gtk-launch ) ]]; then
+  exec /usr/bin/python -B /usr/share/loopy/omarchy-bridge/browser_desktop_launch.py "$@"
+fi
+exec -- "$@"

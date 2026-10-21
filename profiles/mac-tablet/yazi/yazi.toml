@@ -1,0 +1,22 @@
+[mgr]
+ratio = [1, 2, 7]
+
+[preview]
+max_width = 1920
+max_height = 1280
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', desc = "Open in Neovim", block = true, for = "unix" },
+]
+preview = [
+  { run = 'true', desc = "Preview in yazi", block = false, for = "unix" },
+]
+
+[open]
+prepend_rules = [
+  { mime = "application/pdf", use = "preview" },
+  { mime = "image/*", use = "preview" },
+  { mime = "text/*", use = "edit" },
+  { mime = "inode/empty", use = "edit" },
+]

@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "guest": "/usr/bin/start-hyprland",
+  "component_candidate": "build/omarchy-watchdog-20261008-04",
+  "binary_sha256": "cbbba746c29b30736b04d23501687eadf0e6d36ed4cd9d5c942ad13481b2be7c",
+  "binary_bytes": 301856,
+  "base_binary_sha256": "29f40097d5fe3ded68c57a9b53d6a39e1051cafb9d05474a205316dfe1baf8d0",
+  "base_binary_bytes": 264536,
+  "base_image_sha256": "7dcc1b5382007da2ef2a52d503ee646bdf863f00b45ad65098f8435d9689fd86",
+  "build_receipt_sha256": "a72c253956652d92111a96cb173505ef4f383b195131efb84bf543d2b71dff71",
+  "process_receipt_sha256": "d0e2d270828c743765855c66dd4a1a39af87181e2324439d894966e5c1c0eb61",
+  "config_receipt_sha256": "9692a6fe4ad3169f7baf1d7135d20248de488165297c4a6b5756182eaed033fd",
+  "baseline_matches_stock": false,
+  "physical_device": false,
+  "hardware_gpu": false,
+  "inputs": {
+    "tools/publish_omarchy_watchdog_v4.py": "bf4913b4c54ba1bd5f970d3bfd3092874515b20565de1f8a523352c9ea945a36",
+    "tools/omarchy_watchdog_v4_inputs.py": "600665929f5104f145779e4f952adf003f8f07cbe33ad64d97d59ecc9d947cb9",
+    "tools/watchdog_elf.py": "a67a6c8c8d9af9d2af82dc0a94a49948eaed3b3ce1592bb70bdf1aaab7a54904"
+  },
+  "licenses": {
+    "LICENSE": "e01df754903af0ab26babb317b5f5a62dd95f770b733c5275414dd3245d00ae7",
+    "Glaze-LICENSE": "5d49e66411a0807a7c8d6b911b9a26b59e940c71aebe561a3ad8b0b80ac4b7b6"
+  }
+}

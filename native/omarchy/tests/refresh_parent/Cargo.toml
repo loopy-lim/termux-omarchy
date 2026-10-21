@@ -1,0 +1,8 @@
+[package]
+name = "loopy-refresh-parent-probe"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+loopy-wayland = { path = "../../../wayland-host" }

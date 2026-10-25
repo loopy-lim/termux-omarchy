@@ -46,6 +46,7 @@ Y900 13에서 실제 Arch ARM64·Hyprland·Quickshell을 실행하고 **원본 O
 기본 화면에는 검색 가능한 앱 메뉴와 왼쪽 작업공간 바가 있고, WebKit 기반 Loopy Browser·Geany 코드 편집기·Mousepad·Thunar·foot·개발 도구를 엽니다. 오른쪽 위 상태 표시와 트레이는 제거했습니다. 설치된 Linux `.desktop` 앱도 안전하게 해석할 수 있는 명령에 한해 검색합니다. Firefox의 GUI 시작 실패를 보존하고 브라우저를 교체하고 주소창·탭·단축키를 관리하는 GTK 화면을 연결했습니다. Android 앱은 앱 목록에서 선택하면 원래 Android 창으로 열리며 Linux 세션은 서비스에서 유지됩니다. Android EGL/GLES로 공유 메모리 표면의 합성과 출력을 처리하고, 실패하면 CPU로 복귀합니다. Linux Sway·브라우저 자체 렌더링은 소프트웨어 경로입니다.
 
 - [한국어 빠른 시작](docs/desktop-quickstart-ko.md)
+- [GPU 가속 상태 확인·성능 프로필 (한국어)](docs/gpu-status-ko.md)
 - [구현·검증 범위](docs/runtime-implementation.md)
 - [GPU·입력 대체 방법과 최종 검증](docs/capability-fallback-validation.md)
 - [데스크톱 개발 이력](docs/desktop-experiment-status.md)
